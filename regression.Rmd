@@ -6,4 +6,51 @@ output:
     toc_float: true
 ---
 
-## 
+# Overview
+
+In the regression analysis, we found that Trump was more "benefiting" from COVID-19. In contrary, the supporting rate of Biden was decreasing as the COVID-19 pandemic progress. This could be due to the **"rally round the flag" effect**, which illustrates the phenomenon that there is a short-term surge of voter approval of present nation leader during a crisis or emergency situation.
+
+
+# Research question
+
+In this part, we aimed to examine the relationship between COVID-19 case / death rate and presidential poll by different battleground states. Since the COVID-19 statistics was a longitudinal measurement over time, generalized estimating equations (GEE) model was used. 
+
+## Outcome variable
+
+* `change_biden` the difference between the supporting rate of Biden and Trump during the poll survey period
+
+## Explainatory variables
+
+* `mean_case` the average number of incremental COVID-19 cases between the poll survey period
+
+* `mean_death` the average number of incremental COVID-19 death between the poll survey period
+
+* `mean_pos_increase` the average number of daily COVID-19 cases increased comparing to previous day between the poll survey period
+
+* `mean_death_increase` the average number of daily COVID-19 death increased comparing to previous day between the poll survey period
+
+
+# Result
+
+# Findings
+
+Based on the regression analysis, we have concluded that:
+
+1. As COVID-19 cases increase, Biden supporting rate decrease within each battleground state.
+
+2. As COVID-19 death increase, Biden supporting rate decrease within each battle ground state.
+
+3. COVID-19 daily case / daily death was not correlated with Biden supporting rate
+
+
+# Discussion
+
+Interestingly, Biden supporting rate decreased by increase of COVID-19 cases and death over time. In other word, Trump supporting rate was increasing. This may be due the **"rally round the flag" effect**.
+
+"Rally round the flag" effect is when there is a short-term surge of voter approval of present nation leader during a crisis or emergency situation. One of the most well-known example is during the 9-11 terrorist attack in 2001. The approval rate of President George W. Bush increased by 39% (from 51% to 90%).
+
+According to [Dickinson (2020)](https://sites.middlebury.edu/presidentialpower/2020/03/28/trump-covid-19-and-the-rally-round-the-flag-phenomenon/), the main reason for this effect is the presidents' relatively unique position in the American political system. Presidents is the only individual embodiment of the nation besides the partisan position. Therefore, the president can benefit from his stature as political head of government when circumstances threaten the nation.
+
+He also pointed out that voters who are less politically aware are more responsive to the "rally round the flag" effect, which may be the majority of battleground state voter. Those partisan members are more likely to be ideological.
+
+During the 2020 COVID-19 pandemic, this effect was also observed in several other countries including Australia, Canada, Germany, Britain, India, France, etc. 
