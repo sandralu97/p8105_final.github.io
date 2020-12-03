@@ -2,7 +2,7 @@ name: "Final project"
 output_dir: "."
 navbar:
   title: "Home"
-  right:
+  left:
     - text: "regression"
       href: regression.html
 output:
