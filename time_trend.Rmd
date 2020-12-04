@@ -13,6 +13,7 @@ library(tidyverse)
 library(viridis)
 library(plotly)
 library(flexdashboard)
+library(shiny)
 ```
 
 #Loading data
