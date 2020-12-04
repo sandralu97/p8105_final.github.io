@@ -220,17 +220,48 @@ poll_covid_df %>%
 
 \
 
+# Model diagnostic
+
+***
+
+```{r}
+# Model mean_case
+gee_case = geeglm(biden_lead ~ mean_case,
+       data = model_case,
+       id = id,
+       family = gaussian(link = "identity"),
+       corstr = "exchangeable"
+       ) 
+
+
+
+plot(density(resid(gee_case, type='response')))
+
+library(gee)
+gee_case = gee(biden ~ mean_case, data = model_case, id = id, corstr = "exchangeable")
+
+scatter.smooth(predict(gee_case, type='response'), rstandard(gee_case, type='deviance'))
+
+library(statmod)
+
+qqnorm(qresid(gee_case)); qqline(qresid(gee_case))
+
+plot(cooks.distance(gee_case), type="response")
+
+```
+
+
+
 # Findings
 ***
 
 Based on the regression analysis, we have concluded that:
 
-1. As COVID-19 cases increased, Biden supporting rate decreased within each battleground state. The decrease was small but statistically significant.
+1. As COVID-19 cases increased, the difference of supporting rate between Biden and Trump decreased within each battleground state. The decrease was small but statistically significant.
 
-2. As COVID-19 death increased, Biden supporting rate decreased within each battle ground state. The decrease was small but statistically significant.
+2. As COVID-19 death increased, the difference of supporting rate between Biden and Trump decreased within each battle ground state. The decrease was small but statistically significant.
 
-3. COVID-19 daily case / daily death was not correlated with Biden supporting rate.
-
+3. COVID-19 daily case / daily death was not correlated with the difference of supporting rate between Biden and Trump.
 \
 
 # Discussion
