@@ -391,17 +391,14 @@ div.tocify {
 <div id="research-question" class="section level1">
 <h1>Research question</h1>
 <hr />
-<p>In this part, we aimed to examine the relationship between COVID-19 case / death rate and presidential poll by different battleground states. Since the COVID-19 statistics was a longitudinal measurement over time, generalized estimating equations (GEE) model was used.</p>
-<p><br />
-</p>
-<div id="outcome-variable" class="section level2">
-<h2>Outcome variable</h2>
+<p>In this part, we aimed to examine the relationship between COVID-19 case / death rate and presidential poll by different battleground states. Since the COVID-19 statistics was a longitudinal measurement over time, generalized estimating equations (GEE) model was used to account for correlated data within each state.</p>
+<p> </p>
+<div id="distribution-of-outcome-bidens-spread-of-points-over-trump" class="section level2">
+<h2>Distribution of Outcome: Biden’s spread of points over Trump</h2>
 <ul>
 <li><code>biden_lead</code> the difference between the supporting rate of Biden and Trump during the poll survey period</li>
 </ul>
-<pre class="r"><code># Distribution of Outcome: How much Biden leads
-
-ggplot(data = poll_covid_df, aes(x = biden_lead)) +
+<pre class="r"><code>ggplot(data = poll_covid_df, aes(x = biden_lead)) +
   geom_density()</code></pre>
 <p><img src="regression_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p><br />
@@ -426,9 +423,7 @@ ggplot(data = poll_covid_df, aes(x = biden_lead)) +
 <ol style="list-style-type: decimal">
 <li><em>Biden lead = β0 + β1(COVID case)</em></li>
 </ol>
-<pre class="r"><code>#Gee regression
-
-# Model mean_case
+<pre class="r"><code># Model mean_case
 model_case = 
 poll_covid_df %&gt;% 
   drop_na(mean_case, biden_lead)
