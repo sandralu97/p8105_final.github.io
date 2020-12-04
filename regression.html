@@ -384,14 +384,16 @@ div.tocify {
 <div id="overview" class="section level1">
 <h1>Overview</h1>
 <hr />
-<p>In the regression analysis, we found that Trump was more “benefiting” from COVID-19. In contrary, the supporting rate of Biden was decreasing as the COVID-19 pandemic progress. This could be due to the <strong>“rally round the flag” effect</strong>, which illustrates the phenomenon that there is a short-term surge of voter approval of present nation leader during a crisis or emergency situation.</p>
+<p>In the regression analysis, we found that Biden’s supporting rate in the seventeen battlegrounds states reported by all opinion polls was decreasing as the COVID-19 pandemic progress, suggesting that Trump was more “benefiting” from COVID-19. This could be due to the <strong>“rally round the flag” effect</strong>, which illustrates the phenomenon that there is a short-term surge of voter approval of present nation leader during a crisis or emergency situation.</p>
+<p>The 17 Battleground states include Florida, Pennsylvania, Wisconsin,North Carolina, Michigan, Ohio, Minnesota, Iowa, Arizonam, Nevada, Texas, Georgia, Virginia, New Hampshirem Maine, Colorado, and New Mexico.</p>
+<p>Visualization of the change in COVID status and supporting rates over time for each state can be checked <a href="">here</a>.</p>
 <p><br />
 </p>
 </div>
 <div id="research-question" class="section level1">
 <h1>Research question</h1>
 <hr />
-<p>In this part, we aimed to examine the relationship between COVID-19 case / death rate and presidential poll by different battleground states. Since the COVID-19 statistics was a longitudinal measurement over time, generalized estimating equations (GEE) model was used to account for correlated data within each state.</p>
+<p>In this part, we aimed to examine the relationship between COVID-19 case / death rate and presidential poll by different battleground states. Since the COVID-19 statistics was a longitudinal measurement over time, generalized estimating equations (GEE) model was used to account for correlated data within each battleground state.</p>
 <p> </p>
 </div>
 <div id="distribution-of-outcome-bidens-lead-over-trump" class="section level1">
@@ -622,6 +624,14 @@ poll_covid_df %&gt;%
 <p>According to <a href="https://sites.middlebury.edu/presidentialpower/2020/03/28/trump-covid-19-and-the-rally-round-the-flag-phenomenon/">Dickinson (2020)</a>, the main reason for this effect is the presidents’ relatively unique position in the American political system. Presidents is the only individual embodiment of the nation besides the partisan position. Therefore, the president can benefit from his stature as political head of government when circumstances threaten the nation.</p>
 <p>He also pointed out that voters who are less politically aware are more responsive to the “rally round the flag” effect, which may be the majority of battleground state voter. Those partisan members are more likely to be ideological.</p>
 <p>During the 2020 COVID-19 pandemic, this effect was also observed in several other countries including Australia, Canada, Germany, Britain, India, France, etc.</p>
+<p><br />
+</p>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<hr />
+<p>We found that as the number of COVID-19 cases and deaths increased, Trump’s supporting rate increased in the seventeen battleground states.</p>
+<p>The GEE regression model we built is relatively simple and we only considered four variables related to COVID status, so this regression analysis should be regarded as an initial and exploratory analysis to generate future hyptheses. Future investigations should consider other variables and potential confounders.</p>
 </div>
 
 
