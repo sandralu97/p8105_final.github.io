@@ -3,8 +3,13 @@ output_dir: "."
 navbar:
   title: "Home"
   left:
-    - text: "regression"
+    - text: "Poll vs. COVID"
+      href: time_trend.html
+    - text: "Regression"
       href: regression.html
+  right:
+      - text: "Project Report"
+        href: Project_report.html
 output:
   html_document:
     theme: sandstone
