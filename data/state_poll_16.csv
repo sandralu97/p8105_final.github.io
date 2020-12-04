@@ -1,0 +1,487 @@
+state,poll,start_date,end_date,clinton,trump,spread
+florida,Final Results,NA,NA,47.4,48.6,Trump +1.2
+florida,RCP Average,2020-10-27,2020-11-06,46.4,46.6,Trump +0.2
+florida,Trafalgar Group (R)Trafalgar,2020-11-06,2020-11-06,46,50,Trump +4
+florida,Opinion SavvyOpinion Savvy,2020-11-05,2020-11-06,48,46,Clinton +2
+florida,QuinnipiacQuinnipiac,2020-11-03,2020-11-06,46,45,Clinton +1
+florida,CBS News/YouGovCBS News,2020-11-02,2020-11-04,45,45,Tie
+florida,Remington Research (R)*Remington (R)*,2020-11-01,2020-11-02,45,48,Trump +3
+florida,GravisGravis,2020-11-01,2020-11-02,46,45,Clinton +1
+florida,FOX 13/Opinion SavvyFOX 13,2020-11-01,2020-11-02,49,45,Clinton +4
+florida,GravisGravis,2020-10-31,2020-10-31,49,46,Clinton +3
+florida,Remington Research (R)*Remington (R)*,2020-10-30,2020-10-30,44,48,Trump +4
+florida,QuinnipiacQuinnipiac,2020-10-27,2020-11-01,46,45,Clinton +1
+florida,CNN/ORCCNN/ORC,2020-10-27,2020-11-01,49,47,Clinton +2
+florida,Trafalgar Group (R)Trafalgar,2020-10-27,2020-10-31,45,49,Trump +4
+florida,EmersonEmerson,2020-10-26,2020-10-27,46,45,Clinton +1
+florida,NY Times/SienaNYT/Siena,2020-10-25,2020-10-27,42,46,Trump +4
+florida,NBC/WSJ/MaristNBC/WSJ,2020-10-25,2020-10-26,45,44,Clinton +1
+florida,Dixie StrategiesDixie Strategies,2020-10-25,2020-10-26,42,46,Trump +4
+florida,GravisGravis,2020-10-25,2020-10-26,48,47,Clinton +1
+florida,BloombergBloomberg,2020-10-21,2020-10-24,43,45,Trump +2
+florida,Florida Atlantic UniversityFAU,2020-10-21,2020-10-23,46,43,Clinton +3
+florida,Univ. of North FloridaUNF,2020-10-20,2020-10-25,43,39,Clinton +4
+florida,Bay News 9/SurveyUSABay News 9/SurveyUSA,2020-10-20,2020-10-24,48,45,Clinton +3
+florida,Remington Research (R)*Remington (R)*,2020-10-20,2020-10-22,46,46,Tie
+florida,CBS News/YouGovCBS News,2020-10-20,2020-10-21,46,43,Clinton +3
+florida,FOX 13/Opinion SavvyFOX 13,2020-10-20,2020-10-20,49,45,Clinton +4
+florida,QuinnipiacQuinnipiac,2020-10-10,2020-10-16,48,44,Clinton +4
+florida,PPP (D)PPP (D),2020-10-12,2020-10-13,46,42,Clinton +4
+florida,GravisGravis,2020-10-11,2020-10-13,46,42,Clinton +4
+florida,Opinion SavvyOpinion Savvy,2020-10-10,2020-10-11,47,44,Clinton +3
+florida,NBC/WSJ/MaristNBC/WSJ,2020-10-03,2020-10-05,45,42,Clinton +3
+florida,GravisGravis,2020-10-04,2020-10-04,47,45,Clinton +2
+florida,EmersonEmerson,2020-10-02,2020-10-04,44,45,Trump +1
+florida,Univ. of North FloridaUNF,2020-09-27,2020-10-04,41,38,Clinton +3
+florida,QuinnipiacQuinnipiac,2020-09-27,2020-10-02,46,41,Clinton +5
+florida,FOX 13/Opinion SavvyFOX 13,2020-09-28,2020-09-29,47,46,Clinton +1
+florida,Mason-DixonMason-Dixon,2020-09-27,2020-09-29,46,42,Clinton +4
+florida,SuffolkSuffolk,2020-09-19,2020-09-21,44,45,Trump +1
+florida,MonmouthMonmouth,2020-09-16,2020-09-19,46,41,Clinton +5
+florida,NY Times/SienaNYT/Siena,2020-09-10,2020-09-14,41,40,Clinton +1
+florida,CNN/ORCCNN/ORC,2020-09-07,2020-09-12,44,47,Trump +3
+florida,CBS News/YouGovCBS News,2020-09-07,2020-09-09,44,42,Clinton +2
+florida,JMC AnalyticsJMC Analytics,2020-09-07,2020-09-08,42,46,Trump +4
+florida,PPP (D)PPP (D),2020-09-04,2020-09-06,43,44,Trump +1
+florida,QuinnipiacQuinnipiac,2020-08-29,2020-09-07,43,43,Tie
+florida,Mason-DixonMason-Dixon,2020-08-22,2020-08-24,44,42,Clinton +2
+florida,MonmouthMonmouth,2020-08-12,2020-08-15,48,39,Clinton +9
+florida,FOX 13/Opinion SavvyFOX 13,2020-08-10,2020-08-10,45,44,Clinton +1
+florida,CBS News/YouGovCBS News,2020-08-10,2020-08-12,45,40,Clinton +5
+florida,NBC/WSJ/MaristNBC/WSJ,2020-08-04,2020-08-10,41,36,Clinton +5
+florida,QuinnipiacQuinnipiac,2020-07-30,2020-08-07,43,43,Tie
+florida,Suffolk UniversitySuffolk,2020-08-01,2020-08-03,43,39,Clinton +4
+florida,JMC AnalyticsJMC Analytics,2020-07-09,2020-07-10,42,47,Trump +5
+florida,NBC/WSJ/MaristNBC/WSJ,2020-07-05,2020-07-11,41,36,Clinton +5
+florida,QuinnipiacQuinnipiac,2020-06-30,2020-07-11,36,41,Trump +5
+florida,Bay News 9/SurveyUSABay News 9/SurveyUSA,2020-06-25,2020-06-27,46,42,Clinton +4
+florida,CBS News/YouGov*CBS News/YouGov*,2020-06-21,2020-06-24,44,41,Clinton +3
+florida,QuinnipiacQuinnipiac,2020-06-08,2020-06-19,42,36,Clinton +6
+florida,PPP (D)PPP (D),2020-06-02,2020-06-05,40,41,Trump +1
+pennsylvania,Final Results,NA,NA,47.5,48.2,Trump +0.7
+pennsylvania,RCP Average,2020-10-29,2020-11-05,46.2,44.3,Clinton +1.9
+pennsylvania,Trafalgar Group (R)Trafalgar,2020-11-03,2020-11-05,47,48,Trump +1
+pennsylvania,Morning CallMorning Call,2020-10-30,2020-11-04,44,40,Clinton +4
+pennsylvania,Harper (R)Harper (R),2020-11-02,2020-11-03,46,46,Tie
+pennsylvania,GravisGravis,2020-11-01,2020-11-02,47,45,Clinton +2
+pennsylvania,SusquehannaSusquehanna,2020-10-31,2020-11-01,45,43,Clinton +2
+pennsylvania,GravisGravis,2020-10-31,2020-10-31,47,46,Clinton +1
+pennsylvania,MonmouthMonmouth,2020-10-29,2020-11-01,48,44,Clinton +4
+pennsylvania,Remington Research (R)*Remington (R)*,2020-10-30,2020-10-30,45,43,Clinton +2
+pennsylvania,QuinnipiacQuinnipiac,2020-10-27,2020-11-01,48,43,Clinton +5
+pennsylvania,CNN/ORCCNN/ORC,2020-10-27,2020-11-01,48,44,Clinton +4
+pennsylvania,Franklin & MarshallF&M,2020-10-26,2020-10-30,49,38,Clinton +11
+pennsylvania,GravisGravis,2020-10-25,2020-10-30,47,44,Clinton +3
+pennsylvania,CBS News/YouGovCBS News,2020-10-26,2020-10-28,48,40,Clinton +8
+pennsylvania,EmersonEmerson,2020-10-25,2020-10-26,48,43,Clinton +5
+pennsylvania,NY Times/SienaNYT/Siena,2020-10-23,2020-10-25,46,39,Clinton +7
+pennsylvania,Morning CallMorning Call,2020-10-20,2020-10-26,45,39,Clinton +6
+pennsylvania,Remington Research (R)*Remington (R)*,2020-10-20,2020-10-22,45,42,Clinton +3
+pennsylvania,EmersonEmerson,2020-10-17,2020-10-19,45,41,Clinton +4
+pennsylvania,QuinnipiacQuinnipiac,2020-10-10,2020-10-16,47,41,Clinton +6
+pennsylvania,BloombergBloomberg,2020-10-07,2020-10-11,48,39,Clinton +9
+pennsylvania,SusquehannaSusquehanna,2020-10-04,2020-10-09,44,40,Clinton +4
+pennsylvania,CBS News/YouGovCBS News,2020-10-05,2020-10-07,48,40,Clinton +8
+pennsylvania,NBC/WSJ/MaristNBC/WSJ,2020-10-03,2020-10-06,49,37,Clinton +12
+pennsylvania,Franklin & MarshallF&M,2020-09-28,2020-10-02,47,38,Clinton +9
+pennsylvania,MonmouthMonmouth,2020-09-30,2020-10-03,50,40,Clinton +10
+pennsylvania,QuinnipiacQuinnipiac,2020-09-27,2020-10-02,45,41,Clinton +4
+pennsylvania,CNN/ORCCNN/ORC,2020-09-20,2020-09-25,45,44,Clinton +1
+pennsylvania,GravisGravis,2020-09-23,2020-09-23,46,43,Clinton +3
+pennsylvania,Harper (R)Harper (R),2020-09-21,2020-09-22,45,43,Clinton +2
+pennsylvania,Morning CallMorning Call,2020-09-19,2020-09-23,40,38,Clinton +2
+pennsylvania,MercyhurstMercyhurst,2020-09-12,2020-09-23,42,41,Clinton +1
+pennsylvania,Morning CallMorning Call,2020-09-12,2020-09-16,40,32,Clinton +8
+pennsylvania,QuinnipiacQuinnipiac,2020-08-29,2020-09-07,44,39,Clinton +5
+pennsylvania,CBS News/YouGovCBS News,2020-08-30,2020-09-02,45,37,Clinton +8
+pennsylvania,EmersonEmerson,2020-08-25,2020-08-28,46,43,Clinton +3
+pennsylvania,Franklin & MarshallF&M,2020-08-25,2020-08-29,45,40,Clinton +5
+pennsylvania,MonmouthMonmouth,2020-08-26,2020-08-29,48,40,Clinton +8
+pennsylvania,NBC/WSJ/MaristNBC/WSJ,2020-08-03,2020-08-07,45,36,Clinton +9
+pennsylvania,QuinnipiacQuinnipiac,2020-07-30,2020-08-07,48,39,Clinton +9
+pennsylvania,SusquehannaSusquehanna,2020-07-31,2020-08-04,46,37,Clinton +9
+pennsylvania,Franklin & MarshallF&M,2020-07-29,2020-08-02,47,34,Clinton +13
+pennsylvania,PPP (D)PPP (D),2020-07-29,2020-07-31,45,42,Clinton +3
+pennsylvania,Suffolk UniversitySuffolk,2020-07-25,2020-07-27,46,37,Clinton +9
+pennsylvania,QuinnipiacQuinnipiac,2020-06-30,2020-07-11,34,40,Trump +6
+pennsylvania,NBC/WSJ/MaristNBC/WSJ,2020-07-05,2020-07-10,43,35,Clinton +8
+pennsylvania,QuinnipiacQuinnipiac,2020-06-08,2020-06-19,39,36,Clinton +3
+pennsylvania,PPP (D)PPP (D),2020-06-03,2020-06-05,41,40,Clinton +1
+wisconsin,Final Results,NA,NA,46.5,47.2,Trump +0.7
+wisconsin,RCP Average,2020-10-26,2020-11-02,46.8,40.3,Clinton +6.5
+wisconsin,Remington Research (R)*Remington (R)*,2020-11-01,2020-11-02,49,41,Clinton +8
+wisconsin,LorasLoras,2020-10-31,2020-11-01,44,38,Clinton +6
+wisconsin,Remington Research (R)*Remington (R)*,2020-10-30,2020-10-30,46,42,Clinton +4
+wisconsin,MarquetteMarquette,2020-10-26,2020-10-31,46,40,Clinton +6
+wisconsin,EmersonEmerson,2020-10-26,2020-10-27,48,42,Clinton +6
+wisconsin,Remington Research (R)*Remington (R)*,2020-10-20,2020-10-22,46,41,Clinton +5
+wisconsin,MonmouthMonmouth,2020-10-15,2020-10-18,47,40,Clinton +7
+wisconsin,WPR/St. NorbertWPR,2020-10-13,2020-10-16,47,39,Clinton +8
+wisconsin,MarquetteMarquette,2020-10-06,2020-10-09,44,37,Clinton +7
+wisconsin,CBS News/YouGovCBS News,2020-10-05,2020-10-07,43,39,Clinton +4
+wisconsin,LorasLoras,2020-10-04,2020-10-05,43,35,Clinton +8
+wisconsin,GravisGravis,2020-10-04,2020-10-04,48,40,Clinton +8
+wisconsin,EmersonEmerson,2020-09-19,2020-09-20,45,38,Clinton +7
+wisconsin,MarquetteMarquette,2020-09-15,2020-09-18,41,38,Clinton +3
+wisconsin,MonmouthMonmouth,2020-08-27,2020-08-30,43,38,Clinton +5
+wisconsin,MarquetteMarquette,2020-08-25,2020-08-28,41,38,Clinton +3
+wisconsin,MarquetteMarquette,2020-08-04,2020-08-07,47,34,Clinton +13
+wisconsin,MarquetteMarquette,2020-07-07,2020-07-10,43,37,Clinton +6
+wisconsin,CBS News/YouGov*CBS News/YouGov*,2020-06-21,2020-06-24,41,36,Clinton +5
+north_carolina,Final Results,NA,NA,46.2,49.9,Trump +3.7
+north_carolina,RCP Average,2020-10-26,2020-11-06,45.5,46.5,Trump +1.0
+north_carolina,NY Times/SienaNYT/Siena,2020-11-04,2020-11-06,44,44,Tie
+north_carolina,QuinnipiacQuinnipiac,2020-11-03,2020-11-06,47,45,Clinton +2
+north_carolina,Gravis*Gravis*,2020-11-01,2020-11-04,46,45,Clinton +1
+north_carolina,Trafalgar Group (R)Trafalgar,2020-10-27,2020-11-01,44,49,Trump +5
+north_carolina,WRAL-TV/SurveyUSAWRAL-TV,2020-10-28,2020-10-31,44,51,Trump +7
+north_carolina,QuinnipiacQuinnipiac,2020-10-27,2020-11-01,47,44,Clinton +3
+north_carolina,Remington Research (R)Remington (R),2020-10-30,2020-10-30,45,47,Trump +2
+north_carolina,CBS News/YouGovCBS News,2020-10-26,2020-10-28,48,45,Clinton +3
+north_carolina,EmersonEmerson,2020-10-26,2020-10-27,48,45,Clinton +3
+north_carolina,Elon*Elon*,2020-10-23,2020-10-27,44,44,Tie
+north_carolina,NBC/WSJ/MaristNBC/WSJ,2020-10-25,2020-10-26,47,41,Clinton +6
+north_carolina,Gravis*Gravis*,2020-10-25,2020-10-26,49,47,Clinton +2
+north_carolina,QuinnipiacQuinnipiac,2020-10-20,2020-10-26,47,43,Clinton +4
+north_carolina,PPP (D)PPP (D),2020-10-21,2020-10-22,47,44,Clinton +3
+north_carolina,NY Times/SienaNYT/Siena,2020-10-20,2020-10-23,46,39,Clinton +7
+north_carolina,MonmouthMonmouth,2020-10-20,2020-10-23,47,46,Clinton +1
+north_carolina,Remington Research (R)Remington (R),2020-10-20,2020-10-22,44,47,Trump +3
+north_carolina,Civitas (R)Civitas (R),2020-10-14,2020-10-17,45,43,Clinton +2
+north_carolina,SurveyUSASUSA,2020-10-14,2020-10-16,46,44,Clinton +2
+north_carolina,CNN/ORCCNN/ORC,2020-10-10,2020-10-15,48,47,Clinton +1
+north_carolina,NBC/WSJ/MaristNBC/WSJ,2020-10-10,2020-10-12,45,41,Clinton +4
+north_carolina,SuffolkSuffolk,2020-10-10,2020-10-12,45,43,Clinton +2
+north_carolina,Emerson*Emerson*,2020-10-10,2020-10-12,46,42,Clinton +4
+north_carolina,High PointHigh Point,2020-10-01,2020-10-06,43,42,Clinton +1
+north_carolina,WRAL-TV/SurveyUSAWRAL-TV,2020-09-29,2020-10-03,46,44,Clinton +2
+north_carolina,Bloomberg*Bloomberg*,2020-09-29,2020-10-02,44,43,Clinton +1
+north_carolina,QuinnipiacQuinnipiac,2020-09-27,2020-10-02,46,43,Clinton +3
+north_carolina,ElonElon,2020-09-27,2020-09-30,45,39,Clinton +6
+north_carolina,GravisGravis,2020-09-23,2020-09-23,44,43,Clinton +1
+north_carolina,High PointHigh Point,2020-09-17,2020-09-22,43,42,Clinton +1
+north_carolina,FOX NewsFOX News,2020-09-18,2020-09-20,40,45,Trump +5
+north_carolina,PPP (D)PPP (D),2020-09-18,2020-09-20,43,45,Trump +2
+north_carolina,NY Times/SienaNYT/Siena,2020-09-16,2020-09-19,41,41,Tie
+north_carolina,ElonElon,2020-09-12,2020-09-16,43,44,Trump +1
+north_carolina,Civitas (R)Civitas (R),2020-09-11,2020-09-12,42,42,Tie
+north_carolina,SuffolkSuffolk,2020-09-05,2020-09-07,41,44,Trump +3
+north_carolina,QuinnipiacQuinnipiac,2020-08-29,2020-09-07,42,38,Clinton +4
+north_carolina,CBS News/YouGov*CBS News/YouGov*,2020-08-30,2020-09-02,46,42,Clinton +4
+north_carolina,Emerson*Emerson*,2020-08-27,2020-08-29,43,45,Trump +2
+north_carolina,MonmouthMonmouth,2020-08-20,2020-08-23,44,42,Clinton +2
+north_carolina,CNN/ORCCNN/ORC,2020-08-18,2020-08-23,45,45,Tie
+north_carolina,Gravis*Gravis*,2020-08-15,2020-08-17,38,39,Trump +1
+north_carolina,NBC/WSJ/Marist*NBC/WSJ/Marist*,2020-08-04,2020-08-10,45,36,Clinton +9
+north_carolina,PPP (D)*PPP (D)*,2020-08-05,2020-08-07,43,41,Clinton +2
+north_carolina,Civitas/SurveyUSACivitas/SurveyUSA,2020-07-31,2020-08-02,42,46,Trump +4
+north_carolina,NBC/WSJ/Marist*NBC/WSJ/Marist*,2020-07-05,2020-07-11,42,36,Clinton +6
+north_carolina,CBS News/YouGov*CBS News/YouGov*,2020-06-21,2020-06-24,42,44,Trump +2
+north_carolina,Civitas (R)Civitas (R),2020-06-21,2020-06-23,42,40,Clinton +2
+north_carolina,PPP (D)*PPP (D)*,2020-06-20,2020-06-21,43,43,Tie
+north_carolina,PPP (D)*PPP (D)*,2020-05-20,2020-05-22,41,43,Trump +2
+north_carolina,Civitas (R)Civitas (R),2020-04-23,2020-04-25,49,40,Clinton +9
+michigan,Final Results,NA,NA,47,47.3,Trump +0.3
+michigan,RCP Average,2020-11-01,2020-11-06,45.4,42,Clinton +3.4
+michigan,Trafalgar Group (R)Trafalgar,2020-11-06,2020-11-06,47,49,Trump +2
+michigan,PPP (D)PPP (D),2020-11-03,2020-11-04,46,41,Clinton +5
+michigan,FOX 2 Detroit/MitchellFOX 2,2020-11-03,2020-11-03,46,41,Clinton +5
+michigan,GravisGravis,2020-11-01,2020-11-04,46,41,Clinton +5
+michigan,FOX 2 Detroit/MitchellFOX 2,2020-11-02,2020-11-02,47,44,Clinton +3
+michigan,Detroit Free PressDetroit Free Press,2020-11-01,2020-11-03,42,38,Clinton +4
+michigan,FOX 2 Detroit/MitchellFOX 2,2020-11-01,2020-11-01,47,44,Clinton +3
+michigan,FOX 2 Detroit/MitchellFOX 2,2020-10-31,2020-10-31,50,43,Clinton +7
+michigan,FOX 2 Detroit/MitchellFOX 2,2020-10-30,2020-10-30,47,41,Clinton +6
+michigan,EmersonEmerson,2020-10-25,2020-10-26,50,43,Clinton +7
+michigan,FOX 2 Detroit/MitchellFOX 2,2020-10-25,2020-10-25,48,42,Clinton +6
+michigan,Detroit Free PressDetroit Free Press,2020-10-22,2020-10-25,41,34,Clinton +7
+michigan,FOX 2 Detroit/MitchellFOX 2,2020-10-23,2020-10-23,49,41,Clinton +8
+michigan,MRGMRG,2020-10-16,2020-10-19,41,36,Clinton +5
+michigan,FOX 2 Detroit/MitchellFOX 2,2020-10-18,2020-10-18,51,38,Clinton +13
+michigan,FOX 2 Detroit/MitchellFOX 2,2020-10-11,2020-10-11,47,37,Clinton +10
+michigan,Detroit NewsDetroit News,2020-10-10,2020-10-11,42,31,Clinton +11
+michigan,Detroit Free PressDetroit Free Press,2020-10-01,2020-10-03,43,32,Clinton +11
+michigan,Detroit NewsDetroit News,2020-09-27,2020-09-28,42,35,Clinton +7
+michigan,FOX 2 Detroit/MitchellFOX 2,2020-09-27,2020-09-27,46,41,Clinton +5
+michigan,MIRS-GSCI/Target InsyghtMIRS-GSCI,2020-09-18,2020-09-24,46,41,Clinton +5
+michigan,Detroit Free PressDetroit Free Press,2020-09-10,2020-09-13,38,35,Clinton +3
+michigan,FOX 2 Detroit/MitchellFOX 2,2020-09-06,2020-09-07,45,39,Clinton +6
+michigan,EmersonEmerson,2020-08-25,2020-08-28,45,40,Clinton +5
+michigan,Suffolk UniversitySuffolk,2020-08-22,2020-08-24,44,37,Clinton +7
+michigan,FOX 2 Detroit/MitchellFOX 2,2020-08-09,2020-08-10,44,33,Clinton +11
+michigan,Detroit Free PressDetroit Free Press,2020-07-30,2020-08-04,43,32,Clinton +11
+michigan,Detroit NewsDetroit News,2020-07-30,2020-08-01,41,32,Clinton +9
+michigan,CBS News/YouGovCBS News,2020-07-13,2020-07-15,42,39,Clinton +3
+michigan,MRGMRG,2020-07-11,2020-07-15,34,29,Clinton +5
+michigan,GravisGravis,2020-07-07,2020-07-08,37,34,Clinton +3
+ohio,Final Results,NA,NA,43.2,51.3,Trump +8.1
+ohio,RCP Average,2020-10-27,2020-11-05,42.3,45.8,Trump +3.5
+ohio,EmersonEmerson,2020-11-04,2020-11-05,39,46,Trump +7
+ohio,CBS News/YouGovCBS News,2020-11-02,2020-11-04,45,46,Trump +1
+ohio,Remington Research (R)*Remington (R)*,2020-11-01,2020-11-02,44,45,Trump +1
+ohio,QuinnipiacQuinnipiac,2020-10-27,2020-11-01,41,46,Trump +5
+ohio,Remington Research (R)*Remington (R)*,2020-10-30,2020-10-30,43,48,Trump +5
+ohio,EmersonEmerson,2020-10-26,2020-10-27,45,45,Tie
+ohio,Trafalgar Group (R)Trafalgar,2020-10-24,2020-10-26,44,49,Trump +5
+ohio,Remington Research (R)*Remington (R)*,2020-10-20,2020-10-22,42,46,Trump +4
+ohio,SuffolkSuffolk,2020-10-17,2020-10-19,45,45,Tie
+ohio,QuinnipiacQuinnipiac,2020-10-10,2020-10-16,45,45,Tie
+ohio,CNN/ORCCNN/ORC,2020-10-10,2020-10-15,44,48,Trump +4
+ohio,NBC/WSJ/MaristNBC/WSJ,2020-10-10,2020-10-12,41,42,Trump +1
+ohio,EmersonEmerson,2020-10-10,2020-10-12,45,43,Clinton +2
+ohio,CBS News/YouGovCBS News,2020-10-05,2020-10-07,46,42,Clinton +4
+ohio,PPP (D)PPP (D),2020-10-05,2020-10-06,44,43,Clinton +1
+ohio,MonmouthMonmouth,2020-10-01,2020-10-04,44,42,Clinton +2
+ohio,QuinnipiacQuinnipiac,2020-09-27,2020-10-02,42,47,Trump +5
+ohio,GravisGravis,2020-09-22,2020-09-23,42,43,Trump +1
+ohio,FOX NewsFOX News,2020-09-18,2020-09-20,37,42,Trump +5
+ohio,SuffolkSuffolk,2020-09-12,2020-09-14,39,42,Trump +3
+ohio,BloombergBloomberg,2020-09-09,2020-09-12,39,44,Trump +5
+ohio,CNN/ORCCNN/ORC,2020-09-07,2020-09-12,41,46,Trump +5
+ohio,CBS News/YouGovCBS News,2020-09-07,2020-09-09,46,39,Clinton +7
+ohio,QuinnipiacQuinnipiac,2020-08-29,2020-09-07,37,41,Trump +4
+ohio,EmersonEmerson,2020-08-25,2020-08-27,43,43,Tie
+ohio,MonmouthMonmouth,2020-08-18,2020-08-21,43,39,Clinton +4
+ohio,CBS News/YouGovCBS News,2020-08-17,2020-08-19,46,40,Clinton +6
+ohio,NBC/WSJ/MaristNBC/WSJ,2020-08-03,2020-08-07,39,35,Clinton +4
+ohio,QuinnipiacQuinnipiac,2020-07-30,2020-08-07,44,42,Clinton +2
+ohio,PPP (D)PPP (D),2020-07-22,2020-07-24,39,42,Trump +3
+ohio,Suffolk UniversitySuffolk,2020-07-18,2020-07-20,43,39,Clinton +4
+ohio,CBS News/YouGovCBS News,2020-07-13,2020-07-15,44,40,Clinton +4
+ohio,NBC/WSJ/MaristNBC/WSJ,2020-07-05,2020-07-10,38,35,Clinton +3
+ohio,QuinnipiacQuinnipiac,2020-06-30,2020-07-11,36,37,Trump +1
+ohio,QuinnipiacQuinnipiac,2020-06-08,2020-06-19,38,36,Clinton +2
+iowa,Final Results,NA,NA,41.7,51.2,Trump +9.5
+iowa,RCP Average,2020-11-01,2020-11-04,41.3,44.3,Trump +3.0
+iowa,Des Moines RegisterDM Register,2020-11-01,2020-11-04,39,46,Trump +7
+iowa,EmersonEmerson,2020-11-01,2020-11-03,41,44,Trump +3
+iowa,LorasLoras,2020-11-01,2020-11-03,44,43,Clinton +1
+iowa,QuinnipiacQuinnipiac,2020-10-20,2020-10-26,44,44,Tie
+iowa,Des Moines RegisterDM Register,2020-10-03,2020-10-06,39,43,Trump +4
+iowa,LorasLoras,2020-09-20,2020-09-22,38,38,Tie
+iowa,QuinnipiacQuinnipiac,2020-09-13,2020-09-21,37,44,Trump +7
+iowa,MonmouthMonmouth,2020-09-12,2020-09-14,37,45,Trump +8
+iowa,EmersonEmerson,2020-08-31,2020-09-01,39,44,Trump +5
+iowa,CBS News/YouGovCBS News,2020-08-17,2020-08-19,40,40,Tie
+iowa,QuinnipiacQuinnipiac,2020-08-09,2020-08-16,41,39,Clinton +2
+iowa,SuffolkSuffolk,2020-08-08,2020-08-10,36,37,Trump +1
+iowa,NBC/WSJ/MaristNBC/WSJ,2020-08-03,2020-08-07,35,35,Tie
+iowa,CBS News/YouGovCBS News,2020-07-13,2020-07-15,39,40,Trump +1
+iowa,MonmouthMonmouth,2020-07-08,2020-07-11,42,44,Trump +2
+iowa,GravisGravis,2020-07-07,2020-07-08,39,37,Clinton +2
+iowa,NBC/WSJ/MaristNBC/WSJ,2020-07-05,2020-07-10,37,37,Tie
+iowa,Loras CollegeLoras,2020-06-24,2020-06-28,44,31,Clinton +13
+arizona,Final Results,NA,NA,44.6,48.1,Trump +3.5
+arizona,RCP Average,2020-10-26,2020-11-01,42.3,46.3,Trump +4.0
+arizona,NBC/WSJ/MaristNBC/WSJ,2020-10-30,2020-11-01,40,45,Trump +5
+arizona,CNN/ORCCNN/ORC,2020-10-27,2020-11-01,44,49,Trump +5
+arizona,EmersonEmerson,2020-10-28,2020-10-31,43,47,Trump +4
+arizona,CBS News/YouGovCBS News,2020-10-26,2020-10-28,42,44,Trump +2
+arizona,MonmouthMonmouth,2020-10-21,2020-10-24,45,46,Trump +1
+arizona,Arizona RepublicArizona Republic,2020-10-10,2020-10-15,43,38,Clinton +5
+arizona,EmersonEmerson,2020-10-02,2020-10-04,44,42,Clinton +2
+arizona,OH Predictive InsightsPredictive Insights,2020-09-28,2020-09-30,42,42,Tie
+arizona,NBC/WSJ/MaristNBC/WSJ,2020-09-06,2020-09-08,38,40,Trump +2
+arizona,GravisGravis,2020-08-27,2020-08-27,40,44,Trump +4
+arizona,OH Predictive InsightsPredictive Insights,2020-08-25,2020-08-27,40,39,Clinton +1
+arizona,Arizona RepublicArizona Republic,2020-08-17,2020-08-31,35,34,Clinton +1
+arizona,CNN/ORCCNN/ORC,2020-08-18,2020-08-23,38,45,Trump +7
+arizona,CBS News/YouGovCBS News,2020-08-02,2020-08-05,42,44,Trump +2
+nevada,Final Results,NA,NA,47.9,45.5,Clinton +2.4
+nevada,RCP Average,2020-10-27,2020-11-06,45,45.8,Trump +0.8
+nevada,Emerson*Emerson*,2020-11-04,2020-11-05,47,46,Clinton +1
+nevada,Gravis*Gravis*,2020-11-03,2020-11-06,45,43,Clinton +2
+nevada,Remington Research (R)Remington (R),2020-11-01,2020-11-02,45,46,Trump +1
+nevada,8 News NOW - Las Vegas8 News NOW,2020-10-28,2020-11-01,45,45,Tie
+nevada,CNN/ORCCNN/ORC,2020-10-27,2020-11-01,43,49,Trump +6
+nevada,Remington Research (R)Remington (R),2020-10-30,2020-10-30,44,48,Trump +4
+nevada,Emerson*Emerson*,2020-10-26,2020-10-27,44,42,Clinton +2
+nevada,Gravis*Gravis*,2020-10-25,2020-10-25,46,46,Tie
+nevada,NBC/WSJ/MaristNBC/WSJ,2020-10-20,2020-10-24,43,43,Tie
+nevada,Las Vegas Review-JournalLVRJ,2020-10-20,2020-10-23,48,41,Clinton +7
+nevada,Remington Research (R)Remington (R),2020-10-20,2020-10-22,44,47,Trump +3
+nevada,KTNV/Rasmussen KTNV-13,2020-10-20,2020-10-22,46,42,Clinton +4
+nevada,MonmouthMonmouth,2020-10-14,2020-10-17,47,40,Clinton +7
+nevada,CNN/ORCCNN/ORC,2020-10-10,2020-10-15,46,44,Clinton +2
+nevada,CBS News/YouGovCBS News,2020-10-12,2020-10-14,46,40,Clinton +6
+nevada,8 News NOW - Las Vegas8 News NOW,2020-10-10,2020-10-13,43,41,Clinton +2
+nevada,Emerson*Emerson*,2020-10-02,2020-10-04,43,43,Tie
+nevada,UNLV/Hart Research (D)UNLV/Hart Research (D),2020-09-27,2020-10-02,44,41,Clinton +3
+nevada,Las Vegas Review-JournalLVRJ,2020-09-27,2020-09-29,45,44,Clinton +1
+nevada,SuffolkSuffolk,2020-09-27,2020-09-29,44,38,Clinton +6
+nevada,FOX NewsFOX News,2020-09-18,2020-09-20,40,43,Trump +3
+nevada,KTNV/Rasmussen KTNV-13,2020-09-16,2020-09-18,39,42,Trump +3
+nevada,MonmouthMonmouth,2020-09-11,2020-09-13,42,44,Trump +2
+nevada,NBC/WSJ/Marist*NBC/WSJ/Marist*,2020-09-06,2020-09-08,41,42,Trump +1
+nevada,SuffolkSuffolk,2020-08-15,2020-08-17,44,42,Clinton +2
+nevada,CBS News/YouGov*CBS News/YouGov*,2020-08-02,2020-08-05,43,41,Clinton +2
+nevada,KTNV/Rasmussen KTNV-13,2020-07-29,2020-07-31,41,40,Clinton +1
+nevada,KTNV/Rasmussen KTNV-13,2020-07-22,2020-07-24,38,43,Trump +5
+nevada,MonmouthMonmouth,2020-07-07,2020-07-10,45,41,Clinton +4
+nevada,GravisGravis,2020-05-24,2020-05-25,41,44,Trump +3
+texas,Final Results,NA,NA,43.2,52.2,Trump +9.0
+texas,RCP Average,2020-10-27,2020-11-01,38,50,Trump +12.0
+texas,EmersonEmerson,2020-10-31,2020-11-01,35,49,Trump +14
+texas,NBC/WSJ/MaristNBC/WSJ,2020-10-30,2020-11-01,40,49,Trump +9
+texas,CBS 11/Dixie StrategiesDixie Strategies,2020-10-27,2020-10-29,39,52,Trump +13
+texas,Austin American-Statesman*Statesman*,2020-10-22,2020-10-24,38,45,Trump +7
+texas,Texas Tribune/YouGovTexas Tribune,2020-10-14,2020-10-23,42,45,Trump +3
+texas,CBS News/YouGovCBS News,2020-10-20,2020-10-21,43,46,Trump +3
+texas,WFAA-TV/SurveyUSAWFAA/SUSA,2020-10-10,2020-10-12,43,47,Trump +4
+texas,University of HoustonU. of Houston,2020-10-07,2020-10-15,38,41,Trump +3
+texas,CBS 11/Dixie StrategiesDixie Strategies,2020-09-29,2020-10-01,38,45,Trump +7
+texas,Texas LyceumTexas Lyceum,2020-09-01,2020-09-11,32,39,Trump +7
+texas,EmersonEmerson,2020-09-07,2020-09-10,36,42,Trump +6
+georgia,Final Results,NA,NA,45.4,50.5,Trump +5.1
+georgia,RCP Average,2020-10-29,2020-11-06,44.4,49.2,Trump +4.8
+georgia,Landmark/Rosetta StoneLandmark/Rosetta Stone,2020-11-06,2020-11-06,46,49,Trump +3
+georgia,Trafalgar Group (R)*Trafalgar (R)*,2020-11-06,2020-11-06,45,52,Trump +7
+georgia,WSB-TV/LandmarkWSB-TV,2020-11-02,2020-11-03,46,48,Trump +2
+georgia,Opinion SavvyOpinion Savvy,2020-11-02,2020-11-03,45,49,Trump +4
+georgia,NBC/WSJ/MaristNBC/WSJ,2020-10-30,2020-11-01,44,45,Trump +1
+georgia,Emerson*Emerson*,2020-10-29,2020-10-31,42,51,Trump +9
+georgia,WXIA-TV/SurveyUSAWXIA/SUSA,2020-10-25,2020-10-27,42,49,Trump +7
+georgia,QuinnipiacQuinnipiac,2020-10-20,2020-10-26,43,44,Trump +1
+georgia,Landmark CommunicationsLandmark Communications,2020-10-20,2020-10-20,43,47,Trump +4
+georgia,FOX 5/Opinion SavvyFOX 5 Atlanta,2020-10-20,2020-10-20,46,50,Trump +4
+georgia,Atlanta Journal-ConstitutionAJC,2020-10-17,2020-10-20,42,44,Trump +2
+georgia,Landmark CommunicationsLandmark Communications,2020-10-11,2020-10-12,42,48,Trump +6
+georgia,WSB-TV/LandmarkWSB-TV,2020-09-21,2020-09-22,43,47,Trump +4
+georgia,JMC AnalyticsJMC Analytics,2020-09-20,2020-09-22,38,44,Trump +6
+georgia,QuinnipiacQuinnipiac,2020-09-13,2020-09-21,40,47,Trump +7
+georgia,MonmouthMonmouth,2020-09-15,2020-09-18,42,45,Trump +3
+georgia,FOX 5/Opinion SavvyFOX 5 Atlanta,2020-09-14,2020-09-14,42,46,Trump +4
+georgia,EmersonEmerson,2020-09-09,2020-09-13,39,45,Trump +6
+georgia,NBC/WSJ/MaristNBC/WSJ,2020-09-06,2020-09-08,42,44,Trump +2
+georgia,FOX 5/Opinion SavvyFOX 5 Atlanta,2020-08-17,2020-08-17,43,43,Tie
+georgia,CBS News/YouGov*CBS News/YouGov*,2020-08-10,2020-08-12,41,45,Trump +4
+georgia,Gravis*Gravis*,2020-08-04,2020-08-08,39,43,Trump +4
+georgia,JMC Analytics*JMC Analytics*,2020-08-06,2020-08-07,44,37,Clinton +7
+georgia,Atlanta Journal-Constitution*AJC*,2020-08-01,2020-08-04,41,38,Clinton +3
+georgia,WSB-TV/Landmark*WSB-TV*,2020-07-31,2020-07-31,45,45,Tie
+georgia,WXIA-TV/SurveyUSA*WXIA/SUSA*,2020-07-29,2020-07-31,42,46,Trump +4
+georgia,WSB-TV/Landmark*WSB-TV*,2020-07-24,2020-07-24,44,46,Trump +2
+georgia,PPP (D)*PPP (D)*,2020-05-27,2020-05-30,38,45,Trump +7
+virginia,Final Results,NA,NA,49.8,44.4,Clinton +5.4
+virginia,RCP Average,2020-10-27,2020-11-06,47.3,42.3,Clinton +5.0
+virginia,Christopher Newport Univ.CNU,2020-11-01,2020-11-06,48,42,Clinton +6
+virginia,PPP (D)PPP (D),2020-11-03,2020-11-04,48,43,Clinton +5
+virginia,Remington Research (R)*Remington (R)*,2020-11-01,2020-11-02,46,44,Clinton +2
+virginia,GravisGravis,2020-11-01,2020-11-02,47,42,Clinton +5
+virginia,Roanoke CollegeRoanoke,2020-10-29,2020-11-01,45,38,Clinton +7
+virginia,Remington Research (R)*Remington (R)*,2020-10-30,2020-10-30,47,43,Clinton +4
+virginia,EmersonEmerson,2020-10-28,2020-10-30,49,45,Clinton +4
+virginia,Washington PostWash Post,2020-10-27,2020-10-30,48,42,Clinton +6
+virginia,WinthropWinthrop,2020-10-23,2020-10-30,44,39,Clinton +5
+virginia,Christopher Newport Univ.CNU,2020-10-23,2020-10-26,46,39,Clinton +7
+virginia,QuinnipiacQuinnipiac,2020-10-20,2020-10-26,50,38,Clinton +12
+virginia,Remington Research (R)*Remington (R)*,2020-10-20,2020-10-22,48,43,Clinton +5
+virginia,Christopher Newport Univ.CNU,2020-10-16,2020-10-19,45,33,Clinton +12
+virginia,Christopher Newport Univ.CNU,2020-10-11,2020-10-14,44,29,Clinton +15
+virginia,EmersonEmerson,2020-10-10,2020-10-12,46,43,Clinton +3
+virginia,Roanoke CollegeRoanoke,2020-10-02,2020-10-06,45,36,Clinton +9
+virginia,Christopher Newport Univ.CNU,2020-09-27,2020-09-30,42,35,Clinton +7
+virginia,CBS News/YouGovCBS News,2020-09-21,2020-09-23,45,37,Clinton +8
+virginia,Christopher Newport Univ.CNU,2020-09-15,2020-09-23,39,33,Clinton +6
+virginia,QuinnipiacQuinnipiac,2020-09-13,2020-09-21,45,39,Clinton +6
+virginia,Roanoke CollegeRoanoke,2020-09-11,2020-09-20,44,37,Clinton +7
+virginia,Univ. of Mary WashingtonUMW,2020-09-06,2020-09-12,40,37,Clinton +3
+virginia,PPP (D)PPP (D),2020-09-09,2020-09-11,45,39,Clinton +6
+virginia,EmersonEmerson,2020-08-30,2020-09-01,44,43,Clinton +1
+virginia,QuinnipiacQuinnipiac,2020-08-09,2020-08-16,45,34,Clinton +11
+virginia,Washington PostWash Post,2020-08-11,2020-08-14,46,39,Clinton +7
+virginia,NBC/WSJ/MaristNBC/WSJ,2020-08-04,2020-08-10,43,31,Clinton +12
+virginia,Roanoke CollegeRoanoke,2020-08-07,2020-08-17,48,32,Clinton +16
+virginia,CBS News/YouGov*CBS News/YouGov*,2020-08-02,2020-08-05,49,37,Clinton +12
+virginia,FOX NewsFOX News,2020-07-09,2020-07-12,39,34,Clinton +5
+virginia,NBC/WSJ/MaristNBC/WSJ,2020-07-05,2020-07-11,41,34,Clinton +7
+virginia,PPP (D)PPP (D),2020-06-13,2020-06-15,42,39,Clinton +3
+new_hampshire,Final Results,NA,NA,46.8,46.5,Clinton +0.3
+new_hampshire,RCP Average,2020-10-28,2020-11-06,43.3,42.7,Clinton +0.6
+new_hampshire,EmersonEmerson,2020-11-04,2020-11-05,45,44,Clinton +1
+new_hampshire,WMUR/UNHWMUR/UNH,2020-11-03,2020-11-06,49,38,Clinton +11
+new_hampshire,GravisGravis,2020-11-01,2020-11-02,41,43,Trump +2
+new_hampshire,Boston Globe/SuffolkSuffolk,2020-10-31,2020-11-02,42,42,Tie
+new_hampshire,ARGARG,2020-10-31,2020-11-02,43,48,Trump +5
+new_hampshire,UMass Lowell/7NewsUMass Lowell,2020-10-28,2020-11-02,44,44,Tie
+new_hampshire,WBUR/MassINCWBUR/MassINC,2020-10-29,2020-11-01,39,40,Trump +1
+new_hampshire,WMUR/UNHWMUR/UNH,2020-10-26,2020-10-30,46,39,Clinton +7
+new_hampshire,EmersonEmerson,2020-10-23,2020-10-25,46,43,Clinton +3
+new_hampshire,MonmouthMonmouth,2020-10-22,2020-10-25,46,42,Clinton +4
+new_hampshire,NBC/WSJ/MaristNBC/WSJ,2020-10-20,2020-10-24,45,36,Clinton +9
+new_hampshire,UMass Amherst/WBZUMass Amherst/WBZ,2020-10-17,2020-10-21,43,38,Clinton +5
+new_hampshire,EmersonEmerson,2020-10-17,2020-10-19,44,36,Clinton +8
+new_hampshire,WMUR/UNHWMUR/UNH,2020-10-11,2020-10-17,49,34,Clinton +15
+new_hampshire,WBUR/MassINCWBUR/MassINC,2020-10-10,2020-10-12,41,38,Clinton +3
+new_hampshire,UMass Lowell/7NewsUMass Lowell,2020-10-07,2020-10-11,45,39,Clinton +6
+new_hampshire,Boston Globe/SuffolkSuffolk,2020-10-03,2020-10-05,44,42,Clinton +2
+new_hampshire,WBUR/MassINCWBUR/MassINC,2020-09-27,2020-09-29,42,35,Clinton +7
+new_hampshire,MonmouthMonmouth,2020-09-17,2020-09-20,47,38,Clinton +9
+new_hampshire,NBC/WSJ/MaristNBC/WSJ,2020-09-06,2020-09-08,39,37,Clinton +2
+new_hampshire,EmersonEmerson,2020-09-03,2020-09-05,42,37,Clinton +5
+new_hampshire,WMUR/UNHWMUR/UNH,2020-08-20,2020-08-28,43,32,Clinton +11
+new_hampshire,CBS News/YouGovCBS News,2020-08-10,2020-08-12,45,36,Clinton +9
+new_hampshire,WBUR/MassINCWBUR/MassINC,2020-07-29,2020-08-01,47,32,Clinton +15
+new_hampshire,WMUR/UNHWMUR/UNH,2020-07-09,2020-07-18,37,37,Tie
+maine,Final Results,NA,NA,47.8,44.9,Clinton +2.9
+maine,RCP Average,2020-10-24,2020-10-30,44,39.5,Clinton +4.5
+maine,EmersonEmerson,2020-10-28,2020-10-30,46,42,Clinton +4
+maine,MPRC (D)MPRC (D),2020-10-24,2020-10-26,42,37,Clinton +5
+maine,Press Herald/UNHPress Herald/UNH,2020-10-20,2020-10-25,48,37,Clinton +11
+maine,MPRC (D)MPRC (D),2020-10-14,2020-10-15,42,36,Clinton +6
+maine,MPRC (D)MPRC (D),2020-10-07,2020-10-09,44,36,Clinton +8
+maine,Press Herald/UNHPress Herald/UNH,2020-09-15,2020-09-20,40,37,Clinton +3
+maine,MPRC (D)MPRC (D),2020-09-15,2020-09-17,37,37,Tie
+maine,Colby College/SurveyUSAColby College/SUSA,2020-09-04,2020-09-10,42,39,Clinton +3
+maine,EmersonEmerson,2020-09-02,2020-09-05,44,35,Clinton +9
+maine,GravisGravis,2020-08-04,2020-08-08,43,33,Clinton +10
+colorado,Final Results,NA,NA,48.2,43.3,Clinton +4.9
+colorado,RCP Average,2020-10-28,2020-11-04,43.3,40.4,Clinton +2.9
+colorado,PPP (D)PPP (D),2020-11-03,2020-11-04,48,43,Clinton +5
+colorado,GravisGravis,2020-11-01,2020-11-02,40,40,Tie
+colorado,Keating Research (D)Keating Research (D),2020-11-02,2020-11-03,43,38,Clinton +5
+colorado,Trafalgar Group (R)Trafalgar,2020-10-31,2020-11-03,45,44,Clinton +1
+colorado,Magellan Strategies (R)Magellan,2020-11-01,2020-11-02,44,38,Clinton +6
+colorado,University of DenverUniv. of Denver,2020-10-29,2020-10-31,39,39,Tie
+colorado,EmersonEmerson,2020-10-28,2020-10-31,44,41,Clinton +3
+colorado,Remington Research (R)*Remington (R)*,2020-10-30,2020-10-30,45,44,Clinton +1
+colorado,CBS News/YouGovCBS News,2020-10-26,2020-10-28,42,39,Clinton +3
+colorado,Remington Research (R)*Remington (R)*,2020-10-20,2020-10-22,45,43,Clinton +2
+colorado,QuinnipiacQuinnipiac,2020-10-10,2020-10-16,45,37,Clinton +8
+colorado,GravisGravis,2020-10-12,2020-10-13,44,39,Clinton +5
+colorado,Magellan Strategies (R)Magellan,2020-10-12,2020-10-13,40,35,Clinton +5
+colorado,GravisGravis,2020-10-03,2020-10-04,40,40,Tie
+colorado,MonmouthMonmouth,2020-09-29,2020-10-02,49,38,Clinton +11
+colorado,Keating Research (D)Keating Research (D),2020-09-27,2020-09-29,44,33,Clinton +11
+colorado,GravisGravis,2020-09-22,2020-09-23,37,41,Trump +4
+colorado,CNN/ORCCNN/ORC,2020-09-20,2020-09-25,41,42,Trump +1
+colorado,CBS News/YouGovCBS News,2020-09-21,2020-09-23,40,39,Clinton +1
+colorado,QuinnipiacQuinnipiac,2020-09-13,2020-09-21,44,42,Clinton +2
+colorado,Rocky Mountain PBSRocky Mtn. PBS,2020-09-14,2020-09-18,41,34,Clinton +7
+colorado,EmersonEmerson,2020-09-09,2020-09-13,38,42,Trump +4
+colorado,Magellan (R)Magellan,2020-08-29,2020-08-31,41,36,Clinton +5
+colorado,QuinnipiacQuinnipiac,2020-08-09,2020-08-16,41,33,Clinton +8
+colorado,NBC/WSJ/MaristNBC/WSJ,2020-08-04,2020-08-10,41,29,Clinton +12
+colorado,FOX NewsFOX News,2020-07-09,2020-07-12,37,28,Clinton +9
+colorado,MonmouthMonmouth,2020-07-09,2020-07-12,48,35,Clinton +13
+colorado,NBC/WSJ/MaristNBC/WSJ,2020-07-05,2020-07-11,39,33,Clinton +6
+colorado,GravisGravis,2020-07-07,2020-07-08,39,38,Clinton +1
+colorado,CBS News/YouGov*CBS News/YouGov*,2020-06-21,2020-06-24,40,39,Clinton +1
+new_mexico,Final Results,NA,NA,48.3,40,Clinton +8.3
+new_mexico,RCP Average,2020-11-01,2020-11-06,45.3,40.3,Clinton +5.0
+new_mexico,Zia PollZia Poll,2020-11-06,2020-11-06,46,44,Clinton +2
+new_mexico,Albuquerque JournalAlbuquerque Journal,2020-11-01,2020-11-03,45,40,Clinton +5
+new_mexico,GravisGravis,2020-11-01,2020-11-02,45,37,Clinton +8
+new_mexico,Zia PollZia Poll,2020-11-01,2020-11-02,46,43,Clinton +3
+new_mexico,Zia PollZia Poll,2020-10-24,2020-10-25,45,40,Clinton +5
+new_mexico,Zia PollZia Poll,2020-10-11,2020-10-11,46,36,Clinton +10
+new_mexico,KOB-TV/SurveyUSAKOB-TV/SUSA,2020-09-28,2020-10-02,46,33,Clinton +13
+new_mexico,Albuquerque JournalAlbuquerque Journal,2020-09-27,2020-09-29,35,31,Clinton +4
+new_mexico,Zia PollZia Poll,2020-09-24,2020-09-24,42,37,Clinton +5
+new_mexico,PPP (D)PPP (D),2020-08-19,2020-08-21,40,31,Clinton +9
+minnesota,Final Results,NA,NA,46.4,44.9,Clinton +1.5
+minnesota,KSTP/SurveyUSAKSTP-TV,2020-10-22,2020-10-25,49,39,Clinton +10
+minnesota,Star TribuneStar Tribune,2020-10-20,2020-10-22,47,39,Clinton +8
+minnesota,GravisGravis,2020-09-23,2020-09-23,43,43,Tie
+minnesota,KSTP/SurveyUSAKSTP-TV,2020-09-16,2020-09-20,46,39,Clinton +7
+minnesota,Star TribuneStar Tribune,2020-09-12,2020-09-14,44,38,Clinton +6

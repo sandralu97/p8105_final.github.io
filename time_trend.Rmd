@@ -1,0 +1,94 @@
+---
+title: "Time Trend of Supporting Rates and Covid19 Confirmed Cases"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    source: embed
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(viridis)
+library(plotly)
+library(flexdashboard)
+```
+
+# Loading data
+
+```{r}
+data("covid")
+
+covid = 
+  read_csv(
+   "./data/covid.csv"
+  ) 
+
+data("state_poll_20")
+
+state_poll_20 = 
+  read_csv(
+   "./data/state_poll_20.csv"
+  ) %>% 
+  pivot_longer(
+    biden:trump,
+    names_to = "side",
+    values_to = "supporting_rate"
+  )
+
+mean_sr = state_poll_20 %>% 
+  group_by(state, end_date, side) %>% 
+  summarize(mean_rate = mean(supporting_rate))
+
+```
+
+
+Column {.sidebar}
+-----------------------------------------------------------------------
+
+```{r}
+state_choice = state_poll_20 %>% pull(state) %>% unique()
+
+selectInput(
+  "states_choice",
+  label = h3("States"),
+  choice = state_choice,
+  selected = "florida"
+)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+pal = c("red", "blue")
+pal = setNames(pal, c("trump", "biden"))
+
+renderPlotly({
+  mean_sr %>% 
+    filter(state == input[["states_choice"]]) %>% 
+    mutate(text_label = str_c("Side: ", side, "\nSupporting Rate: ", mean_rate)) %>%
+    plot_ly(
+      x = ~end_date, y = ~mean_rate, color = ~side, colors = pal, type = "scatter", mode = "markers+lines", alpha = 0.5, text = ~text_label
+    )
+})
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+
+```
+
+### Chart C
+
+```{r}
+
+```
+
