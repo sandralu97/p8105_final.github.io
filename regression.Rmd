@@ -244,6 +244,16 @@ scatter.smooth(predict(gee_case, type='response'), resid(gee_case, type='respons
 
 plot(cooks.distance(gee_case), type="response")
 
+
+nest_lm_case = poll_covid_df %>% 
+  nest(data= - state) %>% 
+  mutate(
+    models = map(.x=data, ~lm(biden_lead ~ mean_case, data= .x)),
+    models = map(models,broom::tidy)
+  ) %>% 
+  select(-data) %>% 
+  unnest(models)
+
 ```
 
 
