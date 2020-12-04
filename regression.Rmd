@@ -233,18 +233,14 @@ gee_case = geeglm(biden_lead ~ mean_case,
        corstr = "exchangeable"
        ) 
 
+anova(gee_case)
 
 
 plot(density(resid(gee_case, type='response')))
 
-library(gee)
-gee_case = gee(biden ~ mean_case, data = model_case, id = id, corstr = "exchangeable")
 
-scatter.smooth(predict(gee_case, type='response'), rstandard(gee_case, type='deviance'))
+scatter.smooth(predict(gee_case, type='response'), resid(gee_case, type='response'))
 
-library(statmod)
-
-qqnorm(qresid(gee_case)); qqline(qresid(gee_case))
 
 plot(cooks.distance(gee_case), type="response")
 
