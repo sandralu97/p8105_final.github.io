@@ -224,7 +224,7 @@ poll_covid_df %>%
 
 ***
 
-```{r}
+```{r eval=FALSE}
 # Model mean_case
 gee_case = geeglm(biden_lead ~ mean_case,
        data = model_case,
@@ -293,4 +293,4 @@ During the 2020 COVID-19 pandemic, this effect was also observed in several othe
 
 We found that as the number of COVID-19 cases and deaths increased, Trump's supporting rate slightly increased in the seventeen battleground states.
 
-The GEE regression model we built is relatively simple and we only considered four variables related to COVID status, so this regression analysis should be regarded as an initial and exploratory analysis to generate future hyptheses. Future investigations should consider other variables and potential confounders. 
+The GEE regression model we built is relatively simple and we only considered four variables related to COVID status, so this regression analysis should be regarded as an initial and exploratory analysis to generate future hypotheses. Future investigations should consider other variables and potential confounders. 

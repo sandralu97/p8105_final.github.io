@@ -26,6 +26,17 @@
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -352,11 +363,19 @@ div.tocify {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="regression.html">regression</a>
+  <a href="time_trend.html">Poll vs. COVID</a>
+</li>
+<li>
+  <a href="regression.html">Regression</a>
+</li>
+<li>
+  <a href="supporting-rate-comparison.html">Supporting rate 2020 vs. 2016</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="Project_report.html">Project Report</a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -604,6 +623,38 @@ poll_covid_df %&gt;%
 <p><br />
 </p>
 </div>
+<div id="model-diagnostic" class="section level1">
+<h1>Model diagnostic</h1>
+<hr />
+<pre class="r"><code># Model mean_case
+gee_case = geeglm(biden_lead ~ mean_case,
+       data = model_case,
+       id = id,
+       family = gaussian(link = &quot;identity&quot;),
+       corstr = &quot;exchangeable&quot;
+       ) 
+
+anova(gee_case)
+
+
+plot(density(resid(gee_case, type=&#39;response&#39;)))
+
+
+scatter.smooth(predict(gee_case, type=&#39;response&#39;), resid(gee_case, type=&#39;response&#39;))
+
+
+plot(cooks.distance(gee_case), type=&quot;response&quot;)
+
+
+model_case %&gt;% 
+  nest(data= - state) %&gt;% 
+  mutate(
+    models = map(data, ~lm(biden_lead ~ mean_case, data= .x,)),
+    models = map(models,broom::tidy)
+  ) %&gt;% 
+  select(-data) %&gt;% 
+  unnest(models) %&gt;% knitr::kable(digits = 5)</code></pre>
+</div>
 <div id="findings" class="section level1">
 <h1>Findings</h1>
 <hr />
@@ -644,7 +695,7 @@ poll_covid_df %&gt;%
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();

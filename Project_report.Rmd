@@ -114,6 +114,8 @@ Mail-in vote data was scraped using Xpath statement. Mail ballots returned and a
 
 * `freq_distribution`: The corresponding frequency (%) of each party
 
+## COVID-19 data
+
 # Exploratory analysis
 ***
 # Additional analysis

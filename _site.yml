@@ -7,6 +7,8 @@ navbar:
       href: time_trend.html
     - text: "Regression"
       href: regression.html
+    - text: "Supporting rate 2020 vs. 2016"
+      href: supporting-rate-comparison.html
   right:
       - text: "Project Report"
         href: Project_report.html

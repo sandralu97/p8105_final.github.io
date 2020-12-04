@@ -25,6 +25,17 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -351,11 +362,16 @@ div.tocify {
   <a href="time_trend.html">Poll vs. COVID</a>
 </li>
 <li>
-  <a href="regression.html">regression</a>
+  <a href="regression.html">Regression</a>
+</li>
+<li>
+  <a href="supporting-rate-comparison.html">Supporting rate 2020 vs. 2016</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="Project_report.html">Project Report</a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -379,7 +395,7 @@ div.tocify {
 <div id="project-overview" class="section level1">
 <h1>Project Overview</h1>
 <p>In this project, we focused on top battleground states (Florida, Pennsylvania, Wisconsin, North Carolina, Michigan, Ohio, Minnesota, Iowa, Arizona, Nevada, Texas, Georgia, Virginia, New Hampshire, Maine,Colorado and New Mexico)</p>
-<p>We used <a href="https://www.realclearpolitics.com/">2020 presidential poll</a>, <a href="https://electproject.github.io/">mail-in vote data</a> and <a href="http://covidtracking.com/data/">COVID-19 data</a> to examine the relationship between COVID-19 and poll data.</p>
+<p>We used <a href="https://www.realclearpolitics.com/">2016 &amp; 2020 presidential poll</a>, <a href="https://electproject.github.io/">mail-in vote data</a> and <a href="http://covidtracking.com/data/">COVID-19 data</a> to examine the relationship between COVID-19 and poll data.</p>
 <p>We have provided insights on the following topics:</p>
 <ul>
 <li><p>Time trend of COVID-19 statistics and presidential poll in 2020</p></li>
@@ -400,7 +416,7 @@ div.tocify {
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
