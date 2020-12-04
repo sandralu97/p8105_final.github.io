@@ -23,6 +23,7 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
@@ -248,6 +249,9 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
 
 
@@ -360,6 +364,14 @@ div.tocify {
 
 <div class="fluid-row" id="header">
 
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
 
 
 <h1 class="title toc-ignore">Regression Analysis</h1>
@@ -392,26 +404,9 @@ div.tocify {
 ggplot(data = poll_covid_df, aes(x = biden_lead)) +
   geom_density()</code></pre>
 <p><img src="regression_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-</div>
-</div>
-<div id="head" class="section level1">
-<h1>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</h1>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>df6db3bf41977e6cd3760769c1fd2ae480d3403b<br />
+<p><br />
 </p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
+</div>
 <div id="explainatory-variables" class="section level2">
 <h2>Explainatory variables</h2>
 <ul>
@@ -427,6 +422,184 @@ ggplot(data = poll_covid_df, aes(x = biden_lead)) +
 <div id="result" class="section level1">
 <h1>Result</h1>
 <hr />
+<p>Estimates from GEE modelling:</p>
+<ol style="list-style-type: decimal">
+<li><em>Biden lead = β0 + β1(COVID case)</em></li>
+</ol>
+<pre class="r"><code>#Gee regression
+
+# Model mean_case
+model_case = 
+poll_covid_df %&gt;% 
+  drop_na(mean_case, biden_lead)
+
+geeglm(biden_lead ~ mean_case,
+       data = model_case,
+       id = id,
+       family = gaussian(link = &quot;identity&quot;),
+       corstr = &quot;exchangeable&quot;
+       ) %&gt;%   
+  broom::tidy() %&gt;% 
+  knitr::kable()</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">7.3671472</td>
+<td align="right">1.2090030</td>
+<td align="right">37.13162</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">mean_case</td>
+<td align="right">-0.0000082</td>
+<td align="right">0.0000022</td>
+<td align="right">13.53720</td>
+<td align="right">0.0002339</td>
+</tr>
+</tbody>
+</table>
+<ol start="2" style="list-style-type: decimal">
+<li><em>Biden lead = β0 + β1(COVID death)</em></li>
+</ol>
+<pre class="r"><code># Model mean_death
+model_death = 
+poll_covid_df %&gt;% 
+  drop_na(mean_death, biden_lead)
+
+
+  geeglm(biden_lead ~ mean_death,
+         data = model_death,
+         id = id,
+         family = gaussian(link = &quot;identity&quot;),
+         corstr = &quot;exchangeable&quot;
+         ) %&gt;%   
+  broom::tidy() %&gt;% 
+  knitr::kable()</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">6.3090212</td>
+<td align="right">1.0659743</td>
+<td align="right">35.02922</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">mean_death</td>
+<td align="right">-0.0002885</td>
+<td align="right">0.0000279</td>
+<td align="right">106.93009</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<ol start="3" style="list-style-type: decimal">
+<li><em>Biden lead = β0 + β1(COVID case increase)</em></li>
+</ol>
+<pre class="r"><code># case increase
+model_case_increase = 
+poll_covid_df %&gt;% 
+  drop_na(mean_pos_increase, biden_lead)
+
+
+  geeglm(biden_lead ~ mean_pos_increase,
+         data = model_case_increase,
+         id = id,
+         family = gaussian(link = &quot;identity&quot;),
+         corstr = &quot;exchangeable&quot;
+         ) %&gt;%   
+  broom::tidy() %&gt;% 
+  knitr::kable()</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">5.2258382</td>
+<td align="right">1.1113525</td>
+<td align="right">22.1109940</td>
+<td align="right">0.0000026</td>
+</tr>
+<tr class="even">
+<td align="left">mean_pos_increase</td>
+<td align="right">-0.0000642</td>
+<td align="right">0.0001919</td>
+<td align="right">0.1119414</td>
+<td align="right">0.7379446</td>
+</tr>
+</tbody>
+</table>
+<ol start="4" style="list-style-type: decimal">
+<li><em>Biden lead = β0 + β1(COVID death increase)</em></li>
+</ol>
+<pre class="r"><code># death increase
+model_death_increase = 
+poll_covid_df %&gt;% 
+  drop_na(mean_death_increase, biden_lead)
+
+
+  geeglm(biden_lead ~ mean_death_increase,
+         data = model_death_increase,
+         id = id,
+         family = gaussian(link = &quot;identity&quot;),
+         corstr = &quot;exchangeable&quot;
+         ) %&gt;%   
+  broom::tidy() %&gt;% 
+  knitr::kable()</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">5.3578996</td>
+<td align="right">1.0114180</td>
+<td align="right">28.062593</td>
+<td align="right">0.0000001</td>
+</tr>
+<tr class="even">
+<td align="left">mean_death_increase</td>
+<td align="right">-0.0108638</td>
+<td align="right">0.0071163</td>
+<td align="right">2.330552</td>
+<td align="right">0.1268569</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="findings" class="section level1">
 <h1>Findings</h1>
@@ -485,6 +658,11 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
 
 <script>
 $(document).ready(function ()  {
