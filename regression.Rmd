@@ -33,6 +33,7 @@ covid_df = covid_df %>% mutate(
   date = as.Date(date)
 )
 
+
 # function that outputs covid df in the interval
 
 match = function(interval, state_name) {
@@ -104,10 +105,6 @@ ggplot(data = poll_covid_df, aes(x = biden_lead)) +
 
 ```
 
-<<<<<<< HEAD
-=======
-
->>>>>>> df6db3bf41977e6cd3760769c1fd2ae480d3403b
 \
 
 ## Explainatory variables
