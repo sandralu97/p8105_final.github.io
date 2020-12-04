@@ -366,11 +366,13 @@ div.tocify {
   <a href="time_trend.html">Poll vs. COVID</a>
 </li>
 <li>
-  <a href="regression.html">regression</a>
+  <a href="regression.html">Regression</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="Project_report.html">Project Report</a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -403,23 +405,81 @@ div.tocify {
 <li><p>However, there is also report stating that in places where the virus is most rampant now, Trump enjoyed enormous support.</p></li>
 <li><p>Many voters who voted Trump 2016 said they are turning to Biden this year</p></li>
 </ul>
+<p><br />
+</p>
 </div>
 <div id="related-work" class="section level1">
 <h1>Related work</h1>
 <hr />
 <p>The following are resources that inspire our work:</p>
 <ul>
-<li><a href="https://www.nytimes.com/interactive/2020/11/03/us/elections/exit-polls-president.html">National Exit Polls: How Different Groups Voted</a></li>
+<li><p><a href="https://www.nytimes.com/interactive/2020/11/03/us/elections/exit-polls-president.html">National Exit Polls: How Different Groups Voted</a></p></li>
+<li><p><a href="https://www.kxnet.com/news/national-news/counties-with-the-worst-virus-surges-overwhelmingly-voted-for-trump/">Analysis: Counties with the worst virus surges overwhelmingly voted for Trump</a></p></li>
+<li><p><a href="https://abc11.com/politics/counties-with-worst-covid-19-surges-overwhelmingly-voted-trump/7683127/">Counties with worst COVID-19 surges overwhelmingly voted Trump in 2020 presidential election</a></p></li>
+<li><p><a href="https://www.npr.org/2020/11/03/930956115/voter-survey-u-s-is-on-wrong-track-covid-19-not-under-control">Voter Survey: U.S. Is On Wrong Track, COVID-19 Not Under Control</a></p></li>
 </ul>
-<p>*<a href="https://www.kxnet.com/news/national-news/counties-with-the-worst-virus-surges-overwhelmingly-voted-for-trump/">Analysis: Counties with the worst virus surges overwhelmingly voted for Trump</a></p>
-<p>*<a href="https://abc11.com/politics/counties-with-worst-covid-19-surges-overwhelmingly-voted-trump/7683127/">Counties with worst COVID-19 surges overwhelmingly voted Trump in 2020 presidential election</a></p>
-<p>*<a href="https://www.npr.org/2020/11/03/930956115/voter-survey-u-s-is-on-wrong-track-covid-19-not-under-control">Voter Survey: U.S. Is On Wrong Track, COVID-19 Not Under Control</a></p>
+<p><br />
+</p>
 </div>
 <div id="initial-questions" class="section level1">
 <h1>Initial questions</h1>
+<hr />
+<p>Initially, we would like to focus on all states. But as our project progressed, we found it would be more meaningful to only focus on swing states.</p>
+<p>Therefore, in this analysis, we focused primarily on top battleground states, including Florida, Pennsylvania, Wisconsin, North Carolina, Michigan, Ohio, Minnesota, Iowa, Arizona, Nevada, Texas, Georgia, Virginia, New Hampshire, Maine,Colorado and New Mexico.</p>
+<p>Targeting these states, we aimed to answer the following questions:</p>
+<ul>
+<li><p>What is the time trend of COVID-19 statistics and presidential poll in 2020?</p></li>
+<li><p>How COVID-19 is correlated with presidential supporting rate in 2020?</p></li>
+<li><p>How is democrats / republican supporting rate in 2020 compared to 2016?</p></li>
+<li><p>Is there any distribution worth noting among mail-in vote?</p></li>
+</ul>
+<p><br />
+</p>
 </div>
 <div id="data" class="section level1">
 <h1>Data</h1>
+<div id="data-source" class="section level2">
+<h2>Data source</h2>
+<p>Our analysis based on the following data source:</p>
+<ul>
+<li><p><a href="https://www.realclearpolitics.com/">2016 &amp; 2020 presidential poll</a></p></li>
+<li><p><a href="https://electproject.github.io/">Mail-in vote data</a></p></li>
+<li><p><a href="http://covidtracking.com/data/">COVID-19 data</a></p></li>
+</ul>
+<p><br />
+</p>
+</div>
+<div id="data-scraping-and-cleaning" class="section level2">
+<h2>Data scraping and cleaning</h2>
+<hr />
+<div id="presidential-poll" class="section level3">
+<h3>Presidential poll</h3>
+<p>All presidential pollby states were read and then selected by CSS selector. Relavant tables were scraped as tibbles with map and function statement. The supporting rate (<code>biden</code> and <code>trump</code>), spread (<code>spread</code>), poll period (<code>start_date</code> and <code>end_date</code>) and poll agent (<code>poll</code>) were selected. All date was transformed to date format in R for later analysis. <code>spread</code> was further transformed into <code>biden_lead</code> to represent the difference between the supporting rate of Biden and Trump.</p>
+<p><strong>Variables</strong></p>
+<ul>
+<li><p><code>state</code>: The battbleground state name</p></li>
+<li><p><code>poll</code>: The poll agent</p></li>
+<li><p><code>start_date</code>: The start date of the poll survey period</p></li>
+<li><p><code>end_date</code>: The end date of the poll survey period</p></li>
+<li><p><code>biden</code>: The supporting rate(%) of Mr.Biden</p></li>
+<li><p><code>trump</code>: The supporting rate(%) of Mr.Trump</p></li>
+<li><p><code>biden_lead</code>: The difference of supporting rate (%) between Biden and Trump. Positive number indicates Biden over Trump while negative number indicates Trump over Biden</p></li>
+</ul>
+</div>
+<div id="mail-in-vote-data" class="section level3">
+<h3>Mail-in vote data</h3>
+<p>Mail-in vote data was scraped using Xpath statement. Mail ballots returned and accepted by party registration are used in our analysis. Some battleground states did not report the mail-in statistics. Therefore, only Florida, Pennsylvania, North Carolina, Iowa, Arizona and Nevada were included in related analysis.</p>
+<p><strong>Variables</strong></p>
+<ul>
+<li><p><code>state</code>: The battleground state name</p></li>
+<li><p><code>party</code>: Category variable of supporting party including: Democrats, Republicans, Minor, No Party Affiliation and Total</p></li>
+<li><p><code>requested_ballots</code>: The number of ballots that have been requested</p></li>
+<li><p><code>returned_ballots</code>: The number of ballots that have been returned</p></li>
+<li><p><code>return_rate</code>: The rate of returned ballots over requested ballots</p></li>
+<li><p><code>freq_distribution</code>: The corresponding frequency (%) of each party</p></li>
+</ul>
+</div>
+</div>
 </div>
 <div id="exploratory-analysis" class="section level1">
 <h1>Exploratory analysis</h1>

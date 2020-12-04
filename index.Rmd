@@ -24,7 +24,7 @@ However, an Associated Press analysis gave conclusions with a surprising twist: 
 
 In this project, we focused on top battleground states (Florida, Pennsylvania, Wisconsin, North Carolina, Michigan, Ohio, Minnesota, Iowa, Arizona, Nevada, Texas, Georgia, Virginia, New Hampshire, Maine,Colorado and New Mexico)
 
-We used [2020 presidential poll](https://www.realclearpolitics.com/), [mail-in vote data](https://electproject.github.io/) and [COVID-19 data](http://covidtracking.com/data/) to examine the relationship between COVID-19 and poll data.
+We used [2016 & 2020 presidential poll](https://www.realclearpolitics.com/), [mail-in vote data](https://electproject.github.io/) and [COVID-19 data](http://covidtracking.com/data/) to examine the relationship between COVID-19 and poll data.
 
 We have provided insights on the following topics:
 
