@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Supporting Rate Comparison</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/sandstone.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="site_libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="site_libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 61px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h2 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h3 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h4 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h5 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h6 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Home</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="regression.html">regression</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Supporting Rate Comparison</h1>
+
+</div>
+
+
+<p><br />
+</p>
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<hr />
+<p>In the supporting rate comparison analysis, we compared the supporting rate of Democratic Party and the Republican Party in 17 battleground states in 2016 and 2020. The 17 Battleground states include Florida, Pennsylvania, Wisconsin,North Carolina, Michigan, Ohio, Minnesota, Iowa, Arizona, Nevada, Texas, Georgia, Virginia, New Hampshire Maine, Colorado, and New Mexico.</p>
+<p>In 2016, 7 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates. In 2020, 12 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates. We observed that in each of the battleground states, the difference between Democratic supporting rate and Republican supporting rate has increased, except Florida and Ohio.</p>
+<p>Relevant bar plots and table are attached.</p>
+<p><br />
+</p>
+</div>
+<div id="research-question" class="section level1">
+<h1>Research question</h1>
+<hr />
+<p>In this part, we aimed to compare the supporting rates of two different parties in 17 key states in 2016 and 2020.</p>
+<p>We made a bar plot for each year, comparing supporting rates of two parties in 17 key states. In addition, we calculated the differences of supporting rates in each state in each year and studied how much the Democratic led in each election.</p>
+<p><br />
+</p>
+</div>
+<div id="results" class="section level1">
+<h1>Results</h1>
+<hr />
+<pre class="r"><code>plot16</code></pre>
+<div id="htmlwidget-c07dd10109514786577a" style="width:90%;height:345.6px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c07dd10109514786577a">{"x":{"data":[{"orientation":"v","width":[0.9,0.899999999999999,0.899999999999999,0.899999999999999,0.9,0.899999999999999,0.9,0.9,0.899999999999999,0.899999999999999,0.9,0.899999999999999,0.899999999999999,0.9,0.9,0.899999999999999,0.899999999999999],"base":[48.6,48.2,47.2,49.9,47.3,51.3,51.2,48.1,45.5,52.2,50.5,44.4,46.5,44.9,43.3,40,44.9],"x":[3,14,17,12,7,13,5,1,9,15,4,16,10,6,2,11,8],"y":[47.4,47.5,46.5,46.2,47,43.2,41.7,44.6,47.9,43.2,45.4,49.8,46.8,47.8,48.2,48.3,46.4],"text":["state: florida<br />rate: 47.4<br />party: dem","state: pennsylvania<br />rate: 47.5<br />party: dem","state: wisconsin<br />rate: 46.5<br />party: dem","state: north_carolina<br />rate: 46.2<br />party: dem","state: michigan<br />rate: 47.0<br />party: dem","state: ohio<br />rate: 43.2<br />party: dem","state: iowa<br />rate: 41.7<br />party: dem","state: arizona<br />rate: 44.6<br />party: dem","state: nevada<br />rate: 47.9<br />party: dem","state: texas<br />rate: 43.2<br />party: dem","state: georgia<br />rate: 45.4<br />party: dem","state: virginia<br />rate: 49.8<br />party: dem","state: new_hampshire<br />rate: 46.8<br />party: dem","state: maine<br />rate: 47.8<br />party: dem","state: colorado<br />rate: 48.2<br />party: dem","state: new_mexico<br />rate: 48.3<br />party: dem","state: minnesota<br />rate: 46.4<br />party: dem"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(68,1,84,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"dem","legendgroup":"dem","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.9,0.899999999999999,0.899999999999999,0.899999999999999,0.9,0.899999999999999,0.9,0.9,0.899999999999999,0.899999999999999,0.9,0.899999999999999,0.899999999999999,0.9,0.9,0.899999999999999,0.899999999999999],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[3,14,17,12,7,13,5,1,9,15,4,16,10,6,2,11,8],"y":[48.6,48.2,47.2,49.9,47.3,51.3,51.2,48.1,45.5,52.2,50.5,44.4,46.5,44.9,43.3,40,44.9],"text":["state: florida<br />rate: 48.6<br />party: rep","state: pennsylvania<br />rate: 48.2<br />party: rep","state: wisconsin<br />rate: 47.2<br />party: rep","state: north_carolina<br />rate: 49.9<br />party: rep","state: michigan<br />rate: 47.3<br />party: rep","state: ohio<br />rate: 51.3<br />party: rep","state: iowa<br />rate: 51.2<br />party: rep","state: arizona<br />rate: 48.1<br />party: rep","state: nevada<br />rate: 45.5<br />party: rep","state: texas<br />rate: 52.2<br />party: rep","state: georgia<br />rate: 50.5<br />party: rep","state: virginia<br />rate: 44.4<br />party: rep","state: new_hampshire<br />rate: 46.5<br />party: rep","state: maine<br />rate: 44.9<br />party: rep","state: colorado<br />rate: 43.3<br />party: rep","state: new_mexico<br />rate: 40.0<br />party: rep","state: minnesota<br />rate: 44.9<br />party: rep"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(253,231,37,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"rep","legendgroup":"rep","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.7625570776256,"r":7.30593607305936,"b":110.319634703196,"l":43.1050228310502},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Supporting rate in 2016","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,17.6],"tickmode":"array","ticktext":["arizona","colorado","florida","georgia","iowa","maine","michigan","minnesota","nevada","new_hampshire","new_mexico","north_carolina","ohio","pennsylvania","texas","virginia","wisconsin"],"tickvals":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"categoryorder":"array","categoryarray":["arizona","colorado","florida","georgia","iowa","maine","michigan","minnesota","nevada","new_hampshire","new_mexico","north_carolina","ohio","pennsylvania","texas","virginia","wisconsin"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-90,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"State","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-4.805,100.905],"tickmode":"array","ticktext":["0","25","50","75","100"],"tickvals":[0,25,50,75,100],"categoryorder":"array","categoryarray":["0","25","50","75","100"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"Rate","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"y":0.96751968503937},"annotations":[{"text":"party","x":1.02,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"left","yanchor":"bottom","legendTitle":true}],"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"5ff819de4aac":{"x":{},"y":{},"fill":{},"type":"bar"}},"cur_data":"5ff819de4aac","visdat":{"5ff819de4aac":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p>According to plot above, in 2016, 7 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates, including Colorado, Maine, Minnesota, Nevada, New Hampshire, New Mexico, and Virginia.</p>
+<pre class="r"><code>plot20</code></pre>
+<div id="htmlwidget-3a04803f60ff378d4436" style="width:90%;height:345.6px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3a04803f60ff378d4436">{"x":{"data":[{"orientation":"v","width":[0.9,0.899999999999999,0.899999999999999,0.899999999999999,0.9,0.899999999999999,0.899999999999999,0.9,0.9,0.899999999999999,0.899999999999999,0.9,0.899999999999999,0.899999999999999,0.9,0.9,0.899999999999999],"base":[51.2,48.8,48.9,50,47.8,53.4,45.4,53.2,49.1,47.5,52.2,49.2,44.6,45.6,44.2,41.9,43.6],"x":[3,14,17,12,7,13,8,5,1,9,15,4,16,10,6,2,11],"y":[47.9,50,49.6,48.7,50.6,45.2,52.6,45,49.4,50.2,46.4,49.5,54,52.8,52.9,55.4,54.2],"text":["state: florida<br />rate: 47.9<br />party: dem","state: pennsylvania<br />rate: 50.0<br />party: dem","state: wisconsin<br />rate: 49.6<br />party: dem","state: north_carolina<br />rate: 48.7<br />party: dem","state: michigan<br />rate: 50.6<br />party: dem","state: ohio<br />rate: 45.2<br />party: dem","state: minnesota<br />rate: 52.6<br />party: dem","state: iowa<br />rate: 45.0<br />party: dem","state: arizona<br />rate: 49.4<br />party: dem","state: nevada<br />rate: 50.2<br />party: dem","state: texas<br />rate: 46.4<br />party: dem","state: georgia<br />rate: 49.5<br />party: dem","state: virginia<br />rate: 54.0<br />party: dem","state: new_hampshire<br />rate: 52.8<br />party: dem","state: maine<br />rate: 52.9<br />party: dem","state: colorado<br />rate: 55.4<br />party: dem","state: new_mexico<br />rate: 54.2<br />party: dem"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(68,1,84,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"dem","legendgroup":"dem","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.9,0.899999999999999,0.899999999999999,0.899999999999999,0.9,0.899999999999999,0.899999999999999,0.9,0.9,0.899999999999999,0.899999999999999,0.9,0.899999999999999,0.899999999999999,0.9,0.9,0.899999999999999],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[3,14,17,12,7,13,8,5,1,9,15,4,16,10,6,2,11],"y":[51.2,48.8,48.9,50,47.8,53.4,45.4,53.2,49.1,47.5,52.2,49.2,44.6,45.6,44.2,41.9,43.6],"text":["state: florida<br />rate: 51.2<br />party: rep","state: pennsylvania<br />rate: 48.8<br />party: rep","state: wisconsin<br />rate: 48.9<br />party: rep","state: north_carolina<br />rate: 50.0<br />party: rep","state: michigan<br />rate: 47.8<br />party: rep","state: ohio<br />rate: 53.4<br />party: rep","state: minnesota<br />rate: 45.4<br />party: rep","state: iowa<br />rate: 53.2<br />party: rep","state: arizona<br />rate: 49.1<br />party: rep","state: nevada<br />rate: 47.5<br />party: rep","state: texas<br />rate: 52.2<br />party: rep","state: georgia<br />rate: 49.2<br />party: rep","state: virginia<br />rate: 44.6<br />party: rep","state: new_hampshire<br />rate: 45.6<br />party: rep","state: maine<br />rate: 44.2<br />party: rep","state: colorado<br />rate: 41.9<br />party: rep","state: new_mexico<br />rate: 43.6<br />party: rep"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(253,231,37,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"rep","legendgroup":"rep","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.7625570776256,"r":7.30593607305936,"b":110.319634703196,"l":43.1050228310502},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Supporting rate in 2020","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,17.6],"tickmode":"array","ticktext":["arizona","colorado","florida","georgia","iowa","maine","michigan","minnesota","nevada","new_hampshire","new_mexico","north_carolina","ohio","pennsylvania","texas","virginia","wisconsin"],"tickvals":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"categoryorder":"array","categoryarray":["arizona","colorado","florida","georgia","iowa","maine","michigan","minnesota","nevada","new_hampshire","new_mexico","north_carolina","ohio","pennsylvania","texas","virginia","wisconsin"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-90,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"State","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-4.955,104.055],"tickmode":"array","ticktext":["0","25","50","75","100"],"tickvals":[0,25,50,75,100],"categoryorder":"array","categoryarray":["0","25","50","75","100"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"Rate","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"y":0.96751968503937},"annotations":[{"text":"party","x":1.02,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"left","yanchor":"bottom","legendTitle":true}],"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"5ff825bb3e39":{"x":{},"y":{},"fill":{},"type":"bar"}},"cur_data":"5ff825bb3e39","visdat":{"5ff825bb3e39":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p>In 2020, 12 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates, including Arizona, Colorado, Georgia, Maine, Michigan, Minnesota, Nevada, New Hampshire, New Mexico, Pennsylvania, Virginia, and Wisconsin.</p>
+<p>Compared to 2016, new blue states included Arizona, Georgia, Michigan, Pennsylvania, and Wisconsin.</p>
+<pre class="r"><code>knitr::kable(table_df)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">state</th>
+<th align="right">dem_rep_difference_16</th>
+<th align="right">dem_rep_difference_20</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">arizona</td>
+<td align="right">-3.5</td>
+<td align="right">0.3</td>
+</tr>
+<tr class="even">
+<td align="left">colorado</td>
+<td align="right">4.9</td>
+<td align="right">13.5</td>
+</tr>
+<tr class="odd">
+<td align="left">florida</td>
+<td align="right">-1.2</td>
+<td align="right">-3.3</td>
+</tr>
+<tr class="even">
+<td align="left">georgia</td>
+<td align="right">-5.1</td>
+<td align="right">0.3</td>
+</tr>
+<tr class="odd">
+<td align="left">iowa</td>
+<td align="right">-9.5</td>
+<td align="right">-8.2</td>
+</tr>
+<tr class="even">
+<td align="left">maine</td>
+<td align="right">2.9</td>
+<td align="right">8.7</td>
+</tr>
+<tr class="odd">
+<td align="left">michigan</td>
+<td align="right">-0.3</td>
+<td align="right">2.8</td>
+</tr>
+<tr class="even">
+<td align="left">minnesota</td>
+<td align="right">1.5</td>
+<td align="right">7.2</td>
+</tr>
+<tr class="odd">
+<td align="left">nevada</td>
+<td align="right">2.4</td>
+<td align="right">2.7</td>
+</tr>
+<tr class="even">
+<td align="left">new_hampshire</td>
+<td align="right">0.3</td>
+<td align="right">7.2</td>
+</tr>
+<tr class="odd">
+<td align="left">new_mexico</td>
+<td align="right">8.3</td>
+<td align="right">10.6</td>
+</tr>
+<tr class="even">
+<td align="left">north_carolina</td>
+<td align="right">-3.7</td>
+<td align="right">-1.3</td>
+</tr>
+<tr class="odd">
+<td align="left">ohio</td>
+<td align="right">-8.1</td>
+<td align="right">-8.2</td>
+</tr>
+<tr class="even">
+<td align="left">pennsylvania</td>
+<td align="right">-0.7</td>
+<td align="right">1.2</td>
+</tr>
+<tr class="odd">
+<td align="left">texas</td>
+<td align="right">-9.0</td>
+<td align="right">-5.8</td>
+</tr>
+<tr class="even">
+<td align="left">virginia</td>
+<td align="right">5.4</td>
+<td align="right">9.4</td>
+</tr>
+<tr class="odd">
+<td align="left">wisconsin</td>
+<td align="right">-0.7</td>
+<td align="right">0.7</td>
+</tr>
+</tbody>
+</table>
+<p>The table above calculated the differences between Democratic supporting rates and Republican supporting rates (dem - rep) in 2016 and 2020.</p>
+<p>We observed that in each of the battleground states, the difference between Democratic supporting rate and Republican supporting rate has increased, except Florida and Ohio. This result represents that the extent of how much the Democrat led has increased in 15 of the 17 key states.</p>
+<p><br />
+</p>
+</div>
+<div id="discussion" class="section level1">
+<h1>Discussion</h1>
+<hr />
+<p>In 2016, only 7 of the 17 battleground states were blue states, which supported the Democratic party. However, in 2020, 12 of the 17 battleground states were blue states. Five new blue states included Arizona, Georgia, Michigan, Pennsylvania, and Wisconsin.</p>
+<p>Of all the 17 states, we observed an increase in the extent of how much Democrat led in 15 states. Only Florida and Ohio had their Republican supporting rates increased in 2020.</p>
+<p>Based on the analysis above, we could figure out that since the Democratic party led in most of the battleground states, it is reasonable to predict and understand why the Democratic would win.</p>
+<p><br />
+</p>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<hr />
+<p>In the supporting rate comparison analysis, we compared the supporting rate of Democratic Party and the Republican Party in 17 battleground states in 2016 and 2020. Bar plots for 2016 and 2020, and a table comparing the differences of supporting rates in each state were developed.</p>
+<p>In 2016, 7 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates. In 2020, 12 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates. We observed that in each of the battleground states, the difference between Democratic supporting rate and Republican supporting rate has increased, except Florida and Ohio.</p>
+<p>Overall, larger proportions of people in these battleground states supported the Democratic party in 2020, compared to 2016.</p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,191 @@
+---
+title: "Supporting Rate Comparison"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    code_folding: hide
+---
+```{r setup, include=FALSE}
+# Set up
+library(tidyverse)
+library(ggplot2)
+library(rvest)
+library(patchwork)
+library(plotly)
+
+knitr::opts_chunk$set(
+  fig.width = 6,
+  fig.asp = .6,
+  out.width = "90%"
+)
+
+theme_set(theme_minimal() + theme(legend.position = "bottom"))
+
+options(
+  ggplot2.continuous.colour = "viridis",
+  ggplot2.continuous.fill = "viridis"
+)
+
+scale_colour_discrete = scale_colour_viridis_d
+scale_fill_discrete = scale_fill_viridis_d
+
+# Read in 2016 dataset
+
+support2016_df =
+  read_csv("data/state_poll_16.csv") %>%
+  select(state, poll, clinton, trump) %>%
+  filter(poll=="Final Results") %>%
+  mutate(year = "2016", dem = clinton, rep = trump) %>%
+  select(state, year, dem, rep) %>%
+  pivot_longer(
+    dem:rep,
+    names_to="party",
+    values_to="rate")
+
+# Create 2016 plot
+
+plot16 = 
+  support2016_df %>%
+  ggplot(aes(x = state, y = rate, fill = party)) +
+  geom_bar(stat="identity") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
+  labs(
+  title = "Supporting rate in 2016",
+  x = "State",
+  y = "Rate",
+  caption = "Data from 'https://www.realclearpolitics.com/epolls/2016/president'"
+  )
+plot16 =  ggplotly(plot16)
+
+# Read in 2020 dataset
+
+support2020_df =
+  read_csv("data/state_poll_20.csv") %>%
+  select(state, poll, biden, trump) %>%
+  filter(poll=="Final Results") %>%
+  mutate(year = "2020", dem = biden, rep = trump) %>%
+  select(state, year, dem, rep) %>%
+  pivot_longer(
+    dem:rep,
+    names_to="party",
+    values_to="rate")
+
+# Create 2020 plot
+
+plot20 = 
+  support2020_df %>%
+  ggplot(aes(x = state, y = rate, fill = party)) +
+  geom_bar(stat="identity") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
+  labs(
+  title = "Supporting rate in 2020",
+  x = "State",
+  y = "Rate",
+  caption = "Data from 'https://www.realclearpolitics.com/epolls/2020/president'"
+  )
+plot20 =  ggplotly(plot20)
+
+# Calculate the supporting rate difference in 17 states in 2016 and 2020
+
+support2016_df2 =
+  read_csv("data/state_poll_16.csv") %>%
+  select(state, poll, clinton, trump) %>%
+  filter(poll=="Final Results") %>%
+  mutate(
+    dem_rep_difference_16 = clinton - trump
+  ) %>%
+  select(state, dem_rep_difference_16)
+
+support2020_df2 =
+  read_csv("data/state_poll_20.csv") %>%
+  select(state, poll, biden, trump) %>%
+  filter(poll=="Final Results") %>%
+  mutate(
+    dem_rep_difference_20 = biden - trump) %>%
+  select(state, dem_rep_difference_20)
+
+comparison_df = 
+  merge(support2016_df2, support2020_df2, by = "state")
+
+table_df = 
+  tibble(
+    state = comparison_df$state,
+    dem_rep_difference_16 = comparison_df$dem_rep_difference_16,
+    dem_rep_difference_20 = comparison_df$dem_rep_difference_20,
+  )
+```
+
+\
+
+# Overview
+
+***
+
+In the supporting rate comparison analysis, we compared the supporting rate of Democratic Party and the Republican Party in 17 battleground states in 2016 and 2020. The 17 Battleground states include Florida, Pennsylvania, Wisconsin,North Carolina, Michigan, Ohio, Minnesota, Iowa, Arizona, Nevada, Texas, Georgia, Virginia, New Hampshire Maine, Colorado, and New Mexico. 
+
+In 2016, 7 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates. In 2020, 12 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates. We observed that in each of the battleground states, the difference between Democratic supporting rate and Republican supporting rate has increased, except Florida and Ohio. 
+
+Relevant bar plots and table are attached.
+
+\
+
+# Research question
+
+***
+
+In this part, we aimed to compare the supporting rates of two different parties in 17 key states in 2016 and 2020. 
+
+We made a bar plot for each year, comparing supporting rates of two parties in 17 key states. In addition, we calculated the differences of supporting rates in each state in each year and studied how much the Democratic led in each election.
+
+\
+
+# Results
+
+***
+
+```{r}
+plot16
+```
+
+According to plot above, in 2016, 7 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates, including Colorado, Maine, Minnesota, Nevada, New Hampshire, New Mexico, and Virginia.
+
+```{r}
+plot20
+```
+
+In 2020, 12 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates, including Arizona, Colorado, Georgia, Maine, Michigan, Minnesota, Nevada, New Hampshire, New Mexico, Pennsylvania, Virginia, and Wisconsin. 
+
+Compared to 2016, new blue states included Arizona, Georgia, Michigan, Pennsylvania, and Wisconsin.
+
+```{r}
+knitr::kable(table_df)
+```
+
+The table above calculated the differences between Democratic supporting rates and Republican supporting rates (dem - rep) in 2016 and 2020. 
+
+We observed that in each of the battleground states, the difference between Democratic supporting rate and Republican supporting rate has increased, except Florida and Ohio. This result represents that the extent of how much the Democrat led has increased in 15 of the 17 key states.
+
+\
+
+# Discussion
+
+***
+
+In 2016, only 7 of the 17 battleground states were blue states, which supported the Democratic party. However, in 2020, 12 of the 17 battleground states were blue states. Five new blue states included Arizona, Georgia, Michigan, Pennsylvania, and Wisconsin. 
+
+Of all the 17 states, we observed an increase in the extent of how much Democrat led in 15 states. Only Florida and Ohio had their Republican supporting rates increased in 2020.
+
+Based on the analysis above, we could figure out that since the Democratic party led in most of the battleground states, it is reasonable to predict and understand why the Democratic would win.
+
+\
+
+# Conclusion
+
+***
+
+In the supporting rate comparison analysis, we compared the supporting rate of Democratic Party and the Republican Party in 17 battleground states in 2016 and 2020. Bar plots for 2016 and 2020, and a table comparing the differences of supporting rates in each state were developed.
+
+In 2016, 7 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates. In 2020, 12 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates. We observed that in each of the battleground states, the difference between Democratic supporting rate and Republican supporting rate has increased, except Florida and Ohio. 
+
+Overall, larger proportions of people in these battleground states supported the Democratic party in 2020, compared to 2016.

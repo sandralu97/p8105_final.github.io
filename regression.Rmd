@@ -90,9 +90,9 @@ poll_covid_df =
 
 In the regression analysis, we found that Biden's supporting rate in the seventeen battlegrounds states reported by all opinion polls slightly decreased as the COVID-19 pandemic progress, suggesting that Trump was more somewhat "benefiting" from COVID-19. This could be due to the **"rally round the flag" effect**, which illustrates the phenomenon that there is a short-term surge of voter approval of present nation leader during a crisis or emergency situation.
 
-The 17 Battleground states include Florida, Pennsylvania, Wisconsin,North Carolina, Michigan, Ohio, Minnesota, Iowa, Arizonam, Nevada, Texas, Georgia, Virginia, New Hampshirem Maine, Colorado, and New Mexico. 
+The 17 Battleground states include Florida, Pennsylvania, Wisconsin,North Carolina, Michigan, Ohio, Minnesota, Iowa, Arizona, Nevada, Texas, Georgia, Virginia, New Hampshire, Maine, Colorado, and New Mexico. 
 
-Visualization of the change in COVID status and supporting rates  over time for each state can be checked [here]().
+Visualization of the change in COVID status and supporting rates over time for each state can be checked [here]().
 
 \
 
