@@ -1,0 +1,29 @@
+state,party,returned_ballots,freq_distribution,requested_ballots,return_rate
+florida,Democrats,"2,146,654",45.3,"2,687,604",79.9
+florida,Republicans,"1,472,826",31.1,"1,875,245",78.5
+florida,Minor,"63,488",1.3,"83,237",76.3
+florida,No Party Affiliation,"1,054,572",22.3,"1,365,422",77.2
+florida,TOTAL,"4,737,540",100,"6,011,508",78.8
+pennsylvania,Democrats,"1,694,719",64.8,"1,945,499",87.1
+pennsylvania,Republicans,"620,282",23.7,"787,752",78.7
+pennsylvania,Minor,"19,873",0.8,"25,496",77.9
+pennsylvania,No Party Affiliation,"280,171",10.7,"337,321",83.1
+pennsylvania,TOTAL,"2,615,045",100,"3,096,068",84.5
+north_carolina,Democrats,"438,250",44.8,"669,285",65.5
+north_carolina,Republicans,"201,169",20.6,"288,393",69.8
+north_carolina,Minor,"5,286",0.5,"8,286",63.8
+north_carolina,No Party Affiliation,"332,481",34,"490,050",67.8
+north_carolina,TOTAL,"977,186",100,"1,456,014",67.1
+iowa,Democrats,"449,290",45.1,"462,222",97.2
+iowa,Republicans,"331,802",33.3,"341,866",97.1
+iowa,Minor,"4,889",0.5,"5,186",94.3
+iowa,No Party Affiliation,"211,000",21.2,"221,085",95.4
+iowa,TOTAL,"996,981",100,"1,030,359",96.8
+arizona,Democrats,"923,805",37.4,"1,206,522",76.6
+arizona,Republicans,"914,172",37,"1,238,488",73.8
+arizona,Minor/No Party Affiliation,"633,600",25.6,"1,003,171",63.2
+arizona,TOTAL,"2,471,577",100,"3,448,181",71.7
+nevada,Democrats,"279,847",48.3,"667,100",41.9
+nevada,Republicans,"149,868",25.9,"568,785",26.3
+nevada,No Party Affiliation/Minor,"149,838",25.9,"533,109",28.1
+nevada,TOTAL,"579,553",100,"1,768,994",32.8
