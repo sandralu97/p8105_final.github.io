@@ -3,14 +3,8 @@ output_dir: "."
 navbar:
   title: "Home"
   left:
-    - text: "Opinion Poll"
-      href: time_trend.html
     - text: "regression"
       href: regression.html
-    - text: "Mail-in"
-      href: Mailin.html
-    - text: "2020 vs 2016"
-      href: compare.html
 output:
   html_document:
     theme: sandstone

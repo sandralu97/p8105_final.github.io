@@ -367,6 +367,90 @@ div.tocify {
 </div>
 
 
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
+## ✓ tibble  3.0.3     ✓ dplyr   1.0.2
+## ✓ tidyr   1.1.2     ✓ stringr 1.4.0
+## ✓ readr   1.3.1     ✓ forcats 0.5.0</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(httr)
+library(lubridate)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;lubridate&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     date, intersect, setdiff, union</code></pre>
+<pre class="r"><code># setting
+theme_set(theme_minimal() + theme(legend.position = &quot;bottom&quot;))
+
+options(
+  ggplot2.continuous.colour = &quot;viridis&quot;,
+  ggplot2.continuous.fill = &quot;viridis&quot;,
+  digits = 4
+)
+
+scale_colour_discrete = scale_color_viridis_d
+scale_fill_discrete = scale_fill_viridis_d
+
+# Read data
+covid_df = read.csv(&quot;./data/covid.csv&quot;) 
+poll_df = read_csv(&quot;./data/state_poll_20.csv&quot;) %&gt;% 
+  drop_na() </code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   state = col_character(),
+##   poll = col_character(),
+##   start_date = col_date(format = &quot;&quot;),
+##   end_date = col_date(format = &quot;&quot;),
+##   biden = col_double(),
+##   trump = col_double(),
+##   biden_lead = col_double()
+## )</code></pre>
+<pre class="r"><code>covid_df = covid_df %&gt;% mutate(
+  date = as.Date(date)
+)
+
+
+# function that outputs covid df in the interval
+
+match = function(interval, state_name) {
+  covid_df %&gt;%
+    filter(state == state_name) %&gt;% 
+    mutate(logic = date %within% interval) %&gt;% 
+    filter(logic == TRUE)
+}
+
+# function that generates means of case, death, postive increase, and death increase
+
+mean_value = function(df){
+  tibble(
+    mean_case = mean(df$total_case),
+    mean_death = mean(df$death),
+    mean_pos_increase = mean(df$positive_increase),
+    mean_death_increase = mean(df$death_increase),
+  ) 
+}
+
+# Create the regression df
+
+poll_covid_df = 
+  poll_df %&gt;% 
+  mutate(
+    interval = interval(ymd(start_date), ymd(end_date)),
+    covid_list = map2(.x = interval, .y = state, ~ match(.x, .y)),
+    mean_outputs = map(.x = covid_list, ~ mean_value(.x))
+  ) %&gt;% 
+  select(state, biden, biden_lead, mean_outputs) %&gt;% 
+  unnest(mean_outputs) 
+
+poll_covid_df =
+  poll_covid_df %&gt;% 
+  mutate(
+    id = min_rank(state)
+  )</code></pre>
 <p><br />
 </p>
 <div id="overview" class="section level1">
@@ -387,6 +471,11 @@ div.tocify {
 <ul>
 <li><code>biden_lead</code> the difference between the supporting rate of Biden and Trump during the poll survey period</li>
 </ul>
+<pre class="r"><code># Distribution of Outcome: How much Biden leads
+
+ggplot(data = poll_covid_df, aes(x = biden_lead)) +
+  geom_density()</code></pre>
+<p><img src="regression_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p><br />
 </p>
 </div>
