@@ -10,13 +10,29 @@ output:
 # Motivation
 ***
 
+* In a pre-election poll, only 37% of Americans said the country is on the right track.
 
+* In the 2020 presidential election, COVID-19 has been one of the key issue directing people's choice.
 
+* Among those who considered coronavirus pandemic as the most mattered issue, 81% voted Biden while only 15% voted Trump.
 
+* However, there is also report stating that in places where the virus is most rampant now, Trump enjoyed enormous support.
+
+* Many voters who voted Trump 2016 said they are turning to Biden this year 
 
 
 
 # Related work
+***
+The following are resources that inspire our work:
+
+* [National Exit Polls: How Different Groups Voted](https://www.nytimes.com/interactive/2020/11/03/us/elections/exit-polls-president.html)
+
+*[Analysis: Counties with the worst virus surges overwhelmingly voted for Trump](https://www.kxnet.com/news/national-news/counties-with-the-worst-virus-surges-overwhelmingly-voted-for-trump/)
+
+*[Counties with worst COVID-19 surges overwhelmingly voted Trump in 2020 presidential election](https://abc11.com/politics/counties-with-worst-covid-19-surges-overwhelmingly-voted-trump/7683127/)
+
+*[Voter Survey: U.S. Is On Wrong Track, COVID-19 Not Under Control](https://www.npr.org/2020/11/03/930956115/voter-survey-u-s-is-on-wrong-track-covid-19-not-under-control)
 
 # Initial questions
 
