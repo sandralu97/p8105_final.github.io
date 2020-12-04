@@ -33,6 +33,7 @@ covid_df = covid_df %>% mutate(
   date = as.Date(date)
 )
 
+
 # function that outputs covid df in the interval
 
 match = function(interval, state_name) {
