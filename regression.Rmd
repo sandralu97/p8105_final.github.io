@@ -252,9 +252,9 @@ model_case %>%
     models = map(models,broom::tidy)
   ) %>% 
   select(-data) %>% 
-  unnest(models) %>% knitr::kable()
+  unnest(models) %>% knitr::kable(digits = 5)
 
-nest_lm_case
+
 ```
 
 
