@@ -393,14 +393,16 @@ div.tocify {
 <hr />
 <p>In this part, we aimed to examine the relationship between COVID-19 case / death rate and presidential poll by different battleground states. Since the COVID-19 statistics was a longitudinal measurement over time, generalized estimating equations (GEE) model was used to account for correlated data within each state.</p>
 <p> </p>
-<div id="distribution-of-outcome-bidens-spread-of-points-over-trump" class="section level2">
-<h2>Distribution of Outcome: Biden’s spread of points over Trump</h2>
+<div id="distribution-of-outcome-bidens-lead-over-trump" class="section level2">
+<h2>Distribution of Outcome: Biden’s lead over Trump</h2>
 <ul>
-<li><code>biden_lead</code> the difference between the supporting rate of Biden and Trump during the poll survey period</li>
+<li><code>biden_lead</code>: the difference between the supporting rate of Biden and Trump during the poll survey period</li>
 </ul>
+<p>The following density plot shows the distribution of <code>biden_lead</code>, which is approximately normal.</p>
 <pre class="r"><code>ggplot(data = poll_covid_df, aes(x = biden_lead)) +
-  geom_density()</code></pre>
-<p><img src="regression_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+  geom_density() + 
+  xlab(&quot;Biden&#39;s spread of points over Trump&quot;)</code></pre>
+<p><img src="regression_files/figure-html/unnamed-chunk-2-1.png" width="90%" /></p>
 <p><br />
 </p>
 </div>
@@ -449,17 +451,17 @@ geeglm(biden_lead ~ mean_case,
 <tbody>
 <tr class="odd">
 <td align="left">(Intercept)</td>
-<td align="right">7.3671472</td>
-<td align="right">1.2090030</td>
-<td align="right">37.13162</td>
-<td align="right">0.0000000</td>
+<td align="right">7.36714722</td>
+<td align="right">1.20900298</td>
+<td align="right">37.131625</td>
+<td align="right">0.00000000</td>
 </tr>
 <tr class="even">
 <td align="left">mean_case</td>
-<td align="right">-0.0000082</td>
-<td align="right">0.0000022</td>
-<td align="right">13.53720</td>
-<td align="right">0.0002339</td>
+<td align="right">-0.00000825</td>
+<td align="right">0.00000224</td>
+<td align="right">13.537204</td>
+<td align="right">0.00023388</td>
 </tr>
 </tbody>
 </table>
@@ -495,14 +497,14 @@ poll_covid_df %&gt;%
 <td align="left">(Intercept)</td>
 <td align="right">6.3090212</td>
 <td align="right">1.0659743</td>
-<td align="right">35.02922</td>
+<td align="right">35.029223</td>
 <td align="right">0</td>
 </tr>
 <tr class="even">
 <td align="left">mean_death</td>
 <td align="right">-0.0002885</td>
 <td align="right">0.0000279</td>
-<td align="right">106.93009</td>
+<td align="right">106.930087</td>
 <td align="right">0</td>
 </tr>
 </tbody>
@@ -538,16 +540,16 @@ poll_covid_df %&gt;%
 <tr class="odd">
 <td align="left">(Intercept)</td>
 <td align="right">5.2258382</td>
-<td align="right">1.1113525</td>
-<td align="right">22.1109940</td>
-<td align="right">0.0000026</td>
+<td align="right">1.11135249</td>
+<td align="right">22.11099397</td>
+<td align="right">0.00000257</td>
 </tr>
 <tr class="even">
 <td align="left">mean_pos_increase</td>
 <td align="right">-0.0000642</td>
-<td align="right">0.0001919</td>
-<td align="right">0.1119414</td>
-<td align="right">0.7379446</td>
+<td align="right">0.00019188</td>
+<td align="right">0.11194141</td>
+<td align="right">0.73794461</td>
 </tr>
 </tbody>
 </table>
@@ -581,17 +583,17 @@ poll_covid_df %&gt;%
 <tbody>
 <tr class="odd">
 <td align="left">(Intercept)</td>
-<td align="right">5.3578996</td>
-<td align="right">1.0114180</td>
-<td align="right">28.062593</td>
-<td align="right">0.0000001</td>
+<td align="right">5.35789962</td>
+<td align="right">1.01141798</td>
+<td align="right">28.0625934</td>
+<td align="right">0.00000012</td>
 </tr>
 <tr class="even">
 <td align="left">mean_death_increase</td>
-<td align="right">-0.0108638</td>
-<td align="right">0.0071163</td>
-<td align="right">2.330552</td>
-<td align="right">0.1268569</td>
+<td align="right">-0.01086381</td>
+<td align="right">0.00711627</td>
+<td align="right">2.3305518</td>
+<td align="right">0.12685690</td>
 </tr>
 </tbody>
 </table>
