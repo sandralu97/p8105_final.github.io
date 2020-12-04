@@ -19,7 +19,7 @@ theme_set(theme_minimal() + theme(legend.position = "bottom"))
 knitr::opts_chunk$set(
   fig.width = 6,
   fig.asp = .6,
-  out.width = "80%"
+  out.width = "70%"
 )
 
 options(
@@ -100,7 +100,9 @@ In this part, we aimed to examine the relationship between COVID-19 case / death
 
 \ 
 
-## Distribution of Outcome: Biden's lead over Trump
+# Distribution of Outcome: Biden's lead over Trump
+
+***
 
 * `biden_lead`: the difference between the supporting rate of Biden and Trump during the poll survey period
 
@@ -116,7 +118,9 @@ ggplot(data = poll_covid_df, aes(x = biden_lead)) +
 
 \
 
-## Explainatory variables
+# Explainatory variables
+
+***
 
 * `mean_case` the average number of incremental COVID-19 cases between the poll survey period
 
@@ -210,6 +214,7 @@ poll_covid_df %>%
   knitr::kable()
 ```
 
+\
 
 # Findings
 ***

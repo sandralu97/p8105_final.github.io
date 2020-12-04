@@ -393,8 +393,10 @@ div.tocify {
 <hr />
 <p>In this part, we aimed to examine the relationship between COVID-19 case / death rate and presidential poll by different battleground states. Since the COVID-19 statistics was a longitudinal measurement over time, generalized estimating equations (GEE) model was used to account for correlated data within each state.</p>
 <p> </p>
-<div id="distribution-of-outcome-bidens-lead-over-trump" class="section level2">
-<h2>Distribution of Outcome: Biden’s lead over Trump</h2>
+</div>
+<div id="distribution-of-outcome-bidens-lead-over-trump" class="section level1">
+<h1>Distribution of Outcome: Biden’s lead over Trump</h1>
+<hr />
 <ul>
 <li><code>biden_lead</code>: the difference between the supporting rate of Biden and Trump during the poll survey period</li>
 </ul>
@@ -402,12 +404,13 @@ div.tocify {
 <pre class="r"><code>ggplot(data = poll_covid_df, aes(x = biden_lead)) +
   geom_density() + 
   xlab(&quot;Biden&#39;s lead over Trump (point)&quot;)</code></pre>
-<p><img src="regression_files/figure-html/unnamed-chunk-2-1.png" width="80%" /></p>
+<p><img src="regression_files/figure-html/unnamed-chunk-2-1.png" width="70%" /></p>
 <p><br />
 </p>
 </div>
-<div id="explainatory-variables" class="section level2">
-<h2>Explainatory variables</h2>
+<div id="explainatory-variables" class="section level1">
+<h1>Explainatory variables</h1>
+<hr />
 <ul>
 <li><p><code>mean_case</code> the average number of incremental COVID-19 cases between the poll survey period</p></li>
 <li><p><code>mean_death</code> the average number of incremental COVID-19 death between the poll survey period</p></li>
@@ -416,7 +419,6 @@ div.tocify {
 </ul>
 <p><br />
 </p>
-</div>
 </div>
 <div id="result" class="section level1">
 <h1>Result</h1>
@@ -597,6 +599,8 @@ poll_covid_df %&gt;%
 </tr>
 </tbody>
 </table>
+<p><br />
+</p>
 </div>
 <div id="findings" class="section level1">
 <h1>Findings</h1>
