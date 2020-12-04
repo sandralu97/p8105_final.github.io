@@ -1,0 +1,715 @@
+state,poll,start_date,end_date,biden,trump
+florida,Final Results,NA,NA,47.9,51.2
+florida,RCP Average,2020-10-28,2020-11-02,47.9,47
+florida,FOX 35/InsiderAdvantage*FOX 35*,2020-11-02,2020-11-02,47,48
+florida,Trafalgar Group (R)*Trafalgar (R)*,2020-10-31,2020-11-02,47,49
+florida,CNBC/Change Research (D)CNBC,2020-10-29,2020-11-01,51,48
+florida,Susquehanna*Susquehanna*,2020-10-29,2020-11-01,46,47
+florida,Rasmussen ReportsRasmussen,2020-10-29,2020-10-31,48,47
+florida,QuinnipiacQuinnipiac,2020-10-28,2020-11-01,47,42
+florida,St. Pete PollsSt. Pete Polls,2020-10-29,2020-10-30,49,48
+florida,Reuters/IpsosReuters,2020-10-27,2020-11-01,50,46
+florida,NY Times/Siena*NYT/Siena*,2020-10-27,2020-10-31,47,44
+florida,EmersonEmerson,2020-10-29,2020-10-30,51,45
+florida,The Hill/HarrisXThe Hill,2020-10-26,2020-10-29,50,47
+florida,Trafalgar Group (R)*Trafalgar (R)*,2020-10-25,2020-10-28,47,50
+florida,ABC News/Wash Post*ABC News/Wash Post*,2020-10-24,2020-10-29,48,50
+florida,Monmouth*Monmouth*,2020-10-24,2020-10-28,51,45
+florida,NBC News/MaristNBC/Marist,2020-10-25,2020-10-27,51,47
+florida,QuinnipiacQuinnipiac,2020-10-23,2020-10-27,45,42
+florida,Florida Atlantic UniversityFAU,2020-10-24,2020-10-25,50,48
+florida,Susquehanna*Susquehanna*,2020-10-23,2020-10-25,44,48
+florida,Reuters/IpsosReuters,2020-10-21,2020-10-27,49,47
+florida,CBS News/YouGovCBS News,2020-10-20,2020-10-23,50,48
+florida,Florida St./YouGovFSU,2020-10-16,2020-10-26,48,46
+florida,St. Pete PollsSt. Pete Polls,2020-10-21,2020-10-22,49,47
+florida,Rasmussen ReportsRasmussen,2020-10-20,2020-10-21,46,50
+florida,CNN*CNN*,2020-10-15,2020-10-20,50,46
+florida,CNBC/Change Research (D)CNBC,2020-10-16,2020-10-19,50,45
+florida,Reuters/IpsosReuters,2020-10-14,2020-10-20,50,46
+florida,UNFUNF,2020-10-12,2020-10-16,48,47
+florida,The Hill/HarrisXThe Hill,2020-10-12,2020-10-15,48,48
+florida,Trafalgar Group (R)*Trafalgar (R)*,2020-10-11,2020-10-13,46,48
+florida,St. Pete PollsSt. Pete Polls,2020-10-11,2020-10-12,49,47
+florida,EmersonEmerson,2020-10-10,2020-10-12,50,47
+florida,Reuters/IpsosReuters,2020-10-07,2020-10-14,49,47
+florida,Mason-DixonMason-Dixon,2020-10-08,2020-10-12,48,45
+florida,Florida Atlantic UniversityFAU,2020-10-09,2020-10-10,51,47
+florida,FOX 35/InsiderAdvantage*FOX 35*,2020-10-06,2020-10-07,43,46
+florida,Reuters/IpsosReuters,2020-09-29,2020-10-07,49,45
+florida,CNBC/Change Research (D)CNBC,2020-10-02,2020-10-04,50,46
+florida,QuinnipiacQuinnipiac,2020-10-01,2020-10-05,51,40
+florida,USA Today/Suffolk*USA Today*,2020-10-01,2020-10-04,45,45
+florida,UNFUNF,2020-10-01,2020-10-04,51,45
+florida,NY Times/Siena*NYT/Siena*,2020-09-30,2020-10-01,47,42
+florida,SusquehannaSusquehanna,2020-09-23,2020-09-26,46,43
+florida,St. Pete PollsSt. Pete Polls,2020-09-21,2020-09-22,50,47
+florida,CNBC/Change Research (D)CNBC,2020-09-18,2020-09-20,49,46
+florida,ABC News/Wash PostABC/WP,2020-09-15,2020-09-20,47,51
+florida,CBS News/YouGovCBS News,2020-09-15,2020-09-18,48,46
+florida,Reuters/IpsosReuters,2020-09-11,2020-09-16,47,47
+florida,Florida Atlantic UniversityFAU,2020-09-11,2020-09-12,50,50
+florida,Monmouth*Monmouth*,2020-09-10,2020-09-13,50,45
+florida,St. Pete PollsSt. Pete Polls,2020-09-07,2020-09-08,50,47
+florida,CNBC/Change Research (D)CNBC,2020-09-04,2020-09-06,49,46
+florida,NBC News/MaristNBC/Marist,2020-08-31,2020-09-06,48,48
+florida,Trafalgar Group (R)*Trafalgar (R)*,2020-09-01,2020-09-03,46,49
+florida,QuinnipiacQuinnipiac,2020-08-28,2020-09-01,48,45
+florida,CNBC/Change Research (D)CNBC,2020-08-21,2020-08-23,49,46
+florida,PPP (D)PPP (D),2020-08-21,2020-08-22,48,44
+florida,CNBC/Change Research (D)CNBC,2020-08-07,2020-08-09,50,44
+florida,CNBC/Change Research (D)CNBC,2020-07-24,2020-07-26,48,45
+florida,Mason-DixonMason-Dixon,2020-07-20,2020-07-23,50,46
+florida,CNNCNN,2020-07-18,2020-07-24,51,46
+florida,QuinnipiacQuinnipiac,2020-07-16,2020-07-20,51,38
+florida,St. Pete Polls*St. Pete Polls*,2020-07-13,2020-07-14,50,44
+florida,GravisGravis,2020-07-13,2020-07-13,53,43
+florida,CNBC/Change Research (D)CNBC,2020-07-10,2020-07-12,50,43
+florida,CBS News/YouGovCBS News,2020-07-07,2020-07-10,48,42
+florida,Trafalgar Group (R)Trafalgar,2020-06-29,2020-07-02,46,46
+florida,CNBC/Change Research (D)CNBC,2020-06-26,2020-06-28,50,45
+florida,FOX NewsFOX News,2020-06-20,2020-06-23,49,40
+florida,NY Times/SienaNYT/Siena,2020-06-08,2020-06-18,47,41
+florida,CNBC/Change Research (D)CNBC,2020-06-12,2020-06-14,50,43
+florida,TIPPTIPP,2020-06-09,2020-06-12,51,40
+florida,CNBC/Change Research (D)CNBC,2020-05-29,2020-05-31,48,45
+florida,St. Pete PollsSt. Pete Polls,2020-05-26,2020-05-27,48,47
+florida,Florida Atlantic UniversityFAU,2020-05-08,2020-05-12,53,47
+florida,FOX NewsFOX News,2020-04-18,2020-04-21,46,43
+florida,QuinnipiacQuinnipiac,2020-04-16,2020-04-20,46,42
+florida,St. Pete PollsSt. Pete Polls,2020-04-16,2020-04-17,48,48
+florida,UNFUNF,2020-03-31,2020-04-04,46,40
+florida,UnivisionUnivision,2020-03-06,2020-03-12,45,48
+florida,Florida Atlantic UniversityFAU,2020-03-05,2020-03-07,49,51
+florida,UNFUNF,2020-02-10,2020-02-18,49,48
+florida,Florida Atlantic UniversityFAU,2020-01-09,2020-01-12,51,49
+florida,Mason-DixonMason-Dixon,2020-12-11,2020-12-16,47,45
+florida,NY Times/SienaNYT/Siena,2020-10-13,2020-10-26,46,44
+florida,UNFUNF,2020-10-14,2020-10-18,48,43
+florida,Florida Atlantic UniversityFAU,2020-09-12,2020-09-15,49,50
+florida,St. Pete PollsSt. Pete Polls,2020-06-15,2020-06-16,47,47
+florida,QuinnipiacQuinnipiac,2020-06-12,2020-06-17,50,41
+florida,Florida Atlantic UniversityFAU,2020-05-16,2020-05-19,50,50
+pennsylvania,Final Results,NA,NA,50,48.8
+pennsylvania,RCP Average,2020-10-29,2020-11-02,48.7,47.5
+pennsylvania,Susquehanna*Susquehanna*,2020-11-01,2020-11-02,48,49
+pennsylvania,Rasmussen ReportsRasmussen,2020-10-31,2020-11-01,50,47
+pennsylvania,Trafalgar Group (R)*Trafalgar (R)*,2020-10-30,2020-10-31,46,48
+pennsylvania,NBC News/MaristNBC/Marist,2020-10-29,2020-11-01,51,46
+pennsylvania,InsiderAdvantage*InsiderAdvantage*,2020-10-30,2020-10-31,47,49
+pennsylvania,CNBC/Change Research (D)CNBC,2020-10-29,2020-11-01,50,46
+pennsylvania,Monmouth*Monmouth*,2020-10-28,2020-11-01,51,44
+pennsylvania,EmersonEmerson,2020-10-29,2020-10-30,50,46
+pennsylvania,Reuters/Ipsos*Reuters/Ipsos*,2020-10-27,2020-11-01,51,45
+pennsylvania,NY Times/Siena*NYT/Siena*,2020-10-27,2020-10-31,49,43
+pennsylvania,The Hill/HarrisXThe Hill,2020-10-26,2020-10-29,51,46
+pennsylvania,ABC News/Wash Post*ABC News/Wash Post*,2020-10-24,2020-10-29,51,44
+pennsylvania,Morning CallMorning Call,2020-10-23,2020-10-28,49,44
+pennsylvania,InsiderAdvantage*InsiderAdvantage*,2020-10-25,2020-10-25,46,48
+pennsylvania,Trafalgar Group (R)*Trafalgar (R)*,2020-10-24,2020-10-25,48,48
+pennsylvania,QuinnipiacQuinnipiac,2020-10-23,2020-10-27,51,44
+pennsylvania,Reuters/IpsosReuters,2020-10-20,2020-10-26,50,45
+pennsylvania,Franklin & Marshall*F&M*,2020-10-19,2020-10-25,50,44
+pennsylvania,Rasmussen ReportsRasmussen,2020-10-18,2020-10-19,50,47
+pennsylvania,FOX News*FOX News*,2020-10-17,2020-10-20,50,45
+pennsylvania,CNN*CNN*,2020-10-15,2020-10-20,53,43
+pennsylvania,CNBC/Change Research (D)CNBC,2020-10-16,2020-10-19,49,47
+pennsylvania,QuinnipiacQuinnipiac,2020-10-16,2020-10-19,51,43
+pennsylvania,USA Today/Suffolk*USA Today*,2020-10-15,2020-10-19,49,42
+pennsylvania,U. of Wisconsin/YouGovU. of Wisc.,2020-10-13,2020-10-21,52,44
+pennsylvania,Morning CallMorning Call,2020-10-13,2020-10-20,51,44
+pennsylvania,Reuters/IpsosReuters,2020-10-13,2020-10-19,49,45
+pennsylvania,The Hill/HarrisXThe Hill,2020-10-12,2020-10-15,51,46
+pennsylvania,InsiderAdvantage*InsiderAdvantage*,2020-10-12,2020-10-13,46,43
+pennsylvania,Trafalgar Group (R)*Trafalgar (R)*,2020-10-10,2020-10-12,47,45
+pennsylvania,Reuters/IpsosReuters,2020-10-06,2020-10-11,51,44
+pennsylvania,EmersonEmerson,2020-10-04,2020-10-05,50,45
+pennsylvania,CNBC/Change Research (D)CNBC,2020-10-02,2020-10-04,50,46
+pennsylvania,QuinnipiacQuinnipiac,2020-10-01,2020-10-05,54,41
+pennsylvania,Reuters/IpsosReuters,2020-09-29,2020-10-05,50,45
+pennsylvania,Monmouth*Monmouth*,2020-09-30,2020-10-04,54,43
+pennsylvania,CBS News/YouGovCBS News,2020-09-30,2020-10-02,51,44
+pennsylvania,NY Times/Siena*NYT/Siena*,2020-09-30,2020-10-02,49,42
+pennsylvania,NY Times/SienaNYT/Siena,2020-09-25,2020-09-27,49,40
+pennsylvania,TIPPTIPP,2020-09-24,2020-09-26,50,45
+pennsylvania,ABC News/Wash PostABC/WP,2020-09-21,2020-09-26,54,45
+pennsylvania,FOX NewsFOX News,2020-09-20,2020-09-23,51,44
+pennsylvania,CNBC/Change Research (D)CNBC,2020-09-18,2020-09-20,49,45
+pennsylvania,Trafalgar Group (R)*Trafalgar (R)*,2020-09-15,2020-09-17,47,45
+pennsylvania,Univ. of Wis/YouGovUW/YouGov,2020-09-10,2020-09-21,49,45
+pennsylvania,Franklin & MarshallF&M,2020-09-14,2020-09-20,48,42
+pennsylvania,Reuters/IpsosReuters,2020-09-11,2020-09-16,49,46
+pennsylvania,CNBC/Change Research (D)CNBC,2020-09-04,2020-09-06,50,46
+pennsylvania,NBC News/MaristNBC/Marist,2020-08-31,2020-09-07,53,44
+pennsylvania,SusquehannaSusquehanna,2020-08-26,2020-09-04,44,42
+pennsylvania,Monmouth*Monmouth*,2020-08-28,2020-08-31,49,46
+pennsylvania,QuinnipiacQuinnipiac,2020-08-28,2020-08-31,52,44
+pennsylvania,Rasmussen ReportsRasmussen,2020-08-25,2020-08-27,46,46
+pennsylvania,CNBC/Change Research (D)CNBC,2020-08-21,2020-08-23,49,46
+pennsylvania,Franklin & MarshallF&M,2020-08-17,2020-08-23,49,42
+pennsylvania,Morning CallMorning Call,2020-08-11,2020-08-17,49,45
+pennsylvania,EmersonEmerson,2020-08-08,2020-08-10,52,43
+pennsylvania,CNBC/Change Research (D)CNBC,2020-08-07,2020-08-09,48,44
+pennsylvania,CBS News/YouGovCBS News,2020-08-04,2020-08-07,49,43
+pennsylvania,Univ. of Wis/YouGovUW/YouGov,2020-07-26,2020-08-06,50,41
+pennsylvania,CNBC/Change Research (D)CNBC,2020-07-24,2020-07-26,48,46
+pennsylvania,Franklin & MarshallF&M,2020-07-20,2020-07-26,50,41
+pennsylvania,GravisGravis,2020-07-22,2020-07-24,48,45
+pennsylvania,FOX NewsFOX News,2020-07-18,2020-07-20,50,39
+pennsylvania,Rasmussen ReportsRasmussen,2020-07-15,2020-07-16,51,46
+pennsylvania,CNBC/Change Research (D)CNBC,2020-07-10,2020-07-12,50,42
+pennsylvania,MonmouthMonmouth,2020-07-09,2020-07-13,52,42
+pennsylvania,Trafalgar Group (R)Trafalgar,2020-06-29,2020-07-02,48,43
+pennsylvania,CNBC/Change Research (D)CNBC,2020-06-26,2020-06-28,50,44
+pennsylvania,SusquehannaSusquehanna,2020-06-15,2020-06-23,46,41
+pennsylvania,CNBC/Change Research (D)CNBC,2020-06-12,2020-06-14,49,46
+pennsylvania,NY Times/SienaNYT/Siena,2020-06-08,2020-06-16,50,40
+pennsylvania,CNBC/Change Research (D)CNBC,2020-05-29,2020-05-31,46,50
+pennsylvania,Harper (R)Harper (R),2020-04-21,2020-04-26,49,43
+pennsylvania,FOX NewsFOX News,2020-04-18,2020-04-21,50,42
+pennsylvania,SusquehannaSusquehanna,2020-04-14,2020-04-20,48,42
+pennsylvania,Yahoo News/YouGovYouGov,2020-03-06,2020-03-08,46,40
+pennsylvania,Morning CallMorning Call,2020-02-12,2020-02-20,47,47
+pennsylvania,Univ. of Wis/YouGovUW/YouGov,2020-02-11,2020-02-20,46,45
+pennsylvania,QuinnipiacQuinnipiac,2020-02-12,2020-02-18,50,42
+pennsylvania,Morning CallMorning Call,2020-11-04,2020-11-09,52,43
+pennsylvania,NY Times/SienaNYT/Siena,2020-10-13,2020-10-26,46,45
+pennsylvania,QuinnipiacQuinnipiac,2020-05-09,2020-05-14,53,42
+pennsylvania,EmersonEmerson,2020-03-26,2020-03-28,55,45
+wisconsin,Final Results,NA,NA,49.6,48.9
+wisconsin,RCP Average,2020-10-21,2020-11-01,51,44.3
+wisconsin,CNBC/Change Research (D)CNBC,2020-10-29,2020-11-01,53,45
+wisconsin,Susquehanna*Susquehanna*,2020-10-29,2020-10-31,49,46
+wisconsin,EmersonEmerson,2020-10-29,2020-10-30,53,45
+wisconsin,Reuters/Ipsos*Reuters/Ipsos*,2020-10-27,2020-11-01,53,43
+wisconsin,NY Times/Siena*NYT/Siena*,2020-10-26,2020-10-30,52,41
+wisconsin,Trafalgar Group (R)*Trafalgar (R)*,2020-10-24,2020-10-25,48,47
+wisconsin,CNN*CNN*,2020-10-23,2020-10-30,52,44
+wisconsin,Marquette*Marquette*,2020-10-21,2020-10-25,48,43
+wisconsin,Reuters/IpsosReuters,2020-10-20,2020-10-26,53,44
+wisconsin,ABC News/Wash Post*ABC News/Wash Post*,2020-10-20,2020-10-25,57,40
+wisconsin,FOX News*FOX News*,2020-10-17,2020-10-20,49,44
+wisconsin,Susquehanna*Susquehanna*,2020-10-16,2020-10-19,45,45
+wisconsin,CNBC/Change Research (D)CNBC,2020-10-16,2020-10-19,52,44
+wisconsin,Trafalgar Group (R)*Trafalgar (R)*,2020-10-14,2020-10-16,48,46
+wisconsin,U. of Wisconsin/YouGovU. of Wisc.,2020-10-13,2020-10-21,53,44
+wisconsin,Reuters/IpsosReuters,2020-10-13,2020-10-19,51,43
+wisconsin,CBS News/YouGovCBS News,2020-10-13,2020-10-16,51,46
+wisconsin,Reuters/IpsosReuters,2020-10-06,2020-10-11,51,44
+wisconsin,NY Times/Siena*NYT/Siena*,2020-10-06,2020-10-11,51,41
+wisconsin,CNBC/Change Research (D)CNBC,2020-10-02,2020-10-04,51,44
+wisconsin,Marquette*Marquette*,2020-09-30,2020-10-04,46,41
+wisconsin,Reuters/IpsosReuters,2020-09-29,2020-10-05,50,44
+wisconsin,SusquehannaSusquehanna,2020-09-23,2020-09-26,48,46
+wisconsin,Trafalgar Group (R)*Trafalgar (R)*,2020-09-22,2020-09-24,48,45
+wisconsin,NBC News/MaristNBC/Marist,2020-09-20,2020-09-24,54,44
+wisconsin,CNBC/Change Research (D)CNBC,2020-09-18,2020-09-20,51,42
+wisconsin,Univ. of Wis/YouGovUW/YouGov,2020-09-10,2020-09-21,50,46
+wisconsin,Reuters/IpsosReuters,2020-09-11,2020-09-16,48,43
+wisconsin,ABC News/Wash PostABC/WP,2020-09-08,2020-09-13,52,46
+wisconsin,CNN*CNN*,2020-09-09,2020-09-13,52,42
+wisconsin,NY Times/Siena*NYT/Siena*,2020-09-08,2020-09-10,48,43
+wisconsin,EmersonEmerson,2020-09-06,2020-09-08,51,44
+wisconsin,CNBC/Change Research (D)CNBC,2020-09-04,2020-09-06,50,44
+wisconsin,CBS News/YouGovCBS News,2020-09-02,2020-09-04,50,44
+wisconsin,Rasmussen ReportsRasmussen,2020-09-01,2020-09-02,51,43
+wisconsin,Marquette*Marquette*,2020-08-30,2020-09-03,47,43
+wisconsin,FOX News*FOX News*,2020-08-29,2020-09-01,50,42
+wisconsin,CNBC/Change Research (D)CNBC,2020-08-21,2020-08-23,49,44
+wisconsin,Trafalgar Group (R)*Trafalgar (R)*,2020-08-14,2020-08-23,45,46
+wisconsin,CNBC/Change Research (D)CNBC,2020-08-07,2020-08-09,47,43
+wisconsin,MarquetteMarquette,2020-08-04,2020-08-09,50,46
+wisconsin,CBS News/YouGovCBS News,2020-08-04,2020-08-07,48,42
+wisconsin,Rasmussen ReportsRasmussen,2020-08-05,2020-08-06,55,43
+wisconsin,Univ. of Wis/YouGovUW/YouGov,2020-07-26,2020-08-06,49,43
+wisconsin,CNBC/Change Research (D)CNBC,2020-07-24,2020-07-26,48,43
+wisconsin,GravisGravis,2020-07-22,2020-07-22,50,42
+wisconsin,CNBC/Change Research (D)CNBC,2020-07-10,2020-07-12,48,42
+wisconsin,CNBC/Change Research (D)CNBC,2020-06-26,2020-06-28,51,43
+wisconsin,Trafalgar Group (R)Trafalgar,2020-06-23,2020-06-25,45,46
+wisconsin,MarquetteMarquette,2020-06-14,2020-06-18,49,41
+wisconsin,CNBC/Change Research (D)CNBC,2020-06-12,2020-06-14,48,44
+wisconsin,NY Times/SienaNYT/Siena,2020-06-08,2020-06-15,49,38
+wisconsin,FOX NewsFOX News,2020-05-30,2020-06-02,49,40
+wisconsin,CNBC/Change Research (D)CNBC,2020-05-29,2020-05-31,45,45
+wisconsin,MarquetteMarquette,2020-05-03,2020-05-07,46,43
+wisconsin,MarquetteMarquette,2020-03-24,2020-03-29,48,45
+wisconsin,PPP (D)PPP (D),2020-03-10,2020-03-11,48,45
+wisconsin,Yahoo News/YouGovYouGov,2020-03-06,2020-03-08,44,42
+wisconsin,MarquetteMarquette,2020-02-19,2020-02-23,46,46
+wisconsin,Univ. of Wis/YouGovUW/YouGov,2020-02-11,2020-02-20,45,43
+wisconsin,QuinnipiacQuinnipiac,2020-02-12,2020-02-18,42,49
+wisconsin,MarquetteMarquette,2020-01-08,2020-01-12,49,45
+wisconsin,FOX NewsFOX News,2020-01-05,2020-01-08,46,41
+wisconsin,MarquetteMarquette,2020-12-03,2020-12-08,47,46
+wisconsin,MarquetteMarquette,2020-11-13,2020-11-17,44,47
+wisconsin,NY Times/SienaNYT/Siena,2020-10-13,2020-10-26,46,44
+wisconsin,MarquetteMarquette,2020-10-13,2020-10-17,50,44
+wisconsin,FOX NewsFOX News,2020-09-29,2020-10-02,48,39
+wisconsin,MarquetteMarquette,2020-08-25,2020-08-29,51,42
+wisconsin,EmersonEmerson,2020-03-15,2020-03-17,54,46
+north_carolina,Final Results,NA,NA,48.7,50
+north_carolina,RCP Average,2020-10-26,2020-11-01,47.6,47.8
+north_carolina,InsiderAdvantage*InsiderAdvantage*,2020-10-30,2020-10-31,44,48
+north_carolina,CNBC/Change Research (D)CNBC,2020-10-29,2020-11-01,49,47
+north_carolina,EmersonEmerson,2020-10-29,2020-10-30,47,47
+north_carolina,Reuters/IpsosReuters,2020-10-27,2020-11-01,49,48
+north_carolina,Rasmussen ReportsRasmussen,2020-10-28,2020-10-29,47,48
+north_carolina,Trafalgar Group (R)*Trafalgar (R)*,2020-10-27,2020-10-29,47,49
+north_carolina,The Hill/HarrisXThe Hill,2020-10-26,2020-10-29,49,48
+north_carolina,East Carolina U.ECU,2020-10-27,2020-10-28,49,47
+north_carolina,CNN*CNN*,2020-10-23,2020-10-30,51,45
+north_carolina,NBC News/MaristNBC/Marist,2020-10-25,2020-10-28,52,46
+north_carolina,NY Times/Siena*NYT/Siena*,2020-10-23,2020-10-27,48,45
+north_carolina,WRAL-TV/SurveyUSAWRAL-TV,2020-10-23,2020-10-26,48,48
+north_carolina,Civitas/Harper (R)*Civitas,2020-10-22,2020-10-25,47,46
+north_carolina,Reuters/IpsosReuters,2020-10-21,2020-10-27,49,48
+north_carolina,UMass Lowell*UMass Lowell*,2020-10-20,2020-10-26,48,48
+north_carolina,CBS News/YouGovCBS News,2020-10-20,2020-10-23,51,47
+north_carolina,Trafalgar Group (R)*Trafalgar (R)*,2020-10-20,2020-10-22,46,49
+north_carolina,Rasmussen ReportsRasmussen,2020-10-20,2020-10-21,48,49
+north_carolina,Reuters/IpsosReuters,2020-10-14,2020-10-20,49,46
+north_carolina,CNBC/Change Research (D)CNBC,2020-10-16,2020-10-19,50,47
+north_carolina,East Carolina U.ECU,2020-10-15,2020-10-18,50,47
+north_carolina,EmersonEmerson,2020-10-13,2020-10-14,49,49
+north_carolina,ABC News/Wash Post*ABC News/Wash Post*,2020-10-12,2020-10-17,49,48
+north_carolina,NY Times/Siena*NYT/Siena*,2020-10-09,2020-10-13,46,42
+north_carolina,Reuters/IpsosReuters,2020-10-07,2020-10-13,48,47
+north_carolina,Monmouth*Monmouth*,2020-10-08,2020-10-11,50,46
+north_carolina,WRAL-TV/SurveyUSAWRAL-TV,2020-10-08,2020-10-11,50,45
+north_carolina,SusquehannaSusquehanna,2020-10-07,2020-10-11,48,46
+north_carolina,PPP (D)PPP (D),2020-10-04,2020-10-05,50,46
+north_carolina,East Carolina U.ECU,2020-10-02,2020-10-04,50,46
+north_carolina,CNBC/Change Research (D)CNBC,2020-10-02,2020-10-04,49,47
+north_carolina,Reuters/IpsosReuters,2020-09-29,2020-10-06,47,47
+north_carolina,CBS News/YouGovCBS News,2020-09-22,2020-09-25,48,46
+north_carolina,UMass LowellUMLowell,2020-09-18,2020-09-25,48,49
+north_carolina,CNBC/Change Research (D)CNBC,2020-09-18,2020-09-20,48,46
+north_carolina,Civitas/Harper (R)*Civitas,2020-09-17,2020-09-20,44,45
+north_carolina,EmersonEmerson,2020-09-16,2020-09-18,50,49
+north_carolina,Reuters/IpsosReuters,2020-09-11,2020-09-16,47,47
+north_carolina,NY Times/Siena*NYT/Siena*,2020-09-11,2020-09-16,45,44
+north_carolina,USA Today/Suffolk*USA Today*,2020-09-11,2020-09-14,46,43
+north_carolina,WRAL-TV/SurveyUSAWRAL-TV,2020-09-10,2020-09-13,47,47
+north_carolina,CNN*CNN*,2020-09-09,2020-09-13,49,46
+north_carolina,Trafalgar Group (R)*Trafalgar (R)*,2020-09-09,2020-09-11,46,48
+north_carolina,Rasmussen ReportsRasmussen,2020-09-07,2020-09-08,46,48
+north_carolina,CNBC/Change Research (D)CNBC,2020-09-04,2020-09-06,49,47
+north_carolina,Monmouth*Monmouth*,2020-08-29,2020-09-01,48,46
+north_carolina,FOX News*FOX News*,2020-08-29,2020-09-01,50,46
+north_carolina,East Carolina U.ECU,2020-08-29,2020-08-30,47,49
+north_carolina,CNBC/Change Research (D)CNBC,2020-08-21,2020-08-23,48,47
+north_carolina,East Carolina U.ECU,2020-08-12,2020-08-13,47,47
+north_carolina,EmersonEmerson,2020-08-08,2020-08-10,46,48
+north_carolina,CNBC/Change Research (D)CNBC,2020-08-07,2020-08-09,47,48
+north_carolina,Civitas/Harper (R)*Civitas,2020-08-06,2020-08-10,45,44
+north_carolina,Rasmussen ReportsRasmussen,2020-08-06,2020-08-07,47,48
+north_carolina,CBS News/YouGovCBS News,2020-07-28,2020-07-31,48,44
+north_carolina,CNBC/Change Research (D)CNBC,2020-07-24,2020-07-26,49,46
+north_carolina,NBC News/MaristNBC/Marist,2020-07-14,2020-07-22,51,44
+north_carolina,CNBC/Change Research (D)CNBC,2020-07-10,2020-07-12,47,46
+north_carolina,PPP (D)PPP (D),2020-07-07,2020-07-08,50,46
+north_carolina,CNBC/Change Research (D)CNBC,2020-06-26,2020-06-28,51,44
+north_carolina,East Carolina U.ECU,2020-06-22,2020-06-25,45,44
+north_carolina,PPP (D)PPP (D),2020-06-22,2020-06-23,48,46
+north_carolina,FOX NewsFOX News,2020-06-20,2020-06-23,47,45
+north_carolina,GravisGravis,2020-06-17,2020-06-17,43,46
+north_carolina,CNBC/Change Research (D)CNBC,2020-06-12,2020-06-14,47,45
+north_carolina,NY Times/SienaNYT/Siena,2020-06-08,2020-06-18,49,40
+north_carolina,PPP (D)PPP (D),2020-06-02,2020-06-03,49,45
+north_carolina,CNBC/Change Research (D)CNBC,2020-05-29,2020-05-31,46,45
+north_carolina,Civitas/Harper (R)Civitas,2020-05-26,2020-05-28,44,47
+north_carolina,East Carolina U.ECU,2020-05-07,2020-05-09,43,46
+north_carolina,WRAL-TV/SurveyUSAWRAL-TV,2020-04-23,2020-04-26,50,45
+north_carolina,PPP (D)PPP (D),2020-04-14,2020-04-15,48,47
+north_carolina,Civitas/Harper (R)Civitas,2020-04-05,2020-04-07,42,49
+north_carolina,East Carolina U.ECU,2020-02-27,2020-02-28,48,46
+north_carolina,NBC News/MaristNBC/Marist,2020-02-23,2020-02-27,49,45
+north_carolina,WRAL-TV/SurveyUSAWRAL-TV,2020-02-13,2020-02-16,49,45
+north_carolina,FOX NewsFOX News,2020-11-10,2020-11-13,45,43
+north_carolina,NY Times/SienaNYT/Siena,2020-10-13,2020-10-26,46,48
+north_carolina,East Carolina U.ECU,2020-10-02,2020-10-09,50,46
+north_carolina,PPP (D)PPP (D),2020-10-04,2020-10-06,51,46
+north_carolina,Civitas/SurveyUSACivitas/SurveyUSA,2020-08-01,2020-08-05,49,41
+north_carolina,PPP (D)PPP (D),2020-06-17,2020-06-18,49,46
+north_carolina,EmersonEmerson,2020-05-31,2020-06-03,56,44
+north_carolina,Civitas/Harper (R)Civitas,2020-02-11,2020-02-13,39,43
+north_carolina,PPP (D)PPP (D),2020-01-04,2020-01-07,49,44
+michigan,Final Results,NA,NA,50.6,47.8
+michigan,RCP Average,2020-10-29,2020-11-01,50,45.8
+michigan,Trafalgar Group (R)*Trafalgar (R)*,2020-10-30,2020-10-31,46,48
+michigan,InsiderAdvantage*InsiderAdvantage*,2020-10-30,2020-10-31,49,47
+michigan,CNBC/Change Research (D)CNBC,2020-10-29,2020-11-01,51,44
+michigan,EmersonEmerson,2020-10-29,2020-10-30,52,45
+michigan,Mitchell Research*Mitchell Research*,2020-10-29,2020-10-29,52,45
+michigan,Reuters/IpsosReuters,2020-10-27,2020-11-01,52,42
+michigan,Trafalgar Group (R)*Trafalgar (R)*,2020-10-25,2020-10-28,47,49
+michigan,EPIC-MRAEPIC-MRA,2020-10-25,2020-10-28,48,41
+michigan,CNN*CNN*,2020-10-23,2020-10-30,53,41
+michigan,MIRS/Mitchell Research*MIRS*,2020-10-25,2020-10-27,52,42
+michigan,NY Times/Siena*NYT/Siena*,2020-10-23,2020-10-26,49,41
+michigan,Detroit News/WDIV-TVDetroit News,2020-10-23,2020-10-25,49,42
+michigan,Reuters/IpsosReuters,2020-10-21,2020-10-27,52,43
+michigan,ABC News/Wash Post*ABC News/Wash Post*,2020-10-20,2020-10-25,51,44
+michigan,MIRS/Mitchell Research*MIRS*,2020-10-18,2020-10-18,51,41
+michigan,FOX News*FOX News*,2020-10-17,2020-10-20,52,40
+michigan,Reuters/IpsosReuters,2020-10-14,2020-10-20,51,44
+michigan,CNBC/Change Research (D)CNBC,2020-10-16,2020-10-19,51,44
+michigan,EPIC-MRAEPIC-MRA,2020-10-15,2020-10-19,48,39
+michigan,U. of Wisconsin/YouGovU. of Wisc.,2020-10-13,2020-10-21,52,42
+michigan,The Hill/HarrisXThe Hill,2020-10-12,2020-10-15,54,43
+michigan,Trafalgar Group (R)*Trafalgar (R)*,2020-10-11,2020-10-14,46,47
+michigan,EPIC-MRAEPIC-MRA,2020-10-08,2020-10-12,48,39
+michigan,Reuters/IpsosReuters,2020-10-07,2020-10-13,51,43
+michigan,NY Times/Siena*NYT/Siena*,2020-10-06,2020-10-11,48,40
+michigan,CBS News/YouGovCBS News,2020-10-06,2020-10-09,52,46
+michigan,EmersonEmerson,2020-10-06,2020-10-07,52,42
+michigan,CNBC/Change Research (D)CNBC,2020-10-02,2020-10-04,51,43
+michigan,Reuters/IpsosReuters,2020-09-29,2020-10-06,51,43
+michigan,Detroit News/WDIV-TVDetroit News,2020-09-30,2020-10-03,48,39
+michigan,Trafalgar Group (R)*Trafalgar (R)*,2020-09-20,2020-09-22,46,47
+michigan,NBC News/MaristNBC/Marist,2020-09-19,2020-09-22,52,44
+michigan,CNBC/Change Research (D)CNBC,2020-09-18,2020-09-20,51,43
+michigan,MRGMRG,2020-09-14,2020-09-19,46,41
+michigan,Univ. of Wis/YouGovUW/YouGov,2020-09-10,2020-09-21,51,45
+michigan,Reuters/IpsosReuters,2020-09-11,2020-09-16,49,44
+michigan,EPIC-MRAEPIC-MRA,2020-09-10,2020-09-15,48,40
+michigan,CNBC/Change Research (D)CNBC,2020-09-04,2020-09-06,49,43
+michigan,Rasmussen ReportsRasmussen,2020-09-02,2020-09-03,51,43
+michigan,Detroit News/WDIV-TVDetroit News,2020-09-01,2020-09-03,47,42
+michigan,CNBC/Change Research (D)CNBC,2020-08-21,2020-08-23,50,44
+michigan,Trafalgar Group (R)Trafalgar,2020-08-14,2020-08-23,45,47
+michigan,CNBC/Change Research (D)CNBC,2020-08-07,2020-08-09,48,43
+michigan,Univ. of Wis/YouGovUW/YouGov,2020-07-26,2020-08-06,47,43
+michigan,EPIC-MRA*EPIC-MRA*,2020-07-25,2020-07-30,51,40
+michigan,CNBC/Change Research (D)CNBC,2020-07-24,2020-07-26,46,42
+michigan,CBS News/YouGovCBS News,2020-07-21,2020-07-24,48,42
+michigan,GravisGravis,2020-07-22,2020-07-22,51,42
+michigan,CNNCNN,2020-07-18,2020-07-24,52,40
+michigan,FOX NewsFOX News,2020-07-18,2020-07-20,49,40
+michigan,CNBC/Change Research (D)CNBC,2020-07-10,2020-07-12,48,42
+michigan,CNBC/Change Research (D)CNBC,2020-06-26,2020-06-28,48,43
+michigan,Trafalgar Group (R)Trafalgar,2020-06-16,2020-06-18,46,45
+michigan,CNBC/Change Research (D)CNBC,2020-06-12,2020-06-14,47,45
+michigan,NY Times/SienaNYT/Siena,2020-06-08,2020-06-17,47,36
+michigan,TIPPTIPP,2020-06-09,2020-06-12,51,38
+michigan,EPIC-MRAEPIC-MRA,2020-05-31,2020-06-04,55,39
+michigan,EPIC-MRAEPIC-MRA,2020-05-30,2020-06-03,53,41
+michigan,CNBC/Change Research (D)CNBC,2020-05-29,2020-05-31,48,46
+michigan,Change Research (D)Change Res.,2020-05-11,2020-05-17,49,46
+michigan,FOX NewsFOX News,2020-04-18,2020-04-21,49,41
+michigan,MRGMRG,2020-03-16,2020-03-20,44,41
+michigan,Yahoo News/YouGovYouGov,2020-03-06,2020-03-08,45,41
+michigan,MonmouthMonmouth,2020-03-05,2020-03-08,48,41
+michigan,Univ. of Wis/YouGovUW/YouGov,2020-02-11,2020-02-20,47,43
+michigan,QuinnipiacQuinnipiac,2020-02-12,2020-02-18,47,43
+michigan,EPIC-MRAEPIC-MRA,2020-01-09,2020-01-12,50,44
+michigan,Detroit News/WDIV-TVDetroit News,2020-01-03,2020-01-07,50,43
+michigan,EmersonEmerson,2020-10-31,2020-11-03,56,44
+michigan,NY Times/SienaNYT/Siena,2020-10-13,2020-10-25,45,44
+michigan,EPIC-MRAEPIC-MRA,2020-08-17,2020-08-21,51,41
+michigan,EPIC-MRAEPIC-MRA,2020-06-08,2020-06-12,52,41
+michigan,Detroit News/WDIV-TVDetroit News,2020-05-28,2020-05-30,53,41
+michigan,EmersonEmerson,2020-03-07,2020-03-10,54,46
+michigan,Detroit News/WDIV-TVDetroit News,2020-01-24,2020-01-26,53,40
+michigan,EPIC-MRAEPIC-MRA,2020-04-28,2020-04-30,52,39
+ohio,Final Results,NA,NA,45.2,53.4
+ohio,RCP Average,2020-10-28,2020-11-01,46.3,47.3
+ohio,Rasmussen ReportsRasmussen,2020-10-31,2020-11-01,45,49
+ohio,Trafalgar Group (R)*Trafalgar (R)*,2020-10-30,2020-10-31,44,49
+ohio,QuinnipiacQuinnipiac,2020-10-28,2020-11-01,47,43
+ohio,EmersonEmerson,2020-10-29,2020-10-30,49,48
+ohio,QuinnipiacQuinnipiac,2020-10-23,2020-10-27,48,43
+ohio,FOX News*FOX News*,2020-10-17,2020-10-20,45,48
+ohio,Rasmussen ReportsRasmussen,2020-10-18,2020-10-19,48,47
+ohio,QuinnipiacQuinnipiac,2020-10-08,2020-10-12,48,47
+ohio,NY Times/Siena*NYT/Siena*,2020-10-02,2020-10-06,45,44
+ohio,Trafalgar Group (R)*Trafalgar (R)*,2020-10-01,2020-10-03,44,48
+ohio,CBS News/YouGovCBS News,2020-09-30,2020-10-02,47,47
+ohio,FOX NewsFOX News,2020-09-20,2020-09-23,50,45
+ohio,QuinnipiacQuinnipiac,2020-09-17,2020-09-21,48,47
+ohio,Rasmussen ReportsRasmussen,2020-09-01,2020-09-02,49,45
+ohio,CBS News/YouGovCBS News,2020-07-21,2020-07-24,45,46
+ohio,Rasmussen ReportsRasmussen,2020-07-15,2020-07-16,50,46
+ohio,Ohio Media CollaborativeOhio Media,2020-06-24,2020-07-15,46,42
+ohio,QuinnipiacQuinnipiac,2020-06-18,2020-06-22,46,45
+ohio,FOX NewsFOX News,2020-05-30,2020-06-02,45,43
+ohio,EmersonEmerson,2020-05-08,2020-05-10,43,46
+ohio,NBC News/MaristNBC/Marist,2020-03-10,2020-03-15,49,45
+ohio,EmersonEmerson,2020-09-29,2020-10-02,53,47
+ohio,QuinnipiacQuinnipiac,2020-07-17,2020-07-22,50,42
+minnesota,Final Results,NA,NA,52.6,45.4
+minnesota,RCP Average,2020-10-12,2020-10-27,48,43.7
+minnesota,SurveyUSASUSA,2020-10-23,2020-10-27,47,42
+minnesota,Trafalgar Group (R)*Trafalgar (R)*,2020-10-24,2020-10-25,48,45
+minnesota,KSTP/SurveyUSAKSTP-TV,2020-10-16,2020-10-20,48,42
+minnesota,MinnPost*MinnPost*,2020-10-12,2020-10-15,49,44
+minnesota,KSTP/SurveyUSAKSTP-TV,2020-10-01,2020-10-06,47,40
+minnesota,Star Tribune/Mason-DixonStar Tribune,2020-09-21,2020-09-23,48,42
+minnesota,USA Today/Suffolk*USA Today*,2020-09-20,2020-09-24,47,40
+minnesota,ABC News/Wash PostABC/WP,2020-09-08,2020-09-13,57,41
+minnesota,CBS News/YouGovCBS News,2020-09-09,2020-09-11,50,41
+minnesota,NY Times/Siena*NYT/Siena*,2020-09-08,2020-09-10,50,41
+minnesota,KSTP/SurveyUSAKSTP-TV,2020-09-04,2020-09-07,49,40
+minnesota,PPP (D)PPP (D),2020-09-03,2020-09-04,52,44
+minnesota,Trafalgar Group (R)*Trafalgar (R)*,2020-08-15,2020-08-18,47,47
+minnesota,EmersonEmerson,2020-08-08,2020-08-10,50,47
+minnesota,Trafalgar Group (R)*Trafalgar (R)*,2020-07-23,2020-07-25,49,44
+minnesota,FOX NewsFOX News,2020-07-18,2020-07-20,51,38
+minnesota,GravisGravis,2020-06-19,2020-06-19,58,42
+minnesota,Star Tribune/Mason-DixonStar Tribune,2020-05-18,2020-05-20,49,44
+minnesota,Star Tribune/Mason-DixonStar Tribune,2020-10-14,2020-10-16,50,38
+iowa,Final Results,NA,NA,45,53.2
+iowa,RCP Average,2020-10-23,2020-11-02,45.6,47.6
+iowa,PPP (D)PPP (D),2020-11-01,2020-11-02,49,48
+iowa,InsiderAdvantage*InsiderAdvantage*,2020-10-30,2020-10-30,46,48
+iowa,EmersonEmerson,2020-10-29,2020-10-30,46,47
+iowa,Des Moines RegisterDM Register,2020-10-26,2020-10-29,41,48
+iowa,QuinnipiacQuinnipiac,2020-10-23,2020-10-27,46,47
+iowa,Who-TV 13**Who-TV 13**,2020-10-21,2020-10-24,50,46
+iowa,EmersonEmerson,2020-10-19,2020-10-21,46,48
+iowa,NY Times/Siena*NYT/Siena*,2020-10-18,2020-10-20,46,43
+iowa,InsiderAdvantage*InsiderAdvantage*,2020-10-18,2020-10-19,45,45
+iowa,Monmouth*Monmouth*,2020-10-15,2020-10-19,50,47
+iowa,CBS News/YouGovCBS News,2020-10-06,2020-10-09,49,49
+iowa,QuinnipiacQuinnipiac,2020-10-01,2020-10-05,50,45
+iowa,Who-TV 13**Who-TV 13**,2020-09-23,2020-09-26,48,46
+iowa,Monmouth*Monmouth*,2020-09-18,2020-09-22,46,49
+iowa,NY Times/Siena*NYT/Siena*,2020-09-16,2020-09-21,45,42
+iowa,Des Moines RegisterDM Register,2020-09-14,2020-09-17,47,47
+iowa,Monmouth*Monmouth*,2020-07-30,2020-08-03,46,48
+iowa,Des Moines RegisterDM Register,2020-06-07,2020-06-10,43,44
+iowa,PPP (D)PPP (D),2020-04-30,2020-05-01,46,48
+iowa,Des Moines RegisterDM Register,2020-03-02,2020-03-05,41,51
+iowa,NY Times/SienaNYT/Siena,2020-01-20,2020-01-23,44,46
+iowa,PPP (D)PPP (D),2020-12-29,2020-12-31,46,49
+iowa,EmersonEmerson,2020-12-07,2020-12-10,45,49
+iowa,NY Times/SienaNYT/Siena,2020-10-25,2020-10-30,44,45
+iowa,EmersonEmerson,2020-10-13,2020-10-16,49,51
+iowa,EmersonEmerson,2020-03-21,2020-03-24,53,47
+iowa,EmersonEmerson,2020-01-30,2020-02-02,51,49
+arizona,Final Results,NA,NA,49.4,49.1
+arizona,RCP Average,2020-10-25,2020-11-01,47.9,47
+arizona,NBC News/MaristNBC/Marist,2020-10-29,2020-11-01,48,48
+arizona,CNBC/Change Research (D)CNBC,2020-10-29,2020-11-01,50,47
+arizona,Reuters/IpsosReuters,2020-10-27,2020-11-01,49,47
+arizona,EmersonEmerson,2020-10-29,2020-10-31,48,46
+arizona,Rasmussen ReportsRasmussen,2020-10-27,2020-10-29,45,49
+arizona,NY Times/Siena*NYT/Siena*,2020-10-26,2020-10-30,49,43
+arizona,Trafalgar Group (R)*Trafalgar (R)*,2020-10-25,2020-10-28,46,49
+arizona,CNN*CNN*,2020-10-23,2020-10-30,50,46
+arizona,Reuters/IpsosReuters,2020-10-21,2020-10-27,48,46
+arizona,OH Predictive Insights*Predictive Insights*,2020-10-22,2020-10-25,49,46
+arizona,Susquehanna*Susquehanna*,2020-10-19,2020-10-22,46,47
+arizona,Rasmussen ReportsRasmussen,2020-10-18,2020-10-19,48,47
+arizona,Reuters/IpsosReuters,2020-10-14,2020-10-21,49,46
+arizona,CNBC/Change Research (D)CNBC,2020-10-16,2020-10-19,51,45
+arizona,CBS News/YouGovCBS News,2020-10-13,2020-10-16,50,47
+arizona,Reuters/IpsosReuters,2020-10-07,2020-10-14,50,46
+arizona,Monmouth*Monmouth*,2020-10-09,2020-10-13,51,44
+arizona,Trafalgar Group (R)*Trafalgar (R)*,2020-10-06,2020-10-08,44,48
+arizona,OH Predictive InsightsPredictive Insights,2020-10-04,2020-10-08,50,47
+arizona,CNBC/Change Research (D)CNBC,2020-10-02,2020-10-04,51,45
+arizona,Reuters/IpsosReuters,2020-09-29,2020-10-07,48,46
+arizona,NY Times/Siena*NYT/Siena*,2020-10-01,2020-10-03,49,41
+arizona,USA Today/Suffolk*USA Today*,2020-09-26,2020-09-30,50,46
+arizona,SusquehannaSusquehanna,2020-09-25,2020-09-28,47,47
+arizona,CNBC/Change Research (D)CNBC,2020-09-18,2020-09-20,49,43
+arizona,ABC News/Wash PostABC/WP,2020-09-15,2020-09-20,48,49
+arizona,Reuters/IpsosReuters,2020-09-11,2020-09-17,47,46
+arizona,NY Times/Siena*NYT/Siena*,2020-09-11,2020-09-16,49,40
+arizona,Monmouth*Monmouth*,2020-09-11,2020-09-15,48,46
+arizona,GravisGravis,2020-09-10,2020-09-11,50,48
+arizona,CBS News/YouGovCBS News,2020-09-09,2020-09-11,47,44
+arizona,OH Predictive InsightsPredictive Insights,2020-09-08,2020-09-10,52,42
+arizona,CNBC/Change Research (D)CNBC,2020-09-04,2020-09-06,49,45
+arizona,FOX News*FOX News*,2020-08-29,2020-09-01,49,40
+arizona,CNBC/Change Research (D)CNBC,2020-08-21,2020-08-23,49,47
+arizona,EmersonEmerson,2020-08-08,2020-08-10,49,45
+arizona,CNBC/Change Research (D)CNBC,2020-08-07,2020-08-09,45,44
+arizona,Trafalgar Group (R)*Trafalgar (R)*,2020-08-05,2020-08-08,45,46
+arizona,OH Predictive InsightsPredictive Insights,2020-08-03,2020-08-04,49,45
+arizona,CNBC/Change Research (D)CNBC,2020-07-24,2020-07-26,47,45
+arizona,CNNCNN,2020-07-18,2020-07-24,49,45
+arizona,NBC News/MaristNBC/Marist,2020-07-14,2020-07-22,50,45
+arizona,CNBC/Change Research (D)CNBC,2020-07-10,2020-07-12,51,45
+arizona,CBS News/YouGovCBS News,2020-07-07,2020-07-10,46,46
+arizona,OH Predictive InsightsPredictive Insights,2020-07-06,2020-07-07,49,44
+arizona,GravisGravis,2020-06-27,2020-06-27,45,49
+arizona,CNBC/Change Research (D)CNBC,2020-06-26,2020-06-28,51,44
+arizona,CNBC/Change Research (D)CNBC,2020-06-12,2020-06-14,45,44
+arizona,NY Times/SienaNYT/Siena,2020-06-08,2020-06-16,48,41
+arizona,FOX NewsFOX News,2020-05-30,2020-06-02,46,42
+arizona,CNBC/Change Research (D)CNBC,2020-05-29,2020-05-31,44,45
+arizona,OH Predictive InsightsPredictive Insights,2020-05-09,2020-05-11,50,43
+arizona,OH Predictive InsightsPredictive Insights,2020-04-07,2020-04-08,52,43
+arizona,NBC News/MaristNBC/Marist,2020-03-10,2020-03-15,47,46
+arizona,MonmouthMonmouth,2020-03-11,2020-03-14,46,43
+arizona,Univision/ASUUnivision,2020-03-06,2020-03-11,50,42
+arizona,OH Predictive InsightsPredictive Insights,2020-03-03,2020-03-04,49,43
+arizona,PPP (D)PPP (D),2020-03-02,2020-03-03,48,47
+arizona,PPP (D)PPP (D),2020-01-02,2020-01-04,46,46
+arizona,OH Predictive InsightsPredictive Insights,2020-12-03,2020-12-04,44,46
+arizona,EmersonEmerson,2020-10-25,2020-10-28,50,50
+arizona,NY Times/SienaNYT/Siena,2020-10-13,2020-10-23,49,46
+arizona,OH Predictive InsightsPredictive Insights,2020-08-13,2020-08-14,45,43
+arizona,OH Predictive InsightsPredictive Insights,2020-05-01,2020-05-02,49,44
+arizona,OH Predictive InsightsPredictive Insights,2020-02-12,2020-02-13,46,46
+nevada,Final Results,NA,NA,50.2,47.5
+nevada,RCP Average,2020-10-23,2020-11-02,48.7,46.3
+nevada,Trafalgar Group (R)*Trafalgar (R)*,2020-10-31,2020-11-02,48,49
+nevada,EmersonEmerson,2020-10-29,2020-10-31,49,47
+nevada,Trafalgar Group (R)*Trafalgar (R)*,2020-10-28,2020-10-29,49,47
+nevada,NY Times/Siena*NYT/Siena*,2020-10-23,2020-10-26,49,43
+nevada,Las Vegas Review-Journal*LVRJ*,2020-10-07,2020-10-11,44,42
+nevada,CBS News/YouGovCBS News,2020-10-06,2020-10-09,52,46
+nevada,NY Times/Siena*NYT/Siena*,2020-10-02,2020-10-06,48,42
+nevada,Rasmussen ReportsRasmussen,2020-09-23,2020-09-25,49,48
+nevada,FOX NewsFOX News,2020-09-20,2020-09-23,52,41
+nevada,NY Times/Siena*NYT/Siena*,2020-09-08,2020-09-10,46,42
+nevada,FOX NewsFOX News,2020-01-05,2020-01-08,47,39
+nevada,FOX NewsFOX News,2020-11-10,2020-11-13,47,40
+nevada,EmersonEmerson,2020-10-31,2020-11-02,49,51
+nevada,GravisGravis,2020-08-14,2020-08-16,49,43
+nevada,EmersonEmerson,2020-03-28,2020-03-30,52,48
+texas,Final Results,NA,NA,46.4,52.2
+texas,RCP Average,2020-10-20,2020-10-31,46.5,47.8
+texas,EmersonEmerson,2020-10-29,2020-10-31,49,49
+texas,UMass Lowell*UMass Lowell*,2020-10-20,2020-10-26,47,48
+texas,NY Times/Siena*NYT/Siena*,2020-10-20,2020-10-25,43,47
+texas,QuinnipiacQuinnipiac,2020-10-16,2020-10-19,47,47
+texas,University of HoustonU. of Houston,2020-10-13,2020-10-20,45,50
+texas,Dallas Morning News*DMN*,2020-10-13,2020-10-20,48,45
+texas,Rasmussen ReportsRasmussen,2020-10-05,2020-10-06,44,51
+texas,UT/Texas Tribune*UT/Texas Tribune*,2020-09-25,2020-10-04,45,50
+texas,UMass LowellUMLowell,2020-09-18,2020-09-25,46,50
+texas,QuinnipiacQuinnipiac,2020-09-17,2020-09-21,45,50
+texas,NY Times/Siena*NYT/Siena*,2020-09-16,2020-09-21,43,46
+texas,CBS News/YouGovCBS News,2020-09-15,2020-09-18,46,48
+texas,Dallas Morning News*DMN*,2020-08-28,2020-09-02,46,48
+texas,Rice Univ./YouGov*YouGov*,2020-08-04,2020-08-13,41,48
+texas,Trafalgar Group (R)*Trafalgar (R)*,2020-08-01,2020-08-05,43,49
+texas,QuinnipiacQuinnipiac,2020-07-16,2020-07-20,45,44
+texas,CBS News/YouGovCBS News,2020-07-07,2020-07-10,45,46
+texas,OAN/GravisGravis,2020-07-07,2020-07-07,44,46
+texas,Dallas Morning NewsDMN,2020-06-29,2020-07-07,48,43
+texas,University of TexasUniversity of Texas,2020-06-19,2020-06-29,44,48
+texas,FOX NewsFOX News,2020-06-20,2020-06-23,45,44
+texas,QuinnipiacQuinnipiac,2020-05-28,2020-06-01,43,44
+texas,EmersonEmerson,2020-05-08,2020-05-10,41,47
+texas,Dallas Morning NewsDMN,2020-04-18,2020-04-27,43,43
+texas,UT/Texas TribuneUT/ TX Tribune,2020-04-10,2020-04-19,44,49
+texas,NBC News/MaristNBC/Marist,2020-02-23,2020-02-27,45,49
+texas,CNNCNN,2020-02-22,2020-02-26,48,47
+texas,Dallas Morning NewsDMN,2020-02-17,2020-02-26,44,45
+texas,UT/Texas TribuneUT/ TX Tribune,2020-01-31,2020-02-09,43,47
+texas,Dallas Morning NewsDMN,2020-01-21,2020-01-30,44,46
+texas,Texas LyceumTexas Lyceum,2020-01-10,2020-01-19,46,51
+texas,CNNCNN,2020-12-04,2020-12-08,47,48
+texas,UT/Texas TribuneUT/ TX Tribune,2020-10-18,2020-10-27,39,46
+texas,DMN/EmersonDMN/Emerson,2020-08-01,2020-08-03,51,49
+texas,QuinnipiacQuinnipiac,2020-05-29,2020-06-04,48,44
+texas,EmersonEmerson,2020-04-25,2020-04-28,50,49
+texas,QuinnipiacQuinnipiac,2020-02-20,2020-02-25,46,47
+georgia,Final Results,NA,NA,49.5,49.2
+georgia,RCP Average,2020-10-23,2020-11-02,47.2,48.2
+georgia,WSB-TV/Landmark*WSB-TV*,2020-11-01,2020-11-01,46,50
+georgia,Trafalgar Group (R)*Trafalgar (R)*,2020-10-31,2020-11-02,45,50
+georgia,InsiderAdvantage*InsiderAdvantage*,2020-11-01,2020-11-01,46,48
+georgia,EmersonEmerson,2020-10-29,2020-10-31,48,49
+georgia,WSB-TV/Landmark*WSB-TV*,2020-10-28,2020-10-28,47,48
+georgia,PPP (D)PPP (D),2020-10-27,2020-10-28,48,46
+georgia,Monmouth*Monmouth*,2020-10-23,2020-10-27,50,46
+georgia,CBS News/YouGovCBS News,2020-10-20,2020-10-23,49,49
+georgia,WSB-TV/LandmarkWSB-TV,2020-10-21,2020-10-21,45,49
+georgia,EmersonEmerson,2020-10-17,2020-10-19,47,48
+georgia,Atlanta Journal-Constitution*AJC*,2020-10-14,2020-10-23,47,46
+georgia,NY Times/Siena*NYT/Siena*,2020-10-13,2020-10-19,45,45
+georgia,WXIA-TV/SurveyUSAWXIA/SUSA,2020-10-08,2020-10-12,48,46
+georgia,QuinnipiacQuinnipiac,2020-10-08,2020-10-12,51,44
+georgia,PPP (D)PPP (D),2020-10-08,2020-10-09,47,46
+georgia,WSB-TV/Landmark*WSB-TV*,2020-10-07,2020-10-07,47,49
+georgia,Atlanta Journal-Constitution*AJC*,2020-09-27,2020-10-06,46,48
+georgia,WSB-TV/Landmark*WSB-TV*,2020-09-30,2020-09-30,47,45
+georgia,QuinnipiacQuinnipiac,2020-09-23,2020-09-27,50,47
+georgia,CBS News/YouGovCBS News,2020-09-22,2020-09-25,46,47
+georgia,Monmouth*Monmouth*,2020-09-17,2020-09-21,46,48
+georgia,NY Times/Siena*NYT/Siena*,2020-09-16,2020-09-21,45,45
+georgia,Univ. of Georgia*U. of GA*,2020-09-11,2020-09-20,47,47
+georgia,WSB-TV/Landmark*WSB-TV*,2020-08-29,2020-08-31,41,48
+georgia,WSB-TV/Landmark*WSB-TV*,2020-08-14,2020-08-15,45,47
+georgia,WXIA-TV/SurveyUSAWXIA/SUSA,2020-08-06,2020-08-08,46,44
+georgia,CBS News/YouGovCBS News,2020-07-28,2020-07-31,46,45
+georgia,Monmouth*Monmouth*,2020-07-23,2020-07-27,47,48
+georgia,Trafalgar Group (R)*Trafalgar (R)*,2020-07-15,2020-07-18,43,50
+georgia,OAN/GravisGravis,2020-07-02,2020-07-02,45,48
+georgia,FOX NewsFOX News,2020-06-20,2020-06-23,47,45
+georgia,Univ. of GeorgiaU. of GA,2020-02-24,2020-03-02,43,51
+georgia,Mason-DixonMason-Dixon,2020-12-19,2020-12-23,44,51
+georgia,WXIA-TV/SurveyUSAWXIA/SUSA,2020-11-15,2020-11-18,47,43
+georgia,Atlanta Journal-ConstitutionAJC,2020-10-30,2020-11-08,51,43
+virginia,Final Results,NA,NA,54,44.6
+virginia,Roanoke College*Roanoke College*,2020-10-23,2020-10-29,53,42
+virginia,VCUVCU,2020-10-13,2020-10-22,51,39
+virginia,Christopher Newport Univ.CNU,2020-10-15,2020-10-27,53,41
+virginia,Washington PostWash Post,2020-10-13,2020-10-19,52,41
+virginia,Roanoke College*Roanoke College*,2020-09-30,2020-10-12,54,39
+virginia,Christopher Newport Univ.CNU,2020-09-09,2020-09-21,48,43
+virginia,VCUVCU,2020-08-28,2020-09-07,53,39
+virginia,Roanoke CollegeRoanoke,2020-08-09,2020-08-22,53,39
+virginia,VCUVCU,2020-07-11,2020-07-19,50,39
+virginia,Roanoke CollegeRoanoke,2020-05-03,2020-05-17,51,39
+virginia,VCUVCU,2020-03-25,2020-04-08,51,41
+virginia,Hampton UniversityHampton University,2020-02-25,2020-02-28,45,38
+virginia,Roanoke CollegeRoanoke,2020-02-09,2020-02-18,48,40
+virginia,Mason-DixonMason-Dixon,2020-12-12,2020-12-16,49,45
+virginia,Univ. of Mary WashingtonUMW,2020-09-03,2020-09-15,55,38
+new_hampshire,Final Results,NA,NA,52.8,45.6
+new_hampshire,St. Anselm*St. Anselm*,2020-10-23,2020-10-26,52,44
+new_hampshire,UNH*UNH*,2020-10-20,2020-10-24,53,45
+new_hampshire,UMass Lowell*UMass Lowell*,2020-10-16,2020-10-26,53,43
+new_hampshire,UNH*UNH*,2020-10-09,2020-10-12,55,43
+new_hampshire,Boston Globe/Suffolk*Boston Globe*,2020-10-08,2020-10-12,51,41
+new_hampshire,St. AnselmSt. Anselm,2020-10-01,2020-10-04,53,41
+new_hampshire,EmersonEmerson,2020-09-30,2020-10-01,52,45
+new_hampshire,UNH*UNH*,2020-09-24,2020-09-28,53,44
+new_hampshire,Rasmussen ReportsRasmussen,2020-09-23,2020-09-25,56,42
+new_hampshire,UMass LowellUMLowell,2020-09-17,2020-09-25,53,44
+new_hampshire,NY Times/Siena*NYT/Siena*,2020-09-08,2020-09-11,45,42
+new_hampshire,St. AnselmSt. Anselm,2020-08-15,2020-08-17,51,43
+new_hampshire,UNHUNH,2020-07-16,2020-07-28,53,40
+new_hampshire,St. AnselmSt. Anselm,2020-06-13,2020-06-16,49,42
+new_hampshire,UNHUNH,2020-06-18,2020-06-22,52,39
+new_hampshire,UNHUNH,2020-05-14,2020-05-18,44,46
+new_hampshire,St. AnselmSt. Anselm,2020-04-23,2020-04-27,50,42
+new_hampshire,UNHUNH,2020-02-19,2020-02-25,44,46
+new_hampshire,NBC News/MaristNBC/Marist,2020-01-20,2020-01-23,51,43
+new_hampshire,WHDH/EmersonEmerson,2020-11-22,2020-11-26,52,48
+new_hampshire,St. AnselmSt. Anselm,2020-11-13,2020-11-18,51,43
+new_hampshire,EmersonEmerson,2020-09-06,2020-09-09,55,45
+new_hampshire,EmersonEmerson,2020-02-21,2020-02-22,55,45
+maine,Final Results,NA,NA,52.9,44.2
+maine,EmersonEmerson,2020-10-29,2020-10-31,54,43
+maine,Colby CollegeColby,2020-10-21,2020-10-25,51,38
+maine,Pan AtlanticPan Atlantic,2020-10-02,2020-10-06,50,40
+maine,Bangor Daily News*BDN*,2020-09-25,2020-10-04,51,40
+maine,Colby CollegeColby,2020-09-17,2020-09-23,50,39
+maine,Boston Globe/Suffolk*Boston Globe*,2020-09-17,2020-09-20,51,39
+maine,NY Times/SienaNYT/Siena,2020-09-11,2020-09-16,55,38
+maine,QuinnipiacQuinnipiac,2020-09-10,2020-09-14,59,38
+maine,Bangor Daily NewsBDN,2020-07-28,2020-08-09,44,36
+maine,QuinnipiacQuinnipiac,2020-07-30,2020-08-03,52,37
+maine,Colby CollegeColby,2020-07-18,2020-06-24,50,38
+maine,PPP (D)PPP (D),2020-07-02,2020-07-03,53,42
+maine,PPP (D)PPP (D),2020-03-02,2020-03-03,52,42
+maine,PPP (D)PPP (D),2020-10-11,2020-10-13,54,42
+maine,GravisGravis,2020-06-24,2020-06-24,54,46
+colorado,Final Results,NA,NA,55.4,41.9
+colorado,Univ. of Colorado/YouGovYouGov,2020-10-05,2020-10-09,47,38
+colorado,KUSA/SurveyUSAKUSA,2020-10-01,2020-10-06,50,40
+new_mexico,Final Results,NA,NA,54.2,43.6
+new_mexico,Albuquerque JournalAlbuquerque Journal,2020-10-23,2020-10-29,54,42
+new_mexico,PPP (D)PPP (D),2020-09-30,2020-10-01,53,39
+new_mexico,Albuquerque JournalAlbuquerque Journal,2020-08-26,2020-09-02,54,39
+new_mexico,PPP (D)PPP (D),2020-06-12,2020-06-13,53,39
+new_mexico,EmersonEmerson,2020-01-03,2020-01-06,54,46
