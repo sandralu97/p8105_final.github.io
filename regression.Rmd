@@ -225,9 +225,9 @@ poll_covid_df %>%
 
 Based on the regression analysis, we have concluded that:
 
-1. As COVID-19 cases increased, Biden supporting rate decreased within each battleground state. The decrease was small but significant.
+1. As COVID-19 cases increased, Biden supporting rate decreased within each battleground state. The decrease was small but statistically significant.
 
-2. As COVID-19 death increased, Biden supporting rate decreased within each battle ground state. The decrease was small but significant.
+2. As COVID-19 death increased, Biden supporting rate decreased within each battle ground state. The decrease was small but statistically significant.
 
 3. COVID-19 daily case / daily death was not correlated with Biden supporting rate.
 
