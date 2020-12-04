@@ -264,9 +264,9 @@ model_case %>%
 
 Based on the regression analysis, we have concluded that:
 
-1. As COVID-19 cases increased, the difference of supporting rate between Biden and Trump decreased within each battleground state. The decrease was small but statistically significant.
+1. As COVID-19 cases increased, the difference of supporting rate between Biden and Trump decreased within each battleground state. For every 10,000 increase in COVID-19 case, the difference of supporting rate decrease by 0.8 point. The decrease was statistically significant.
 
-2. As COVID-19 death increased, the difference of supporting rate between Biden and Trump decreased within each battle ground state. The decrease was small but statistically significant.
+2. As COVID-19 death increased, the difference of supporting rate between Biden and Trump decreased within each battle ground state. For every 1,000 increase in COVID-19 death, the difference of supporting rate decrease by 0.3 point. The decrease was statistically significant.
 
 3. COVID-19 daily case / daily death was not correlated with the difference of supporting rate between Biden and Trump.
 \
