@@ -127,8 +127,6 @@ In 2016, 7 of the 17 battleground states have the Democratic supporting rates hi
 
 According to the bar plot, Democrat’s candidate Joe Biden, had dominant votes over Republican’s candidate Donald Trump, for the returned mail-in ballots in all 6 swing states. In particularly, Biden had absolute dominance over Trump for returned mail-in ballots in the state of Pennsylvania and Florida. We observed that return rate of mail-in ballots by parties in each of the swing states are often close to each other, except for the state of Nevada.
 
-
-
 \
 
 # Statistical analysis

@@ -124,7 +124,7 @@ ggplot(data = poll_covid_df, aes(x = biden_lead)) +
 
 \
 
-# Explainatory variables
+# Explanatory variables
 
 ***
 
