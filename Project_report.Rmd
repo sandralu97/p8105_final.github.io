@@ -379,7 +379,6 @@ state, date, positive, probable_cases, total_test_results, death, positive_incre
 
 * `death`: Total fatalities with confirmed OR probable COVID-19 case diagnosis 
 
->>>>>>> 0dad4b095deb4309da429d82c02ec7bcec1b7a33
 * `positive_increase`: The daily increase in positive cases (confirmed plus probable) calculated based on the previous day’s value
 
 * `death_increase`: Daily increase in death, calculated from the previous day’s value.
