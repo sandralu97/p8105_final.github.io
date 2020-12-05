@@ -10,7 +10,7 @@ output:
 ```{r include = FALSE}
 library(tidyverse)
 library(httr)
-library(lubridate)
+library(patchwork)
 library(geepack)
 
 # setting
@@ -277,56 +277,30 @@ geeglm(biden_lead ~ mean_death_increase,
 # Model diagnostic
 
 ***
+**Residual distribution**
+
+In both gee model of COVID-19 case and death, the residuals are approximately normally distributed.
 
 ```{r eval=FALSE}
 # Model mean_case
-gee_case = geeglm(biden_lead ~ mean_case,
-       data = model_case,
-       id = id,
-       family = gaussian(link = "identity"),
-       corstr = "exchangeable"
-       ) 
 
-anova(gee_case)
+resid_1 = plot(density(resid(gee_case, type='response')))
+resid_2 = plot(density(resid(gee_death, type='response')))
 
-plot(density(resid(gee_case, type='response')))
-
-prediction = 
-  predict(gee_case, type='response') %>% 
-  as.vector()
-
-model_case = 
-  model_case %>% 
-  mutate(
-    lead_predicted = prediction
-  )
-
-
-ggplot(model_case, aes(x = mean_case)) +
-  geom_density()
-
-ggplot(model_case, aes(x = mean_case, y = lead_predicted)) +
-  geom_line()+
-  xlab("mean number of case during polling period")+
-  ylab("predicted lead of Biden over Trump")
-
-
-scatter.smooth(predict(gee_case, type='response'), resid(gee_case, type='response'))
-
-plot(cooks.distance(gee_case), type="response")
-
-model_case %>% 
-  nest(data= - state) %>% 
-  mutate(
-    models = map(data, ~lm(biden_lead ~ mean_case, data= .x,)),
-    models = map(models,broom::tidy)
-  ) %>% 
-  select(-data) %>% 
-  unnest(models) %>% knitr::kable(digits = 5)
-
+resid_1/resid_2
 
 ```
 
+**Predicted Y against residual**
+
+The residuals of both gee models are evenly distributed around the expected Y. However, we noticed that when the 
+
+```{r}
+predict_1 = scatter.smooth(predict(gee_case, type='response'), resid(gee_case, type='response'))
+predict_2 = scatter.smooth(predict(gee_death, type='response'), resid(gee_death, type='response'))
+
+predict_1/predict_2
+```
 
 
 # Findings
