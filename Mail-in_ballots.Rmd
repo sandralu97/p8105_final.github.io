@@ -17,11 +17,9 @@ library(patchwork)
 
 library(plotly)
 
-
 library(viridis)
 
-library(flexdashboard)
-library(shiny)
+
 
 knitr::opts_chunk$set(
   fig.width = 6,
