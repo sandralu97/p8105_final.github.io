@@ -390,80 +390,20 @@ div.tocify {
 </div>
 
 
-<div id="comparison-of-both-candidates-mail-in-votes" class="section level2">
-<h2>Comparison of both candidates’ mail-in votes</h2>
-<p>#Compare the number of mail-in ballots of dem/rep in each state</p>
-<pre class="r"><code>returnedballots_df =
-  read_csv(&quot;data/mail_in.csv&quot;) %&gt;% 
-  select(state, party, returned_ballots) %&gt;% 
-  filter(party %in% c(&quot;Democrats&quot;, &quot;Republicans&quot;)) %&gt;%
-  group_by(state, party) </code></pre>
-<pre><code>## Parsed with column specification:
-## cols(
-##   state = col_character(),
-##   party = col_character(),
-##   returned_ballots = col_number(),
-##   freq_distribution = col_double(),
-##   requested_ballots = col_number(),
-##   return_rate = col_double()
-## )</code></pre>
-<pre class="r"><code>plot_returned_ballots = 
-  returnedballots_df %&gt;%
-  ggplot(aes(x = state, y = returned_ballots, fill = party)) +
-  geom_bar(stat=&quot;identity&quot;) +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
-  labs(
-  title = &quot;The number of returned mail-in ballots of each party by state&quot;,
-  x = &quot;State&quot;,
-  y = &quot;Number of returned mail-in ballots&quot;,
-  caption = &quot;Data from &#39;https://electproject.github.io/Early-Vote-2020G/&#39;&quot;
-  )</code></pre>
-<p>#Compare the return rate of mail-in ballots for each party by state</p>
-<pre class="r"><code>returnrate_df =
-  read_csv(&quot;data/mail_in.csv&quot;) %&gt;% 
-  select(state, party, return_rate) %&gt;% 
-  filter(party %in% c(&quot;Democrats&quot;, &quot;Republicans&quot;)) %&gt;%
-  group_by(state, party) </code></pre>
-<pre><code>## Parsed with column specification:
-## cols(
-##   state = col_character(),
-##   party = col_character(),
-##   returned_ballots = col_number(),
-##   freq_distribution = col_double(),
-##   requested_ballots = col_number(),
-##   return_rate = col_double()
-## )</code></pre>
-<pre class="r"><code>plot_return_rate = 
-  returnrate_df %&gt;%
-  ggplot(aes(x =return_rate, y = state, fill = party)) +
-  geom_bar(stat=&quot;identity&quot;, position=position_dodge()) +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
-  labs(
-  title = &quot;The return rate of mail-in ballots for each party by state&quot;,
-  x = &quot;Return rate of mail-in ballots&quot;,
-  y = &quot;State&quot;,
-  caption = &quot;Data from &#39;https://electproject.github.io/Early-Vote-2020G/&#39;&quot;
-  )</code></pre>
-<pre class="r"><code>knitr::opts_chunk$set(
-  fig.width = 6,
-  fig.asp = .6,
-  out.width = &quot;90%&quot;
-)</code></pre>
-</div>
 <div id="overview" class="section level1">
 <h1>Overview</h1>
 <hr />
-<p>In the supporting rate comparison analysis, we compared the supporting rate of Democratic Party and the Republican Party in 17 battleground states in 2016 and 2020. The 17 Battleground states include Florida, Pennsylvania, Wisconsin,North Carolina, Michigan, Ohio, Minnesota, Iowa, Arizona, Nevada, Texas, Georgia, Virginia, New Hampshire Maine, Colorado, and New Mexico.</p>
-<p>In 2016, 7 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates. In 2020, 12 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates. We observed that in each of the battleground states, the difference between Democratic supporting rate and Republican supporting rate has increased, except Florida and Ohio.</p>
-<p>Relevant bar plots and table are attached.</p>
+<p>In order to analyze the distribution of mail-in ballots in swing states, we compared the number of mail-in ballots of Democratic Party and the Republican Party in 6 swing states in 2020’s election. The 6 swing states are: Florida, Pennsylvania, North Carolina, Iowa, Arizona, and Nevada.</p>
+<p>After analyzing the distribution and return rate of mail-in ballots for both candidates in swing states, we can safely draw on our conclusion that Democrats have absolute advantage in 6 swing states in terms of mail-in ballots, given the return rate of mail-in ballots for both candidates are approximately very close to each other.</p>
+<p>Relevant outputs of bar charts and tables are attached.</p>
 <p><br />
 </p>
 </div>
 <div id="research-question" class="section level1">
 <h1>Research question</h1>
 <hr />
-<p>In this part, we aimed to compare the supporting rates of two different parties in 17 key states in 2016 and 2020.</p>
-<p>We made a bar plot for each year, comparing supporting rates of two parties in 17 key states. In addition, we calculated the differences of supporting rates in each state in each year and studied how much the Democratic led in each election.</p>
+<p>In this section, our goal is to compare the number of mail-in ballots of two candidates’ parties in 6 swing states of 2020’s U.S. Presidential election.</p>
+<p>We made a frequency table and a bar chart to compare the distribution of mail-in votes of both Democrat and Republican candidates in each state. In addition, we produced another bar chart and a table to compare the return rates of mail in ballots in each state and studied how much more mail-in votes are won by the Democrats in each swing state</p>
 <p><br />
 </p>
 </div>
@@ -471,29 +411,111 @@ div.tocify {
 <h1>Results</h1>
 <hr />
 <pre class="r"><code>plot_returned_ballots</code></pre>
-<p><img src="Mail-in_ballots_files/figure-html/unnamed-chunk-4-1.png" width="90%" /></p>
-<p>According to plot above, in 2016, 7 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates, including Colorado, Maine, Minnesota, Nevada, New Hampshire, New Mexico, and Virginia.</p>
+<p><img src="Mail-in_ballots_files/figure-html/unnamed-chunk-1-1.png" width="90%" /></p>
+<pre class="r"><code>knitr::kable(tab_returnedballots)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">state</th>
+<th align="right">Democrats</th>
+<th align="right">Republicans</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">florida</td>
+<td align="right">45.3</td>
+<td align="right">31.1</td>
+</tr>
+<tr class="even">
+<td align="left">pennsylvania</td>
+<td align="right">64.8</td>
+<td align="right">23.7</td>
+</tr>
+<tr class="odd">
+<td align="left">north_carolina</td>
+<td align="right">44.8</td>
+<td align="right">20.6</td>
+</tr>
+<tr class="even">
+<td align="left">iowa</td>
+<td align="right">45.1</td>
+<td align="right">33.3</td>
+</tr>
+<tr class="odd">
+<td align="left">arizona</td>
+<td align="right">37.4</td>
+<td align="right">37.0</td>
+</tr>
+<tr class="even">
+<td align="left">nevada</td>
+<td align="right">48.3</td>
+<td align="right">25.9</td>
+</tr>
+</tbody>
+</table>
+<p>According to plot above, Democrat’s candidate Joe Biden, had dominant votes over Republican’s candidate Donald Trump, for the returned mail-in ballots in all 6 swing states. The frequency distribution further confirms these facts. In particularly, Biden had absulte dominance over Trump for returned mail-in ballots in the state of Pennsylvania and Florida.</p>
 <pre class="r"><code>plot_return_rate</code></pre>
-<p><img src="Mail-in_ballots_files/figure-html/unnamed-chunk-5-1.png" width="90%" /></p>
-<p>In 2020, 12 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates, including Arizona, Colorado, Georgia, Maine, Michigan, Minnesota, Nevada, New Hampshire, New Mexico, Pennsylvania, Virginia, and Wisconsin.</p>
-<p>Compared to 2016, new blue states included Arizona, Georgia, Michigan, Pennsylvania, and Wisconsin.</p>
-<p>The table above calculated the differences between Democratic supporting rates and Republican supporting rates (dem - rep) in 2016 and 2020.</p>
-<p>We observed that in each of the battleground states, the difference between Democratic supporting rate and Republican supporting rate has increased, except Florida and Ohio. This result represents that the extent of how much the Democrat led has increased in 15 of the 17 key states.</p>
+<p><img src="Mail-in_ballots_files/figure-html/unnamed-chunk-3-1.png" width="90%" /></p>
+<pre class="r"><code>knitr::kable(tab_returnrate)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">state</th>
+<th align="right">Democrats</th>
+<th align="right">Republicans</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">florida</td>
+<td align="right">79.9</td>
+<td align="right">78.5</td>
+</tr>
+<tr class="even">
+<td align="left">pennsylvania</td>
+<td align="right">87.1</td>
+<td align="right">78.7</td>
+</tr>
+<tr class="odd">
+<td align="left">north_carolina</td>
+<td align="right">65.5</td>
+<td align="right">69.8</td>
+</tr>
+<tr class="even">
+<td align="left">iowa</td>
+<td align="right">97.2</td>
+<td align="right">97.1</td>
+</tr>
+<tr class="odd">
+<td align="left">arizona</td>
+<td align="right">76.6</td>
+<td align="right">73.8</td>
+</tr>
+<tr class="even">
+<td align="left">nevada</td>
+<td align="right">41.9</td>
+<td align="right">26.3</td>
+</tr>
+</tbody>
+</table>
+<p>The table and bar chart above compared the return rates of both parties’ mail-in ballots in 6 swing states.</p>
+<p>We observed that return rate of mail-in ballots by parties in each of the swing states are often close to each other, except for the state of Nevada, where Democrats have 41.9% return rate and Republicans have 26.3% return rate. Overall, Democrat’s mail-in ballots has higher return rate over Republican’s return rate, except for the state of North Carolina, where Republicans have slight advantage of 69.8% while Democrates have 65.5%.</p>
 <p><br />
 </p>
 </div>
 <div id="discussion" class="section level1">
 <h1>Discussion</h1>
 <hr />
-<p>In 2016, only 7 of the 17 battleground states were blue states, which supported the Democratic party. However, in 2020, 12 of the 17 battleground states were blue states. Five new blue states included Arizona, Georgia, Michigan, Pennsylvania, and Wisconsin.</p>
-<p>Of all the 17 states, we observed an increase in the extent of how much Democrat led in 15 states. Only Florida and Ohio had their Republican supporting rates increased in 2020.</p>
-<p>Based on the analysis above, we could figure out that since the Democratic party led in most of the battleground states, it is reasonable to predict and understand why the Democratic would win.</p>
+<p>Referring back to 2016’s election, Democrats obviously gained more support in swing states. Based on the analysis above, we have sufficient evidence to prove that the Democratic party led in all 6 swing states in terms of mail-in ballots. Moreover, return rates of mail-in ballots for both candidates often have small difference. We came to a reasonable interpretation of how Joe Biden became the president-elect of 2020’s election in the U.S.</p>
 <p><br />
-# Conclusion</p>
+</p>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
 <hr />
-<p>In the supporting rate comparison analysis, we compared the supporting rate of Democratic Party and the Republican Party in 17 battleground states in 2016 and 2020. Bar plots for 2016 and 2020, and a table comparing the differences of supporting rates in each state were developed.</p>
-<p>In 2016, 7 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates. In 2020, 12 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates. We observed that in each of the battleground states, the difference between Democratic supporting rate and Republican supporting rate has increased, except Florida and Ohio.</p>
-<p>Overall, larger proportions of people in these battleground states supported the Democratic party in 2020, compared to 2016.</p>
+<p>After analyzing the distribution and return rate of mail-in ballots for both candidates in swing states, we can safely draw our conclusion on the fact that mail-in ballots in swing states had significantly tilted the 2020 presidential election results. More electorial votes went to Democrats as more mail-in ballots are being counted.</p>
+<p>In general, Democrats have absolute advantage in 6 swing states in terms of mail-in ballots, given the return rate of mail-in ballots for both candidates are approximately very close to each other.</p>
 </div>
 
 
