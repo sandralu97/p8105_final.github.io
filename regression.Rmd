@@ -347,9 +347,10 @@ resid_p1/resid_p2
 The residuals of both gee models are evenly distributed around the expected Y. However, we noticed that when the supporting difference is larger, the residuals are more separated, indicating divergence between real supporting difference and predicted model.
 
 ```{r message=FALSE}
-model_case %>% ggplot(aes(x=lead_predicted,y=residual))+
-  geom_point(color = PointColor)+
-  geom_smooth(color = LineColor)+
+model_case %>% 
+  ggplot(aes(x = lead_predicted,y = residual)) +
+  geom_point(color = PointColor) +
+  geom_smooth(color = LineColor) +
     labs( 
       title = "Residual vs. Predicted Lead in Case Model",
       x = "Predicted Lead of Biden over Trump",
@@ -357,9 +358,10 @@ model_case %>% ggplot(aes(x=lead_predicted,y=residual))+
       )
 
 
-model_death %>% ggplot(aes(x=lead_predicted,y=residual))+
-  geom_point(color = PointColor)+
-  geom_smooth(color = LineColor)+
+model_death %>% 
+  ggplot(aes(x = lead_predicted,y = residual)) +
+  geom_point(color = PointColor) +
+  geom_smooth(color = LineColor) +
     labs( 
       title = "Residual vs. Predicted Lead in Death Model",
       x = "Predicted Lead of Biden over Trump",
