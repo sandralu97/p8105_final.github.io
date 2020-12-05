@@ -17,6 +17,7 @@ navbar:
     - icon: fa-github fa-lg
       href: https://github.com/sandralu97/p8105_final.github.io
     - icon: fab fa-youtube
+      href: https://www.youtube.com/watch?v=LEH5hsYiGMw
     
 output:
   html_document:
