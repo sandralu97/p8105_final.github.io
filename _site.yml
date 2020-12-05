@@ -9,11 +9,11 @@ navbar:
       href: regression.html
     - text: "Supporting rate 2020 vs. 2016"
       href: supporting-rate-comparison.html
-      - text: "Mail-in ballots Democrats vs. Republicans"
+    - text: "Mail-in ballots Democrats vs. Republicans"
       href: mail_in_ballots.html
   right:
-      - text: "Project Report"
-        href: Project_report.html
+    - text: "Project Report"
+      href: Project_report.html
 output:
   html_document:
     theme: sandstone
