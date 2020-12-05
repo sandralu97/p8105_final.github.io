@@ -433,6 +433,7 @@ div.tocify {
 </div>
 <div id="data" class="section level1">
 <h1>Data</h1>
+<hr />
 <div id="data-source" class="section level2">
 <h2>Data source</h2>
 <p>Our analysis based on the following data source:</p>
@@ -446,7 +447,6 @@ div.tocify {
 </div>
 <div id="data-scraping-and-cleaning" class="section level2">
 <h2>Data scraping and cleaning</h2>
-<hr />
 <div id="presidential-poll" class="section level3">
 <h3>Presidential poll</h3>
 <p>All presidential poll by states were read and then selected by CSS selector. Relevant tables were scraped as tibbles with map and function statement. The supporting rate (<code>biden</code> and <code>trump</code>), spread (<code>spread</code>), poll period (<code>start_date</code> and <code>end_date</code>) and poll agent (<code>poll</code>) were selected. All date was transformed to date format in R for later analysis. <code>spread</code> was further transformed into <code>biden_lead</code> to represent the difference between the supporting rate of Biden and Trump.</p>
@@ -486,6 +486,12 @@ div.tocify {
 <h2>Supporting rate comparison</h2>
 <p>In 2016, 7 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates. In 2020, 12 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates. We observed that in each of the battleground states, the difference between Democratic supporting rate and Republican supporting rate has increased, except Florida and Ohio.</p>
 </div>
+<div id="mail-in-ballots" class="section level2">
+<h2>Mail-in ballots</h2>
+<p>According to the bar plot, Democrat’s candidate Joe Biden, had dominant votes over Republican’s candidate Donald Trump, for the returned mail-in ballots in all 6 swing states. In particularly, Biden had absolute dominance over Trump for returned mail-in ballots in the state of Pennsylvania and Florida. We observed that return rate of mail-in ballots by parties in each of the swing states are often close to each other, except for the state of Nevada.</p>
+<p><br />
+</p>
+</div>
 </div>
 <div id="statistical-analysis" class="section level1">
 <h1>Statistical analysis</h1>
@@ -494,6 +500,12 @@ div.tocify {
 <h2>Supporting rate comparison</h2>
 <p>We observed that in each of the battleground states, the difference between Democratic supporting rate and Republican supporting rate has increased, except Florida and Ohio. This result represents that the extent of how much the Democrat led has increased in 15 of the 17 key states.</p>
 </div>
+<div id="mail-in-ballots-1" class="section level2">
+<h2>Mail-in ballots</h2>
+<p>Overall, Democrat’s mail-in ballots has higher return rate over Republican’s return rate, except for the state of North Carolina, where Republicans have slight advantage of 69.8% while Democrats have 65.5%.</p>
+<p><br />
+</p>
+</div>
 </div>
 <div id="discussion" class="section level1">
 <h1>Discussion</h1>
@@ -501,6 +513,10 @@ div.tocify {
 <div id="supporting-rate-comparison-2" class="section level2">
 <h2>Supporting rate comparison</h2>
 <p>In 2016, only 7 of the 17 battleground states were blue states, which supported the Democratic party. However, in 2020, 12 of the 17 battleground states were blue states. Five new blue states included Arizona, Georgia, Michigan, Pennsylvania, and Wisconsin. We observed an increase in the extent of how much Democrats led in 15 states. Only Florida and Ohio had their Republican supporting rates increased in 2020. Overall, we could figure out that since the Democratic party led in most of the battleground states in 2020, it is reasonable to predict and understand why the Democrats would win in the 2020 election.</p>
+</div>
+<div id="mail-in-ballots-2" class="section level2">
+<h2>Mail-in ballots</h2>
+<p>Referring back to 2016’s election, Democrats obviously gained more support in swing states. Based on the analysis above, we have sufficient evidence to prove that the Democratic party led in all 6 swing states in terms of mail-in ballots. Moreover, return rates of mail-in ballots for both candidates often have small difference. We came to a reasonable interpretation of how Joe Biden became the president-elect of 2020’s election in the U.S.</p>
 </div>
 </div>
 
