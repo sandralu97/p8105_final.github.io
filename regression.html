@@ -477,7 +477,7 @@ geeglm(biden_lead ~ mean_case,
 </tr>
 </tbody>
 </table>
-<p>The visualization of the predicted lead of Biden by the case model:</p>
+<p>Visualization of the predicted and actual lead of Biden against mean COVID-19 case during the polling period:</p>
 <pre class="r"><code>gee_case = geeglm(biden_lead ~ mean_case,
        data = model_case,
        id = id,
@@ -485,20 +485,34 @@ geeglm(biden_lead ~ mean_case,
        corstr = &quot;exchangeable&quot;
        ) 
 
-prediction = 
+prediction_case = 
   predict(gee_case, type = &#39;response&#39;) %&gt;% 
   as.vector()
 
 model_case = 
   model_case %&gt;% 
   mutate(
-    lead_predicted = prediction
+    lead_predicted = prediction_case
   )
 
-ggplot(model_case, aes(x = mean_case, y = lead_predicted)) +
-  geom_line() +
-  xlab(&quot;mean number of case during polling period&quot;) +
-  ylab(&quot;predicted lead of Biden over Trump&quot;)</code></pre>
+LineColor &lt;- &quot;#69b3a2&quot;
+PointColor &lt;- rgb(0.2, 0.6, 0.9, 1)
+
+ggplot(model_case, aes(x = mean_case)) +
+  xlab(&quot;Mean number of COVID cases during the polling period&quot;) +
+  geom_line(aes(y = lead_predicted), color = LineColor) +
+  geom_point(aes(y = biden_lead), color = PointColor) +
+  scale_y_continuous(
+    name = &quot;Predicted lead of Biden over Trump (point)&quot;,
+    sec.axis = dup_axis(
+      name = &quot;Actual lead of Biden over Trump (point)&quot;
+      )
+  ) +
+  theme_ipsum() +
+  theme(
+    axis.title.y = element_text(color = LineColor, size = 13),
+    axis.title.y.right = element_text(color = PointColor, size = 13)
+  )</code></pre>
 <p><img src="regression_files/figure-html/unnamed-chunk-4-1.png" width="70%" /></p>
 <p><br />
 </p>
@@ -545,7 +559,7 @@ geeglm(biden_lead ~ mean_death,
 </tr>
 </tbody>
 </table>
-<p>The visualization of the predicted lead of Biden by the death model:</p>
+<p>Visualization of the predicted and actual lead of Biden against mean COVID-19 death during the polling period:</p>
 <pre class="r"><code>gee_death = geeglm(biden_lead ~ mean_death,
        data = model_death,
        id = id,
@@ -563,10 +577,21 @@ model_death =
     lead_predicted = prediction_death
   )
 
-ggplot(model_death, aes(x = mean_death, y = lead_predicted)) +
-  geom_line() +
-  xlab(&quot;mean number of COVID-19 death during polling period&quot;) +
-  ylab(&quot;predicted lead of Biden over Trump&quot;)</code></pre>
+ggplot(model_death, aes(x = mean_death)) +
+  xlab(&quot;Mean number of COVID deaths during the polling period&quot;) +
+  geom_line(aes(y = lead_predicted), color = LineColor) +
+  geom_point(aes(y = biden_lead), color = PointColor) +
+  scale_y_continuous(
+    name = &quot;Predicted lead of Biden over Trump (point)&quot;,
+    sec.axis = dup_axis(
+      name = &quot;Actual lead of Biden over Trump (point)&quot;
+      )
+  ) +
+  theme_ipsum() +
+  theme(
+    axis.title.y = element_text(color = LineColor, size = 13),
+    axis.title.y.right = element_text(color = PointColor, size = 13)
+  ) </code></pre>
 <p><img src="regression_files/figure-html/unnamed-chunk-6-1.png" width="70%" /></p>
 <p><br />
 </p>
