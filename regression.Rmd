@@ -140,7 +140,7 @@ ggplot(data = poll_covid_df, aes(x = biden_lead)) +
 
 ***
 
-Estimates from GEE modelling:
+We tested 4 simple GEE models as below:
 
 1. _Biden lead = β0 + β1(COVID case)_
 
@@ -161,6 +161,35 @@ geeglm(biden_lead ~ mean_case,
 
 ```
 
+The visualization of the predicted lead of Biden by the case model:
+
+```{r}
+gee_case = geeglm(biden_lead ~ mean_case,
+       data = model_case,
+       id = id,
+       family = gaussian(link = "identity"),
+       corstr = "exchangeable"
+       ) 
+
+prediction = 
+  predict(gee_case, type = 'response') %>% 
+  as.vector()
+
+model_case = 
+  model_case %>% 
+  mutate(
+    lead_predicted = prediction
+  )
+
+ggplot(model_case, aes(x = mean_case, y = lead_predicted)) +
+  geom_line() +
+  xlab("mean number of case during polling period") +
+  ylab("predicted lead of Biden over Trump")
+
+```
+
+\
+
 2. _Biden lead = β0 + β1(COVID death)_
 
 ```{r}
@@ -169,17 +198,44 @@ model_death =
 poll_covid_df %>% 
   drop_na(mean_death, biden_lead)
 
-
-  geeglm(biden_lead ~ mean_death,
-         data = model_death,
-         id = id,
-         family = gaussian(link = "identity"),
-         corstr = "exchangeable"
-         ) %>%   
+geeglm(biden_lead ~ mean_death,
+      data = model_death,
+      id = id,
+      family = gaussian(link = "identity"),
+      corstr = "exchangeable"
+      ) %>%   
   broom::tidy() %>% 
   knitr::kable()
 ```
  
+The visualization of the predicted lead of Biden by the death model:
+
+```{r}
+gee_death = geeglm(biden_lead ~ mean_death,
+       data = model_death,
+       id = id,
+       family = gaussian(link = "identity"),
+       corstr = "exchangeable"
+       ) 
+
+prediction_death = 
+  predict(gee_death, type = 'response') %>% 
+  as.vector()
+
+model_death = 
+  model_death %>% 
+  mutate(
+    lead_predicted = prediction_death
+  )
+
+ggplot(model_death, aes(x = mean_death, y = lead_predicted)) +
+  geom_line() +
+  xlab("mean number of COVID-19 death during polling period") +
+  ylab("predicted lead of Biden over Trump")
+```
+
+\
+
 3. _Biden lead = β0 + β1(COVID case increase)_
 
 ```{r}
@@ -188,13 +244,12 @@ model_case_increase =
 poll_covid_df %>% 
   drop_na(mean_pos_increase, biden_lead)
 
-
-  geeglm(biden_lead ~ mean_pos_increase,
-         data = model_case_increase,
-         id = id,
-         family = gaussian(link = "identity"),
-         corstr = "exchangeable"
-         ) %>%   
+geeglm(biden_lead ~ mean_pos_increase,
+      data = model_case_increase,
+      id = id,
+      family = gaussian(link = "identity"),
+      corstr = "exchangeable"
+      ) %>%   
   broom::tidy() %>% 
   knitr::kable()
 ```
@@ -207,13 +262,12 @@ model_death_increase =
 poll_covid_df %>% 
   drop_na(mean_death_increase, biden_lead)
 
-
-  geeglm(biden_lead ~ mean_death_increase,
-         data = model_death_increase,
-         id = id,
-         family = gaussian(link = "identity"),
-         corstr = "exchangeable"
-         ) %>%   
+geeglm(biden_lead ~ mean_death_increase,
+      data = model_death_increase,
+      id = id,
+      family = gaussian(link = "identity"),
+      corstr = "exchangeable"
+      ) %>%   
   broom::tidy() %>% 
   knitr::kable()
 ```
@@ -235,15 +289,31 @@ gee_case = geeglm(biden_lead ~ mean_case,
 
 anova(gee_case)
 
-
 plot(density(resid(gee_case, type='response')))
+
+prediction = 
+  predict(gee_case, type='response') %>% 
+  as.vector()
+
+model_case = 
+  model_case %>% 
+  mutate(
+    lead_predicted = prediction
+  )
+
+
+ggplot(model_case, aes(x = mean_case)) +
+  geom_density()
+
+ggplot(model_case, aes(x = mean_case, y = lead_predicted)) +
+  geom_line()+
+  xlab("mean number of case during polling period")+
+  ylab("predicted lead of Biden over Trump")
 
 
 scatter.smooth(predict(gee_case, type='response'), resid(gee_case, type='response'))
 
-
 plot(cooks.distance(gee_case), type="response")
-
 
 model_case %>% 
   nest(data= - state) %>% 

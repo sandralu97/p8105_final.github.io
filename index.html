@@ -25,17 +25,6 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
-
-<style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -390,7 +379,7 @@ div.tocify {
 <div id="project-motivation" class="section level1">
 <h1>Project motivation</h1>
 <p>The COVID-19 pandemic, the economy, and racial injustice have been top concerns in the 2020 presidential election. According to AP VoteCast, a national survey of the electorate, about 4 in 10 voters suggest the pandemic as the top issue while the economy follows behind.</p>
-<p>However, an Associated Press analysis gave conclusions with a surprising twist: in counties with worst COVID-19 surges, Trump enjoyed enormous support. We are interested in using polling data and data of the COVID-19 case incidence / death rates to investigate whether and how COVID-19 pandemic has influenced supporting rate distribution among all states, particularly in top battlegrounds.</p>
+<p>However, an Associated Press analysis gave conclusions with a surprising twist: in counties with worst COVID-19 surges, Trump enjoyed enormous support. We are interested in using polling data and data of the COVID-19 case incidence / death rates to investigate whether and how COVID-19 pandemic has influenced supporting rate distribution among top battlegrounds.</p>
 </div>
 <div id="project-overview" class="section level1">
 <h1>Project Overview</h1>
@@ -416,7 +405,7 @@ div.tocify {
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
