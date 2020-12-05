@@ -353,7 +353,7 @@ model_case %>%
   ggplot(aes(x = lead_predicted,y = residual)) +
   geom_point(color = PointColor) +
   geom_smooth(color = LineColor) +
-      labs( 
+    labs( 
       title = "Residual vs. Predicted Lead in Case Model",
       x = "Predicted Lead of Biden over Trump",
       y = "Residual"
@@ -365,7 +365,7 @@ model_death %>%
   ggplot(aes(x = lead_predicted,y = residual)) +
   geom_point(color = PointColor) +
   geom_smooth(color = LineColor) +
-      labs( 
+    labs( 
       title = "Residual vs. Predicted Lead in Death Model",
       x = "Predicted Lead of Biden over Trump",
       y = "Residual"
