@@ -26,17 +26,6 @@
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
-
-<style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -403,7 +392,7 @@ div.tocify {
 <div id="overview" class="section level1">
 <h1>Overview</h1>
 <hr />
-<p>In the regression analysis, we found that Biden’s supporting rate in the seventeen battlegrounds states reported by all opinion polls slightly decreased as the COVID-19 pandemic progress, suggesting that Trump was more somewhat “benefiting” from COVID-19. This could be due to the <strong>“rally round the flag” effect</strong>, which illustrates the phenomenon that there is a short-term surge of voter approval of present nation leader during a crisis or emergency situation.</p>
+<p>In the regression analysis, we found that the supporting rate led by Biden over Trump in the seventeen battlegrounds states reported by all opinion polls slightly decreased as the COVID-19 pandemic progress, suggesting that Trump was more somewhat “benefiting” from COVID-19. This could be due to the <strong>“rally round the flag” effect</strong>, which illustrates the phenomenon that there is a short-term surge of voter approval of present nation leader during a crisis or emergency situation.</p>
 <p>The 17 Battleground states include Florida, Pennsylvania, Wisconsin,North Carolina, Michigan, Ohio, Minnesota, Iowa, Arizona, Nevada, Texas, Georgia, Virginia, New Hampshire, Maine, Colorado, and New Mexico.</p>
 <p>Visualization of the change in COVID status and supporting rates over time for each state can be checked <a href="">here</a>.</p>
 <p><br />
@@ -474,17 +463,17 @@ geeglm(biden_lead ~ mean_case,
 <tbody>
 <tr class="odd">
 <td align="left">(Intercept)</td>
-<td align="right">7.36714722</td>
-<td align="right">1.20900298</td>
-<td align="right">37.131625</td>
-<td align="right">0.00000000</td>
+<td align="right">7.3671472</td>
+<td align="right">1.2090030</td>
+<td align="right">37.13162</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="even">
 <td align="left">mean_case</td>
-<td align="right">-0.00000825</td>
-<td align="right">0.00000224</td>
-<td align="right">13.537204</td>
-<td align="right">0.00023388</td>
+<td align="right">-0.0000082</td>
+<td align="right">0.0000022</td>
+<td align="right">13.53720</td>
+<td align="right">0.0002339</td>
 </tr>
 </tbody>
 </table>
@@ -521,8 +510,9 @@ ggplot(model_case, aes(x = mean_case)) +
   ) +
   theme_ipsum() +
   theme(
-    axis.title.y = element_text(color = LineColor, size = 13),
-    axis.title.y.right = element_text(color = PointColor, size = 13)
+    axis.title.y = element_text(color = LineColor, size = 14),
+    axis.title.y.right = element_text(color = PointColor, size = 14),
+    axis.title.x.bottom = element_text(size = 14)
   )</code></pre>
 <p><img src="regression_files/figure-html/unnamed-chunk-4-1.png" width="70%" /></p>
 <p><br />
@@ -558,14 +548,14 @@ geeglm(biden_lead ~ mean_death,
 <td align="left">(Intercept)</td>
 <td align="right">6.3090212</td>
 <td align="right">1.0659743</td>
-<td align="right">35.029223</td>
+<td align="right">35.02922</td>
 <td align="right">0</td>
 </tr>
 <tr class="even">
 <td align="left">mean_death</td>
 <td align="right">-0.0002885</td>
 <td align="right">0.0000279</td>
-<td align="right">106.930087</td>
+<td align="right">106.93009</td>
 <td align="right">0</td>
 </tr>
 </tbody>
@@ -600,8 +590,9 @@ ggplot(model_death, aes(x = mean_death)) +
   ) +
   theme_ipsum() +
   theme(
-    axis.title.y = element_text(color = LineColor, size = 13),
-    axis.title.y.right = element_text(color = PointColor, size = 13)
+    axis.title.y = element_text(color = LineColor, size = 14),
+    axis.title.y.right = element_text(color = PointColor, size = 14),
+    axis.title.x.bottom = element_text(size = 14)
   ) </code></pre>
 <p><img src="regression_files/figure-html/unnamed-chunk-6-1.png" width="70%" /></p>
 <p><br />
@@ -636,16 +627,16 @@ geeglm(biden_lead ~ mean_pos_increase,
 <tr class="odd">
 <td align="left">(Intercept)</td>
 <td align="right">5.2258382</td>
-<td align="right">1.11135249</td>
-<td align="right">22.11099397</td>
-<td align="right">0.00000257</td>
+<td align="right">1.1113525</td>
+<td align="right">22.1109940</td>
+<td align="right">0.0000026</td>
 </tr>
 <tr class="even">
 <td align="left">mean_pos_increase</td>
 <td align="right">-0.0000642</td>
-<td align="right">0.00019188</td>
-<td align="right">0.11194141</td>
-<td align="right">0.73794461</td>
+<td align="right">0.0001919</td>
+<td align="right">0.1119414</td>
+<td align="right">0.7379446</td>
 </tr>
 </tbody>
 </table>
@@ -678,17 +669,17 @@ geeglm(biden_lead ~ mean_death_increase,
 <tbody>
 <tr class="odd">
 <td align="left">(Intercept)</td>
-<td align="right">5.35789962</td>
-<td align="right">1.01141798</td>
-<td align="right">28.0625934</td>
-<td align="right">0.00000012</td>
+<td align="right">5.3578996</td>
+<td align="right">1.0114180</td>
+<td align="right">28.062593</td>
+<td align="right">0.0000001</td>
 </tr>
 <tr class="even">
 <td align="left">mean_death_increase</td>
-<td align="right">-0.01086381</td>
-<td align="right">0.00711627</td>
-<td align="right">2.3305518</td>
-<td align="right">0.12685690</td>
+<td align="right">-0.0108638</td>
+<td align="right">0.0071163</td>
+<td align="right">2.330552</td>
+<td align="right">0.1268569</td>
 </tr>
 </tbody>
 </table>
@@ -711,7 +702,8 @@ resid_p1 = model_case %&gt;% ggplot(aes(x=residual)) + geom_density()+
       title = &quot;Residual Distribution in Gee Model of COVID-19 Case&quot;,
       x = &quot;Residual&quot;,
       y = &quot;Density&quot;
-      )
+      ) + 
+    theme(plot.title = element_text(hjust = 0.5))
 
 
 death_residual = resid(gee_death, type=&#39;response&#39;) %&gt;% as.vector()
@@ -725,30 +717,34 @@ resid_p2 = model_death %&gt;% ggplot(aes(x=residual)) + geom_density()+
       title = &quot;Residual Distribution in Gee Model of COVID-19 Death&quot;,
       x = &quot;Residual&quot;,
       y = &quot;Density&quot;
-      )
-
+      ) +
+    theme(plot.title = element_text(hjust = 0.5))
 
 resid_p1/resid_p2</code></pre>
 <p><img src="regression_files/figure-html/unnamed-chunk-9-1.png" width="70%" /></p>
 <p><strong>Predicted Y against residual</strong></p>
 <p>The residuals of both gee models are evenly distributed around the expected Y. However, we noticed that when the supporting difference is larger, the residuals are more separated, indicating divergence between real supporting difference and predicted model.</p>
-<pre class="r"><code>model_case %&gt;% ggplot(aes(x=lead_predicted,y=residual))+
-  geom_point(color = PointColor)+
-  geom_smooth(color = LineColor)+
-    labs( 
+<pre class="r"><code>model_case %&gt;% 
+  ggplot(aes(x = lead_predicted,y = residual)) +
+  geom_point(color = PointColor) +
+  geom_smooth(color = LineColor) +
+      labs( 
       title = &quot;Residual vs. Predicted Lead in Case Model&quot;,
       x = &quot;Predicted Lead of Biden over Trump&quot;,
       y = &quot;Residual&quot;
-      )</code></pre>
+      ) +
+  theme(plot.title = element_text(hjust = 0.5))</code></pre>
 <p><img src="regression_files/figure-html/unnamed-chunk-10-1.png" width="70%" /></p>
-<pre class="r"><code>model_death %&gt;% ggplot(aes(x=lead_predicted,y=residual))+
-  geom_point(color = PointColor)+
-  geom_smooth(color = LineColor)+
-    labs( 
+<pre class="r"><code>model_death %&gt;% 
+  ggplot(aes(x = lead_predicted,y = residual)) +
+  geom_point(color = PointColor) +
+  geom_smooth(color = LineColor) +
+      labs( 
       title = &quot;Residual vs. Predicted Lead in Death Model&quot;,
       x = &quot;Predicted Lead of Biden over Trump&quot;,
       y = &quot;Residual&quot;
-      )</code></pre>
+      ) +
+  theme(plot.title = element_text(hjust = 0.5))</code></pre>
 <p><img src="regression_files/figure-html/unnamed-chunk-10-2.png" width="70%" /></p>
 </div>
 <div id="findings" class="section level1">
@@ -791,7 +787,7 @@ resid_p1/resid_p2</code></pre>
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();

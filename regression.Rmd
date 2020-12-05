@@ -27,7 +27,7 @@ knitr::opts_chunk$set(
 options(
   ggplot2.continuous.colour = "viridis",
   ggplot2.continuous.fill = "viridis",
-  digits = 8
+  digits = 7
 )
 
 scale_colour_discrete = scale_color_viridis_d
@@ -198,8 +198,9 @@ ggplot(model_case, aes(x = mean_case)) +
   ) +
   theme_ipsum() +
   theme(
-    axis.title.y = element_text(color = LineColor, size = 13),
-    axis.title.y.right = element_text(color = PointColor, size = 13)
+    axis.title.y = element_text(color = LineColor, size = 14),
+    axis.title.y.right = element_text(color = PointColor, size = 14),
+    axis.title.x.bottom = element_text(size = 14)
   )
 ```
 
@@ -255,8 +256,9 @@ ggplot(model_death, aes(x = mean_death)) +
   ) +
   theme_ipsum() +
   theme(
-    axis.title.y = element_text(color = LineColor, size = 13),
-    axis.title.y.right = element_text(color = PointColor, size = 13)
+    axis.title.y = element_text(color = LineColor, size = 14),
+    axis.title.y.right = element_text(color = PointColor, size = 14),
+    axis.title.x.bottom = element_text(size = 14)
   ) 
 
 ```
@@ -309,8 +311,6 @@ geeglm(biden_lead ~ mean_death_increase,
 In both gee model of COVID-19 case and death, the residuals are approximately normally distributed.
 
 ```{r}
-
-
 case_residual = resid(gee_case, type='response') %>% as.vector()
 
 model_case = model_case %>% mutate(
@@ -322,7 +322,8 @@ resid_p1 = model_case %>% ggplot(aes(x=residual)) + geom_density()+
       title = "Residual Distribution in Gee Model of COVID-19 Case",
       x = "Residual",
       y = "Density"
-      )
+      ) + 
+    theme(plot.title = element_text(hjust = 0.5))
 
 
 death_residual = resid(gee_death, type='response') %>% as.vector()
@@ -336,8 +337,8 @@ resid_p2 = model_death %>% ggplot(aes(x=residual)) + geom_density()+
       title = "Residual Distribution in Gee Model of COVID-19 Death",
       x = "Residual",
       y = "Density"
-      )
-
+      ) +
+    theme(plot.title = element_text(hjust = 0.5))
 
 resid_p1/resid_p2
 ```
@@ -347,25 +348,30 @@ resid_p1/resid_p2
 The residuals of both gee models are evenly distributed around the expected Y. However, we noticed that when the supporting difference is larger, the residuals are more separated, indicating divergence between real supporting difference and predicted model.
 
 ```{r message=FALSE}
-model_case %>% ggplot(aes(x=lead_predicted,y=residual))+
-  geom_point(color = PointColor)+
-  geom_smooth(color = LineColor)+
-    labs( 
+
+model_case %>% 
+  ggplot(aes(x = lead_predicted,y = residual)) +
+  geom_point(color = PointColor) +
+  geom_smooth(color = LineColor) +
+      labs( 
       title = "Residual vs. Predicted Lead in Case Model",
       x = "Predicted Lead of Biden over Trump",
       y = "Residual"
-      )
+      ) +
+  theme(plot.title = element_text(hjust = 0.5))
+  
 
-
-model_death %>% ggplot(aes(x=lead_predicted,y=residual))+
-  geom_point(color = PointColor)+
-  geom_smooth(color = LineColor)+
-    labs( 
+model_death %>% 
+  ggplot(aes(x = lead_predicted,y = residual)) +
+  geom_point(color = PointColor) +
+  geom_smooth(color = LineColor) +
+      labs( 
       title = "Residual vs. Predicted Lead in Death Model",
       x = "Predicted Lead of Biden over Trump",
       y = "Residual"
-      )
-
+      ) +
+  theme(plot.title = element_text(hjust = 0.5))
+        
 ```
 
 

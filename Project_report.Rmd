@@ -118,7 +118,7 @@ Mail-in vote data was scraped using Xpath statement. Mail ballots returned and a
 
 # Exploratory analysis
 ***
-# Additional analysis
+# Statistical analysis
 ***
 # Discussion
 ***
