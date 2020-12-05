@@ -360,6 +360,9 @@ div.tocify {
 <li>
   <a href="supporting-rate-comparison.html">Supporting rate 2020 vs. 2016</a>
 </li>
+<li>
+  <a href="mail_in_ballots.html">Mail-in ballots Democrats vs. Republicans</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -446,7 +449,7 @@ div.tocify {
 <hr />
 <div id="presidential-poll" class="section level3">
 <h3>Presidential poll</h3>
-<p>All presidential pollby states were read and then selected by CSS selector. Relavant tables were scraped as tibbles with map and function statement. The supporting rate (<code>biden</code> and <code>trump</code>), spread (<code>spread</code>), poll period (<code>start_date</code> and <code>end_date</code>) and poll agent (<code>poll</code>) were selected. All date was transformed to date format in R for later analysis. <code>spread</code> was further transformed into <code>biden_lead</code> to represent the difference between the supporting rate of Biden and Trump.</p>
+<p>All presidential poll by states were read and then selected by CSS selector. Relevant tables were scraped as tibbles with map and function statement. The supporting rate (<code>biden</code> and <code>trump</code>), spread (<code>spread</code>), poll period (<code>start_date</code> and <code>end_date</code>) and poll agent (<code>poll</code>) were selected. All date was transformed to date format in R for later analysis. <code>spread</code> was further transformed into <code>biden_lead</code> to represent the difference between the supporting rate of Biden and Trump.</p>
 <p><strong>Variables</strong></p>
 <ul>
 <li><p><code>state</code>: The battbleground state name</p></li>
@@ -479,14 +482,26 @@ div.tocify {
 <div id="exploratory-analysis" class="section level1">
 <h1>Exploratory analysis</h1>
 <hr />
+<div id="supporting-rate-comparison" class="section level2">
+<h2>Supporting rate comparison</h2>
+<p>In 2016, 7 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates. In 2020, 12 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates. We observed that in each of the battleground states, the difference between Democratic supporting rate and Republican supporting rate has increased, except Florida and Ohio.</p>
+</div>
 </div>
 <div id="statistical-analysis" class="section level1">
 <h1>Statistical analysis</h1>
 <hr />
+<div id="supporting-rate-comparison-1" class="section level2">
+<h2>Supporting rate comparison</h2>
+<p>We observed that in each of the battleground states, the difference between Democratic supporting rate and Republican supporting rate has increased, except Florida and Ohio. This result represents that the extent of how much the Democrat led has increased in 15 of the 17 key states.</p>
+</div>
 </div>
 <div id="discussion" class="section level1">
 <h1>Discussion</h1>
 <hr />
+<div id="supporting-rate-comparison-2" class="section level2">
+<h2>Supporting rate comparison</h2>
+<p>In 2016, only 7 of the 17 battleground states were blue states, which supported the Democratic party. However, in 2020, 12 of the 17 battleground states were blue states. Five new blue states included Arizona, Georgia, Michigan, Pennsylvania, and Wisconsin. We observed an increase in the extent of how much Democrats led in 15 states. Only Florida and Ohio had their Republican supporting rates increased in 2020. Overall, we could figure out that since the Democratic party led in most of the battleground states in 2020, it is reasonable to predict and understand why the Democrats would win in the 2020 election.</p>
+</div>
 </div>
 
 
