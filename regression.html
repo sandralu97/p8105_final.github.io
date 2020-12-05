@@ -26,17 +26,6 @@
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
-
-<style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -444,7 +433,7 @@ div.tocify {
 <div id="result" class="section level1">
 <h1>Result</h1>
 <hr />
-<p>Estimates from GEE modelling:</p>
+<p>We tested 4 simple GEE models as below:</p>
 <ol style="list-style-type: decimal">
 <li><em>Biden lead = β0 + β1(COVID case)</em></li>
 </ol>
@@ -488,6 +477,45 @@ geeglm(biden_lead ~ mean_case,
 </tr>
 </tbody>
 </table>
+<p>Visualization of the predicted and actual lead of Biden against mean COVID-19 case during the polling period:</p>
+<pre class="r"><code>gee_case = geeglm(biden_lead ~ mean_case,
+       data = model_case,
+       id = id,
+       family = gaussian(link = &quot;identity&quot;),
+       corstr = &quot;exchangeable&quot;
+       ) 
+
+prediction_case = 
+  predict(gee_case, type = &#39;response&#39;) %&gt;% 
+  as.vector()
+
+model_case = 
+  model_case %&gt;% 
+  mutate(
+    lead_predicted = prediction_case
+  )
+
+LineColor &lt;- &quot;#69b3a2&quot;
+PointColor &lt;- rgb(0.2, 0.6, 0.9, 1)
+
+ggplot(model_case, aes(x = mean_case)) +
+  xlab(&quot;Mean number of COVID cases during the polling period&quot;) +
+  geom_line(aes(y = lead_predicted), color = LineColor) +
+  geom_point(aes(y = biden_lead), color = PointColor) +
+  scale_y_continuous(
+    name = &quot;Predicted lead of Biden over Trump (point)&quot;,
+    sec.axis = dup_axis(
+      name = &quot;Actual lead of Biden over Trump (point)&quot;
+      )
+  ) +
+  theme_ipsum() +
+  theme(
+    axis.title.y = element_text(color = LineColor, size = 13),
+    axis.title.y.right = element_text(color = PointColor, size = 13)
+  )</code></pre>
+<p><img src="regression_files/figure-html/unnamed-chunk-4-1.png" width="70%" /></p>
+<p><br />
+</p>
 <ol start="2" style="list-style-type: decimal">
 <li><em>Biden lead = β0 + β1(COVID death)</em></li>
 </ol>
@@ -496,13 +524,12 @@ model_death =
 poll_covid_df %&gt;% 
   drop_na(mean_death, biden_lead)
 
-
-  geeglm(biden_lead ~ mean_death,
-         data = model_death,
-         id = id,
-         family = gaussian(link = &quot;identity&quot;),
-         corstr = &quot;exchangeable&quot;
-         ) %&gt;%   
+geeglm(biden_lead ~ mean_death,
+      data = model_death,
+      id = id,
+      family = gaussian(link = &quot;identity&quot;),
+      corstr = &quot;exchangeable&quot;
+      ) %&gt;%   
   broom::tidy() %&gt;% 
   knitr::kable()</code></pre>
 <table>
@@ -532,6 +559,42 @@ poll_covid_df %&gt;%
 </tr>
 </tbody>
 </table>
+<p>Visualization of the predicted and actual lead of Biden against mean COVID-19 death during the polling period:</p>
+<pre class="r"><code>gee_death = geeglm(biden_lead ~ mean_death,
+       data = model_death,
+       id = id,
+       family = gaussian(link = &quot;identity&quot;),
+       corstr = &quot;exchangeable&quot;
+       ) 
+
+prediction_death = 
+  predict(gee_death, type = &#39;response&#39;) %&gt;% 
+  as.vector()
+
+model_death = 
+  model_death %&gt;% 
+  mutate(
+    lead_predicted = prediction_death
+  )
+
+ggplot(model_death, aes(x = mean_death)) +
+  xlab(&quot;Mean number of COVID deaths during the polling period&quot;) +
+  geom_line(aes(y = lead_predicted), color = LineColor) +
+  geom_point(aes(y = biden_lead), color = PointColor) +
+  scale_y_continuous(
+    name = &quot;Predicted lead of Biden over Trump (point)&quot;,
+    sec.axis = dup_axis(
+      name = &quot;Actual lead of Biden over Trump (point)&quot;
+      )
+  ) +
+  theme_ipsum() +
+  theme(
+    axis.title.y = element_text(color = LineColor, size = 13),
+    axis.title.y.right = element_text(color = PointColor, size = 13)
+  ) </code></pre>
+<p><img src="regression_files/figure-html/unnamed-chunk-6-1.png" width="70%" /></p>
+<p><br />
+</p>
 <ol start="3" style="list-style-type: decimal">
 <li><em>Biden lead = β0 + β1(COVID case increase)</em></li>
 </ol>
@@ -540,13 +603,12 @@ model_case_increase =
 poll_covid_df %&gt;% 
   drop_na(mean_pos_increase, biden_lead)
 
-
-  geeglm(biden_lead ~ mean_pos_increase,
-         data = model_case_increase,
-         id = id,
-         family = gaussian(link = &quot;identity&quot;),
-         corstr = &quot;exchangeable&quot;
-         ) %&gt;%   
+geeglm(biden_lead ~ mean_pos_increase,
+      data = model_case_increase,
+      id = id,
+      family = gaussian(link = &quot;identity&quot;),
+      corstr = &quot;exchangeable&quot;
+      ) %&gt;%   
   broom::tidy() %&gt;% 
   knitr::kable()</code></pre>
 <table>
@@ -584,13 +646,12 @@ model_death_increase =
 poll_covid_df %&gt;% 
   drop_na(mean_death_increase, biden_lead)
 
-
-  geeglm(biden_lead ~ mean_death_increase,
-         data = model_death_increase,
-         id = id,
-         family = gaussian(link = &quot;identity&quot;),
-         corstr = &quot;exchangeable&quot;
-         ) %&gt;%   
+geeglm(biden_lead ~ mean_death_increase,
+      data = model_death_increase,
+      id = id,
+      family = gaussian(link = &quot;identity&quot;),
+      corstr = &quot;exchangeable&quot;
+      ) %&gt;%   
   broom::tidy() %&gt;% 
   knitr::kable()</code></pre>
 <table>
@@ -636,15 +697,31 @@ gee_case = geeglm(biden_lead ~ mean_case,
 
 anova(gee_case)
 
-
 plot(density(resid(gee_case, type=&#39;response&#39;)))
+
+prediction = 
+  predict(gee_case, type=&#39;response&#39;) %&gt;% 
+  as.vector()
+
+model_case = 
+  model_case %&gt;% 
+  mutate(
+    lead_predicted = prediction
+  )
+
+
+ggplot(model_case, aes(x = mean_case)) +
+  geom_density()
+
+ggplot(model_case, aes(x = mean_case, y = lead_predicted)) +
+  geom_line()+
+  xlab(&quot;mean number of case during polling period&quot;)+
+  ylab(&quot;predicted lead of Biden over Trump&quot;)
 
 
 scatter.smooth(predict(gee_case, type=&#39;response&#39;), resid(gee_case, type=&#39;response&#39;))
 
-
 plot(cooks.distance(gee_case), type=&quot;response&quot;)
-
 
 model_case %&gt;% 
   nest(data= - state) %&gt;% 
@@ -660,8 +737,8 @@ model_case %&gt;%
 <hr />
 <p>Based on the regression analysis, we have concluded that:</p>
 <ol style="list-style-type: decimal">
-<li><p>As COVID-19 cases increased, the difference of supporting rate between Biden and Trump decreased within each battleground state. The decrease was small but statistically significant.</p></li>
-<li><p>As COVID-19 death increased, the difference of supporting rate between Biden and Trump decreased within each battle ground state. The decrease was small but statistically significant.</p></li>
+<li><p>As COVID-19 cases increased, the difference of supporting rate between Biden and Trump decreased within each battleground state. For every 10,000 increase in COVID-19 case, the difference of supporting rate decrease by 0.8 point. The decrease was statistically significant.</p></li>
+<li><p>As COVID-19 death increased, the difference of supporting rate between Biden and Trump decreased within each battle ground state. For every 1,000 increase in COVID-19 death, the difference of supporting rate decrease by 0.3 point. The decrease was statistically significant.</p></li>
 <li><p>COVID-19 daily case / daily death was not correlated with the difference of supporting rate between Biden and Trump.<br />
 </p></li>
 </ol>
@@ -681,7 +758,7 @@ model_case %&gt;%
 <h1>Conclusion</h1>
 <hr />
 <p>We found that as the number of COVID-19 cases and deaths increased, Trump’s supporting rate slightly increased in the seventeen battleground states.</p>
-<p>The GEE regression model we built is relatively simple and we only considered four variables related to COVID status, so this regression analysis should be regarded as an initial and exploratory analysis to generate future hyptheses. Future investigations should consider other variables and potential confounders.</p>
+<p>The GEE regression model we built is relatively simple and we only considered four variables related to COVID status, so this regression analysis should be regarded as an initial and exploratory analysis to generate future hypotheses. Future investigations should consider other variables and potential confounders.</p>
 </div>
 
 
@@ -695,7 +772,7 @@ model_case %&gt;%
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();

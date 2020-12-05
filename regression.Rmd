@@ -12,13 +12,15 @@ library(tidyverse)
 library(httr)
 library(lubridate)
 library(geepack)
+library(patchwork)
+library(hrbrthemes)
 
 # setting
 theme_set(theme_minimal() + theme(legend.position = "bottom"))
 
 knitr::opts_chunk$set(
-  fig.width = 6,
-  fig.asp = .6,
+  fig.width = 7,
+  fig.asp = .7,
   out.width = "70%"
 )
 
@@ -140,7 +142,7 @@ ggplot(data = poll_covid_df, aes(x = biden_lead)) +
 
 ***
 
-Estimates from GEE modelling:
+We tested 4 simple GEE models as below:
 
 1. _Biden lead = β0 + β1(COVID case)_
 
@@ -161,6 +163,49 @@ geeglm(biden_lead ~ mean_case,
 
 ```
 
+Visualization of the predicted and actual lead of Biden against mean COVID-19 case during the polling period:
+
+```{r}
+gee_case = geeglm(biden_lead ~ mean_case,
+       data = model_case,
+       id = id,
+       family = gaussian(link = "identity"),
+       corstr = "exchangeable"
+       ) 
+
+prediction_case = 
+  predict(gee_case, type = 'response') %>% 
+  as.vector()
+
+model_case = 
+  model_case %>% 
+  mutate(
+    lead_predicted = prediction_case
+  )
+
+LineColor <- "#69b3a2"
+PointColor <- rgb(0.2, 0.6, 0.9, 1)
+
+ggplot(model_case, aes(x = mean_case)) +
+  xlab("Mean number of COVID cases during the polling period") +
+  geom_line(aes(y = lead_predicted), color = LineColor) +
+  geom_point(aes(y = biden_lead), color = PointColor) +
+  scale_y_continuous(
+    name = "Predicted lead of Biden over Trump (point)",
+    sec.axis = dup_axis(
+      name = "Actual lead of Biden over Trump (point)"
+      )
+  ) +
+  theme_ipsum() +
+  theme(
+    axis.title.y = element_text(color = LineColor, size = 13),
+    axis.title.y.right = element_text(color = PointColor, size = 13)
+  )
+    
+```
+
+\
+
 2. _Biden lead = β0 + β1(COVID death)_
 
 ```{r}
@@ -169,17 +214,55 @@ model_death =
 poll_covid_df %>% 
   drop_na(mean_death, biden_lead)
 
-
-  geeglm(biden_lead ~ mean_death,
-         data = model_death,
-         id = id,
-         family = gaussian(link = "identity"),
-         corstr = "exchangeable"
-         ) %>%   
+geeglm(biden_lead ~ mean_death,
+      data = model_death,
+      id = id,
+      family = gaussian(link = "identity"),
+      corstr = "exchangeable"
+      ) %>%   
   broom::tidy() %>% 
   knitr::kable()
 ```
  
+Visualization of the predicted and actual lead of Biden against mean COVID-19 death during the polling period:
+
+```{r}
+gee_death = geeglm(biden_lead ~ mean_death,
+       data = model_death,
+       id = id,
+       family = gaussian(link = "identity"),
+       corstr = "exchangeable"
+       ) 
+
+prediction_death = 
+  predict(gee_death, type = 'response') %>% 
+  as.vector()
+
+model_death = 
+  model_death %>% 
+  mutate(
+    lead_predicted = prediction_death
+  )
+
+ggplot(model_death, aes(x = mean_death)) +
+  xlab("Mean number of COVID deaths during the polling period") +
+  geom_line(aes(y = lead_predicted), color = LineColor) +
+  geom_point(aes(y = biden_lead), color = PointColor) +
+  scale_y_continuous(
+    name = "Predicted lead of Biden over Trump (point)",
+    sec.axis = dup_axis(
+      name = "Actual lead of Biden over Trump (point)"
+      )
+  ) +
+  theme_ipsum() +
+  theme(
+    axis.title.y = element_text(color = LineColor, size = 13),
+    axis.title.y.right = element_text(color = PointColor, size = 13)
+  ) 
+```
+
+\
+
 3. _Biden lead = β0 + β1(COVID case increase)_
 
 ```{r}
@@ -188,13 +271,12 @@ model_case_increase =
 poll_covid_df %>% 
   drop_na(mean_pos_increase, biden_lead)
 
-
-  geeglm(biden_lead ~ mean_pos_increase,
-         data = model_case_increase,
-         id = id,
-         family = gaussian(link = "identity"),
-         corstr = "exchangeable"
-         ) %>%   
+geeglm(biden_lead ~ mean_pos_increase,
+      data = model_case_increase,
+      id = id,
+      family = gaussian(link = "identity"),
+      corstr = "exchangeable"
+      ) %>%   
   broom::tidy() %>% 
   knitr::kable()
 ```
@@ -207,13 +289,12 @@ model_death_increase =
 poll_covid_df %>% 
   drop_na(mean_death_increase, biden_lead)
 
-
-  geeglm(biden_lead ~ mean_death_increase,
-         data = model_death_increase,
-         id = id,
-         family = gaussian(link = "identity"),
-         corstr = "exchangeable"
-         ) %>%   
+geeglm(biden_lead ~ mean_death_increase,
+      data = model_death_increase,
+      id = id,
+      family = gaussian(link = "identity"),
+      corstr = "exchangeable"
+      ) %>%   
   broom::tidy() %>% 
   knitr::kable()
 ```
@@ -235,15 +316,31 @@ gee_case = geeglm(biden_lead ~ mean_case,
 
 anova(gee_case)
 
-
 plot(density(resid(gee_case, type='response')))
+
+prediction = 
+  predict(gee_case, type='response') %>% 
+  as.vector()
+
+model_case = 
+  model_case %>% 
+  mutate(
+    lead_predicted = prediction
+  )
+
+
+ggplot(model_case, aes(x = mean_case)) +
+  geom_density()
+
+ggplot(model_case, aes(x = mean_case, y = lead_predicted)) +
+  geom_line()+
+  xlab("mean number of case during polling period")+
+  ylab("predicted lead of Biden over Trump")
 
 
 scatter.smooth(predict(gee_case, type='response'), resid(gee_case, type='response'))
 
-
 plot(cooks.distance(gee_case), type="response")
-
 
 model_case %>% 
   nest(data= - state) %>% 
