@@ -11,8 +11,8 @@ output:
 library(tidyverse)
 library(httr)
 library(patchwork)
+library(lubridate)
 library(geepack)
-library(patchwork)
 library(hrbrthemes)
 
 # setting
@@ -308,25 +308,64 @@ geeglm(biden_lead ~ mean_death_increase,
 
 In both gee model of COVID-19 case and death, the residuals are approximately normally distributed.
 
-```{r eval=FALSE}
-# Model mean_case
+```{r}
 
-resid_1 = plot(density(resid(gee_case, type='response')))
-resid_2 = plot(density(resid(gee_death, type='response')))
 
-resid_1/resid_2
+case_residual = resid(gee_case, type='response') %>% as.vector()
 
+model_case = model_case %>% mutate(
+  residual = case_residual
+)
+
+resid_p1 = model_case %>% ggplot(aes(x=residual)) + geom_density()+
+    labs( 
+      title = "Residual Distribution in Gee Model of COVID-19 Case",
+      x = "Residual",
+      y = "Density"
+      )
+
+
+death_residual = resid(gee_death, type='response') %>% as.vector()
+
+model_death = model_death %>% mutate(
+  residual = death_residual
+)
+
+resid_p2 = model_death %>% ggplot(aes(x=residual)) + geom_density()+
+    labs( 
+      title = "Residual Distribution in Gee Model of COVID-19 Death",
+      x = "Residual",
+      y = "Density"
+      )
+
+
+resid_p1/resid_p2
 ```
 
 **Predicted Y against residual**
 
-The residuals of both gee models are evenly distributed around the expected Y. However, we noticed that when the 
+The residuals of both gee models are evenly distributed around the expected Y. However, we noticed that when the supporting difference is larger, the residuals are more separated, indicating divergence between real supporting difference and predicted model.
 
-```{r}
-predict_1 = scatter.smooth(predict(gee_case, type='response'), resid(gee_case, type='response'))
-predict_2 = scatter.smooth(predict(gee_death, type='response'), resid(gee_death, type='response'))
+```{r message=FALSE}
+model_case %>% ggplot(aes(x=lead_predicted,y=residual))+
+  geom_point(color = PointColor)+
+  geom_smooth(color = LineColor)+
+    labs( 
+      title = "Residual vs. Predicted Lead in Case Model",
+      x = "Predicted Lead of Biden over Trump",
+      y = "Residual"
+      )
 
-predict_1/predict_2
+
+model_death %>% ggplot(aes(x=lead_predicted,y=residual))+
+  geom_point(color = PointColor)+
+  geom_smooth(color = LineColor)+
+    labs( 
+      title = "Residual vs. Predicted Lead in Death Model",
+      x = "Predicted Lead of Biden over Trump",
+      y = "Residual"
+      )
+
 ```
 
 

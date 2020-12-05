@@ -26,6 +26,17 @@
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -687,50 +698,58 @@ geeglm(biden_lead ~ mean_death_increase,
 <div id="model-diagnostic" class="section level1">
 <h1>Model diagnostic</h1>
 <hr />
-<pre class="r"><code># Model mean_case
-gee_case = geeglm(biden_lead ~ mean_case,
-       data = model_case,
-       id = id,
-       family = gaussian(link = &quot;identity&quot;),
-       corstr = &quot;exchangeable&quot;
-       ) 
+<p><strong>Residual distribution</strong></p>
+<p>In both gee model of COVID-19 case and death, the residuals are approximately normally distributed.</p>
+<pre class="r"><code>case_residual = resid(gee_case, type=&#39;response&#39;) %&gt;% as.vector()
 
-anova(gee_case)
+model_case = model_case %&gt;% mutate(
+  residual = case_residual
+)
 
-plot(density(resid(gee_case, type=&#39;response&#39;)))
-
-prediction = 
-  predict(gee_case, type=&#39;response&#39;) %&gt;% 
-  as.vector()
-
-model_case = 
-  model_case %&gt;% 
-  mutate(
-    lead_predicted = prediction
-  )
+resid_p1 = model_case %&gt;% ggplot(aes(x=residual)) + geom_density()+
+    labs( 
+      title = &quot;Residual Distribution in Gee Model of COVID-19 Case&quot;,
+      x = &quot;Residual&quot;,
+      y = &quot;Density&quot;
+      )
 
 
-ggplot(model_case, aes(x = mean_case)) +
-  geom_density()
+death_residual = resid(gee_death, type=&#39;response&#39;) %&gt;% as.vector()
 
-ggplot(model_case, aes(x = mean_case, y = lead_predicted)) +
-  geom_line()+
-  xlab(&quot;mean number of case during polling period&quot;)+
-  ylab(&quot;predicted lead of Biden over Trump&quot;)
+model_death = model_death %&gt;% mutate(
+  residual = death_residual
+)
+
+resid_p2 = model_death %&gt;% ggplot(aes(x=residual)) + geom_density()+
+    labs( 
+      title = &quot;Residual Distribution in Gee Model of COVID-19 Death&quot;,
+      x = &quot;Residual&quot;,
+      y = &quot;Density&quot;
+      )
 
 
-scatter.smooth(predict(gee_case, type=&#39;response&#39;), resid(gee_case, type=&#39;response&#39;))
-
-plot(cooks.distance(gee_case), type=&quot;response&quot;)
-
-model_case %&gt;% 
-  nest(data= - state) %&gt;% 
-  mutate(
-    models = map(data, ~lm(biden_lead ~ mean_case, data= .x,)),
-    models = map(models,broom::tidy)
-  ) %&gt;% 
-  select(-data) %&gt;% 
-  unnest(models) %&gt;% knitr::kable(digits = 5)</code></pre>
+resid_p1/resid_p2</code></pre>
+<p><img src="regression_files/figure-html/unnamed-chunk-9-1.png" width="70%" /></p>
+<p><strong>Predicted Y against residual</strong></p>
+<p>The residuals of both gee models are evenly distributed around the expected Y. However, we noticed that when the supporting difference is larger, the residuals are more separated, indicating divergence between real supporting difference and predicted model.</p>
+<pre class="r"><code>model_case %&gt;% ggplot(aes(x=lead_predicted,y=residual))+
+  geom_point(color = PointColor)+
+  geom_smooth(color = LineColor)+
+    labs( 
+      title = &quot;Residual vs. Predicted Lead in Case Model&quot;,
+      x = &quot;Predicted Lead of Biden over Trump&quot;,
+      y = &quot;Residual&quot;
+      )</code></pre>
+<p><img src="regression_files/figure-html/unnamed-chunk-10-1.png" width="70%" /></p>
+<pre class="r"><code>model_death %&gt;% ggplot(aes(x=lead_predicted,y=residual))+
+  geom_point(color = PointColor)+
+  geom_smooth(color = LineColor)+
+    labs( 
+      title = &quot;Residual vs. Predicted Lead in Death Model&quot;,
+      x = &quot;Predicted Lead of Biden over Trump&quot;,
+      y = &quot;Residual&quot;
+      )</code></pre>
+<p><img src="regression_files/figure-html/unnamed-chunk-10-2.png" width="70%" /></p>
 </div>
 <div id="findings" class="section level1">
 <h1>Findings</h1>
@@ -772,7 +791,7 @@ model_case %&gt;%
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
