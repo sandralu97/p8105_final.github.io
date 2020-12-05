@@ -14,12 +14,11 @@ library(tidyverse)
 library(ggplot2)
 library(rvest)
 library(patchwork)
-
 library(plotly)
-
+library(geepack)
 library(viridis)
-
-
+library(geepack)
+library(hrbrthemes)
 
 knitr::opts_chunk$set(
   fig.width = 6,
@@ -36,13 +35,11 @@ options(
 
 scale_colour_discrete = scale_colour_viridis_d
 scale_fill_discrete = scale_fill_viridis_d
-```
 
 ## Comparison of both candidates' mail-in votes
 
 #Compare the number of mail-in ballots of dem/rep in each state
 
-```{r}
 returnedballots_df =
   read_csv("data/mail_in.csv") %>% 
   select(state, party, returned_ballots) %>% 
@@ -61,10 +58,7 @@ plot_returned_ballots =
   caption = "Data from 'https://electproject.github.io/Early-Vote-2020G/'"
   )
 
-```
-
 #Compare the return rate of mail-in ballots for each party by state
-```{r}
 returnrate_df =
   read_csv("data/mail_in.csv") %>% 
   select(state, party, return_rate) %>% 
@@ -83,25 +77,43 @@ plot_return_rate =
   caption = "Data from 'https://electproject.github.io/Early-Vote-2020G/'"
   )
 
-```
-
-```{r}
 knitr::opts_chunk$set(
   fig.width = 6,
   fig.asp = .6,
   out.width = "90%"
 )
+# Create tables of returned ballots and return rates
+tab_returnedballots=
+    read_csv("data/mail_in.csv") %>% 
+  select(state, party, freq_distribution) %>% 
+pivot_wider(
+    names_from = party,
+    values_from = freq_distribution
+  ) %>% 
+  select(state, Democrats, Republicans) 
+
+
+
+tab_returnrate=
+    read_csv("data/mail_in.csv") %>% 
+  select(state, party, return_rate) %>% 
+pivot_wider(
+    names_from = party,
+    values_from = return_rate
+  ) %>% 
+  select(state, Democrats, Republicans)
+
 ```
 
 # Overview
 
 ***
 
-In the supporting rate comparison analysis, we compared the supporting rate of Democratic Party and the Republican Party in 17 battleground states in 2016 and 2020. The 17 Battleground states include Florida, Pennsylvania, Wisconsin,North Carolina, Michigan, Ohio, Minnesota, Iowa, Arizona, Nevada, Texas, Georgia, Virginia, New Hampshire Maine, Colorado, and New Mexico. 
+In order to analyze the distribution of mail-in ballots in swing states, we compared the number of mail-in ballots of Democratic Party and the Republican Party in 6 swing states in 2020's election. The 6 swing states are: Florida, Pennsylvania, North Carolina, Iowa, Arizona, and Nevada.
 
-In 2016, 7 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates. In 2020, 12 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates. We observed that in each of the battleground states, the difference between Democratic supporting rate and Republican supporting rate has increased, except Florida and Ohio. 
+After analyzing the distribution and return rate of mail-in ballots for both candidates in swing states, we can safely draw on our conclusion that Democrats have absolute advantage in 6 swing states in terms of mail-in ballots, given the return rate of mail-in ballots for both candidates are approximately very close to each other.
 
-Relevant bar plots and table are attached.
+Relevant outputs of bar charts and tables are attached.
 
 \
 
@@ -109,9 +121,9 @@ Relevant bar plots and table are attached.
 
 ***
 
-In this part, we aimed to compare the supporting rates of two different parties in 17 key states in 2016 and 2020. 
+In this section, our goal is to compare the number of mail-in ballots of two candidates' parties in 6 swing states of 2020's U.S. Presidential election. 
 
-We made a bar plot for each year, comparing supporting rates of two parties in 17 key states. In addition, we calculated the differences of supporting rates in each state in each year and studied how much the Democratic led in each election.
+We made a frequency table and a bar chart to compare the distribution of mail-in votes of both Democrat and Republican candidates in each state. In addition, we produced another bar chart and a table to compare the return rates of mail in ballots in each state and studied how much more mail-in votes are won by the Democrats in each swing state
 
 \
 
@@ -123,20 +135,25 @@ We made a bar plot for each year, comparing supporting rates of two parties in 1
 plot_returned_ballots
 ```
 
-According to plot above, in 2016, 7 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates, including Colorado, Maine, Minnesota, Nevada, New Hampshire, New Mexico, and Virginia.
+```{r}
+knitr::kable(tab_returnedballots)
+
+```
+
+According to plot above, Democrat's candidate Joe Biden, had dominant votes over Republican's candidate Donald Trump, for the returned mail-in ballots in all 6 swing states. The frequency distribution further confirms these facts. In particularly, Biden had absulte dominance over Trump for returned mail-in ballots in the state of Pennsylvania and Florida.
 
 ```{r}
 plot_return_rate
 ```
 
-In 2020, 12 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates, including Arizona, Colorado, Georgia, Maine, Michigan, Minnesota, Nevada, New Hampshire, New Mexico, Pennsylvania, Virginia, and Wisconsin. 
+```{r}
+knitr::kable(tab_returnrate)
+```
 
-Compared to 2016, new blue states included Arizona, Georgia, Michigan, Pennsylvania, and Wisconsin.
 
+The table and bar chart above compared the return rates of both parties' mail-in ballots in 6 swing states.
 
-The table above calculated the differences between Democratic supporting rates and Republican supporting rates (dem - rep) in 2016 and 2020. 
-
-We observed that in each of the battleground states, the difference between Democratic supporting rate and Republican supporting rate has increased, except Florida and Ohio. This result represents that the extent of how much the Democrat led has increased in 15 of the 17 key states.
+We observed that return rate of mail-in ballots by parties in each of the swing states are often close to each other, except for the state of Nevada, where Democrats have 41.9% return rate and Republicans have 26.3% return rate. Overall, Democrat's mail-in ballots has higher return rate over Republican's return rate, except for the state of North Carolina, where Republicans have slight advantage of 69.8% while Democrates have 65.5%. 
 
 \
 
@@ -144,19 +161,14 @@ We observed that in each of the battleground states, the difference between Demo
 
 ***
 
-In 2016, only 7 of the 17 battleground states were blue states, which supported the Democratic party. However, in 2020, 12 of the 17 battleground states were blue states. Five new blue states included Arizona, Georgia, Michigan, Pennsylvania, and Wisconsin. 
-
-Of all the 17 states, we observed an increase in the extent of how much Democrat led in 15 states. Only Florida and Ohio had their Republican supporting rates increased in 2020.
-
-Based on the analysis above, we could figure out that since the Democratic party led in most of the battleground states, it is reasonable to predict and understand why the Democratic would win.
+Referring back to 2016's election, Democrats obviously gained more support in swing states. Based on the analysis above, we have sufficient evidence to prove that the Democratic party led in all 6 swing states in terms of mail-in ballots. Moreover, return rates of mail-in ballots for both candidates often have small difference. We came to a reasonable interpretation of how Joe Biden became the president-elect of 2020's election in the U.S.
 
 \
+
 # Conclusion
 
 ***
 
-In the supporting rate comparison analysis, we compared the supporting rate of Democratic Party and the Republican Party in 17 battleground states in 2016 and 2020. Bar plots for 2016 and 2020, and a table comparing the differences of supporting rates in each state were developed.
+After analyzing the distribution and return rate of mail-in ballots for both candidates in swing states, we can safely draw our conclusion on the fact that mail-in ballots in swing states had significantly tilted the 2020 presidential election results. More electorial votes went to Democrats as more mail-in ballots are being counted.
 
-In 2016, 7 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates. In 2020, 12 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates. We observed that in each of the battleground states, the difference between Democratic supporting rate and Republican supporting rate has increased, except Florida and Ohio. 
-
-Overall, larger proportions of people in these battleground states supported the Democratic party in 2020, compared to 2016.
+In general, Democrats have absolute advantage in 6 swing states in terms of mail-in ballots, given the return rate of mail-in ballots for both candidates are approximately very close to each other.
