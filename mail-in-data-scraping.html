@@ -10,8 +10,9 @@
 
 
 
+<meta name="date" content="2020-11-20" />
 
-<title>Covid-19 and 2020 Presidential Election</title>
+<title>Mail in data scraping</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,9 +20,6 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -253,69 +251,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -323,16 +258,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -387,35 +312,98 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Covid-19 and 2020 Presidential Election</h1>
+<h1 class="title toc-ignore">Mail in data scraping</h1>
+<h4 class="date">11/20/2020</h4>
 
 </div>
 
 
-<p><img src="covid.jpg"></p>
-<div id="project-motivation" class="section level1">
-<h1>Project Motivation</h1>
-<p>The COVID-19 pandemic, the economy, and racial injustice have been top concerns in the 2020 presidential election. According to AP VoteCast, a national survey of the electorate, about 4 in 10 voters suggest the pandemic as the top issue while the economy follows behind.</p>
-<p>However, an Associated Press analysis gave conclusions with a surprising twist: in counties with worst COVID-19 surges, Trump enjoyed enormous support. We are interested in using polling data and data of the COVID-19 case incidence / death rates to investigate whether and how COVID-19 pandemic has influenced supporting rate distribution among top battlegrounds.</p>
-<p> </p>
+<div id="mail-in-data" class="section level1">
+<h1>Mail in data</h1>
+<div id="pa-example" class="section level2">
+<h2>PA example</h2>
+<pre class="r"><code>mail_url = &quot;https://electproject.github.io/Early-Vote-2020G/PA.html&quot;
+mail_html = read_html(mail_url)
+mail_pa = 
+  mail_html %&gt;% html_nodes(xpath = &quot;//*[@id=&#39;mail-ballots-returned-by-party-registration&#39;]/table&quot;) %&gt;% 
+  html_table()
+
+mail_pa = mail_pa[[1]] 
+
+pa_1 = mail_pa %&gt;% 
+  janitor::clean_names() %&gt;% 
+  mutate(
+    state = &quot;PA&quot;
+  )</code></pre>
+<p><strong>Mail-in statistics are not available in key states including WI, MI, MN, OH &amp; TX</strong></p>
 </div>
-<div id="project-overview" class="section level1">
-<h1>Project Overview</h1>
-<p>In this project, we focused on top battleground states (Florida, Pennsylvania, Wisconsin, North Carolina, Michigan, Ohio, Minnesota, Iowa, Arizona, Nevada, Texas, Georgia, Virginia, New Hampshire, Maine,Colorado and New Mexico)</p>
-<p>We used <a href="https://www.realclearpolitics.com/">2016 &amp; 2020 presidential poll</a>, <a href="https://electproject.github.io/">mail-in vote data</a> and <a href="http://covidtracking.com/data/">COVID-19 data</a> to examine the relationship between COVID-19 and poll data.</p>
-<p>We have provided insights on the following topics:</p>
-<ul>
-<li><p>Time trend of COVID-19 statistics and presidential poll in 2020</p></li>
-<li><p>Regression analysis of COVID-19 case / death rate and presidential poll in 2020</p></li>
-<li><p>Comparison of democrats / republican supporting rate between 2020 and 2016</p></li>
-<li><p>Supporting rate distribution among mail-in vote</p></li>
-</ul>
+<div id="create-full-list-of-key-state-that-has-mail-in-statistics" class="section level2">
+<h2>Create full list of key state that has mail-in statistics</h2>
+<p>List that has 2 tables from FL to GA</p>
+<pre class="r"><code>url_base = &quot;https://electproject.github.io/Early-Vote-2020G/&quot;
+state_list_1 = list(
+  state_name = c(&quot;florida&quot;,&quot;pennsylvania&quot;),
+  state_abbv = c(&quot;FL&quot;,&quot;PA&quot;)
+)
+
+state_list_1 = c(state_list_1,
+                list(str_c(url_base,state_list_1[[2]],&quot;.html&quot;))
+                 )
+
+state_list_2 = list(
+  state_name = c(&quot;north_carolina&quot;,&quot;iowa&quot;,&quot;arizona&quot;,&quot;nevada&quot;),
+  state_abbv = c(&quot;NC&quot;,&quot;IA&quot;,&quot;AZ&quot;,&quot;NV&quot;)
+)
+
+state_list_2 = c(state_list_2,
+                list(str_c(url_base,state_list_2[[2]],&quot;.html&quot;))
+                 )</code></pre>
+<p>Function_read url</p>
+<pre class="r"><code>url_function_1 = function(x){
+  
+mail_url = x
+mail_html = read_html(mail_url)
+mail_list = 
+  mail_html %&gt;% html_nodes(xpath = &quot;//*[@id=&#39;mail-ballots-returned-by-party-registration&#39;]/table&quot;) %&gt;% 
+  html_table()
+
+}
+
+url_function_2 = function(x){
+  
+mail_url = x
+mail_html = read_html(mail_url)
+mail_list = 
+  mail_html %&gt;% html_nodes(xpath = &quot;//*[@id=&#39;mail-ballots-returned-and-accepted-by-party-registration&#39;]/table&quot;) %&gt;% 
+  html_table()
+
+}</code></pre>
+<p>Apply url function for list 1</p>
+<pre class="r"><code>url_list_1 = map(state_list_1[[3]], url_function_1)
+
+url_list_2 = map(state_list_2[[3]], url_function_2)</code></pre>
+<p>bind 2 list</p>
+<pre class="r"><code>state_table = c(url_list_1,url_list_2)</code></pre>
+<p>clean table</p>
+<pre class="r"><code>clean_function = function(x){
+  x[[1]] %&gt;% janitor::clean_names()
+}</code></pre>
+<p>apply clean function</p>
+<pre class="r"><code>cleaned_table = map(state_table, clean_function)</code></pre>
+<p>Generate the final poll dataset</p>
+<pre class="r"><code>mailin_data = 
+  tibble(
+  state = append(state_list_1[[1]], state_list_2[[1]]),
+  mail_list = cleaned_table
+  ) %&gt;% 
+  unnest(mail_list)
+
+write_csv(mailin_data, &quot;./data/mail_in.csv&quot;)</code></pre>
+</div>
 </div>
 
 
 
-</div>
-</div>
 
 </div>
 
@@ -448,32 +436,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

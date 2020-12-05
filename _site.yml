@@ -14,6 +14,10 @@ navbar:
   right:
     - text: "Project Report"
       href: Project_report.html
+    - icon: fa-github fa-lg
+      href: https://github.com/sandralu97/p8105_final.github.io
+    - icon: fab fa-youtube
+    
 output:
   html_document:
-    theme: sandstone
+    theme: flatly

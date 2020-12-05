@@ -7,6 +7,238 @@ output:
     code_folding: hide
 ---
 
+```{r include = FALSE}
+library(tidyverse)
+library(httr)
+library(patchwork)
+library(lubridate)
+library(geepack)
+library(hrbrthemes)
+library(plotly)
+
+# setting
+theme_set(theme_minimal() + theme(legend.position = "bottom"))
+
+knitr::opts_chunk$set(
+  fig.width = 7,
+  fig.asp = .7,
+  out.width = "70%"
+)
+
+options(
+  ggplot2.continuous.colour = "viridis",
+  ggplot2.continuous.fill = "viridis",
+  digits = 7
+)
+
+scale_colour_discrete = scale_color_viridis_d
+scale_fill_discrete = scale_fill_viridis_d
+
+# Read data
+covid_df = read.csv("./data/covid.csv") 
+poll_df = read_csv("./data/state_poll_20.csv") %>% 
+  drop_na() 
+  
+
+covid_df = covid_df %>% mutate(
+  date = as.Date(date)
+)
+
+
+# function that outputs covid df in the interval
+
+match = function(interval, state_name) {
+  covid_df %>%
+    filter(state == state_name) %>% 
+    mutate(logic = date %within% interval) %>% 
+    filter(logic == TRUE)
+}
+
+# function that generates means of case, death, postive increase, and death increase
+
+mean_value = function(df){
+  tibble(
+    mean_case = mean(df$total_case),
+    mean_death = mean(df$death),
+    mean_pos_increase = mean(df$positive_increase),
+    mean_death_increase = mean(df$death_increase),
+  ) 
+}
+
+# Create the regression df
+
+poll_covid_df = 
+  poll_df %>% 
+  mutate(
+    interval = interval(ymd(start_date), ymd(end_date)),
+    covid_list = map2(.x = interval, .y = state, ~ match(.x, .y)),
+    mean_outputs = map(.x = covid_list, ~ mean_value(.x))
+  ) %>% 
+  select(state, biden, biden_lead, mean_outputs) %>% 
+  unnest(mean_outputs) 
+
+poll_covid_df =
+  poll_covid_df %>% 
+  mutate(
+    id = min_rank(state)
+  )
+
+# Read in 2016 dataset
+
+support2016_df =
+  read_csv("data/state_poll_16.csv") %>%
+  select(state, poll, clinton, trump) %>%
+  filter(poll=="Final Results") %>%
+  mutate(year = "2016", dem = clinton, rep = trump) %>%
+  select(state, year, dem, rep) %>%
+  pivot_longer(
+    dem:rep,
+    names_to="party",
+    values_to="rate")
+
+# Create 2016 plot
+
+plot16 = 
+  support2016_df %>%
+  ggplot(aes(x = state, y = rate, fill = party)) +
+  geom_bar(stat="identity") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
+  labs(
+  title = "Supporting rate in 2016",
+  x = "State",
+  y = "Rate",
+  caption = "Data from 'https://www.realclearpolitics.com/epolls/2016/president'"
+  )
+plot16 =  ggplotly(plot16)
+
+# Read in 2020 dataset
+
+support2020_df =
+  read_csv("data/state_poll_20.csv") %>%
+  select(state, poll, biden, trump) %>%
+  filter(poll=="Final Results") %>%
+  mutate(year = "2020", dem = biden, rep = trump) %>%
+  select(state, year, dem, rep) %>%
+  pivot_longer(
+    dem:rep,
+    names_to="party",
+    values_to="rate")
+
+# Create 2020 plot
+
+plot20 = 
+  support2020_df %>%
+  ggplot(aes(x = state, y = rate, fill = party)) +
+  geom_bar(stat="identity") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
+  labs(
+  title = "Supporting rate in 2020",
+  x = "State",
+  y = "Rate",
+  caption = "Data from 'https://www.realclearpolitics.com/epolls/2020/president'"
+  )
+plot20 =  ggplotly(plot20)
+
+# Calculate the supporting rate difference in 17 states in 2016 and 2020
+
+support2016_df2 =
+  read_csv("data/state_poll_16.csv") %>%
+  select(state, poll, clinton, trump) %>%
+  filter(poll=="Final Results") %>%
+  mutate(
+    dem_rep_difference_16 = clinton - trump
+  ) %>%
+  select(state, dem_rep_difference_16)
+
+support2020_df2 =
+  read_csv("data/state_poll_20.csv") %>%
+  select(state, poll, biden, trump) %>%
+  filter(poll=="Final Results") %>%
+  mutate(
+    dem_rep_difference_20 = biden - trump) %>%
+  select(state, dem_rep_difference_20)
+
+comparison_df = 
+  merge(support2016_df2, support2020_df2, by = "state")
+
+table_df = 
+  tibble(
+    state = comparison_df$state,
+    dem_rep_difference_16 = comparison_df$dem_rep_difference_16,
+    dem_rep_difference_20 = comparison_df$dem_rep_difference_20,
+  )
+
+## Comparison of both candidates' mail-in votes
+
+#Compare the number of mail-in ballots of dem/rep in each state
+
+returnedballots_df =
+  read_csv("data/mail_in.csv") %>% 
+  select(state, party, returned_ballots) %>% 
+  filter(party %in% c("Democrats", "Republicans")) %>%
+  group_by(state, party) 
+ 
+plot_returned_ballots = 
+  returnedballots_df %>%
+  ggplot(aes(x = state, y = returned_ballots, fill = party)) +
+  geom_bar(stat="identity") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
+  labs(
+  title = "The number of returned mail-in ballots of each party by state",
+  x = "State",
+  y = "Number of returned mail-in ballots",
+  caption = "Data from 'https://electproject.github.io/Early-Vote-2020G/'"
+  )
+
+#Compare the return rate of mail-in ballots for each party by state
+returnrate_df =
+  read_csv("data/mail_in.csv") %>% 
+  select(state, party, return_rate) %>% 
+  filter(party %in% c("Democrats", "Republicans")) %>%
+  group_by(state, party) 
+ 
+plot_return_rate = 
+  returnrate_df %>%
+  ggplot(aes(x =return_rate, y = state, fill = party)) +
+  geom_bar(stat="identity", position=position_dodge()) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
+  labs(
+  title = "The return rate of mail-in ballots for each party by state",
+  x = "Return rate of mail-in ballots",
+  y = "State",
+  caption = "Data from 'https://electproject.github.io/Early-Vote-2020G/'"
+  )
+
+knitr::opts_chunk$set(
+  fig.width = 6,
+  fig.asp = .6,
+  out.width = "90%"
+)
+# Create tables of returned ballots and return rates
+tab_returnedballots=
+    read_csv("data/mail_in.csv") %>% 
+  select(state, party, freq_distribution) %>% 
+pivot_wider(
+    names_from = party,
+    values_from = freq_distribution
+  ) %>% 
+  select(state, Democrats, Republicans) 
+
+
+
+tab_returnrate=
+    read_csv("data/mail_in.csv") %>% 
+  select(state, party, return_rate) %>% 
+pivot_wider(
+    names_from = party,
+    values_from = return_rate
+  ) %>% 
+  select(state, Democrats, Republicans)
+
+```
+
+
+
 # Motivation
 ***
 
@@ -72,8 +304,9 @@ Our analysis based on the following data source:
 \
 
 ## Data scraping and cleaning
+***
 
-### Presidential poll 
+### 2016 & 2020 presidential poll
 
 All presidential poll by states were read and then selected by CSS selector. Relevant tables were scraped as tibbles with map and function statement. The supporting rate (`biden` and `trump`), spread (`spread`), poll period (`start_date` and `end_date`) and poll agent (`poll`) were selected. All date was transformed to date format in R for later analysis. 
 `spread` was further transformed into `biden_lead` to represent the difference between the supporting rate of Biden and Trump.
@@ -112,38 +345,268 @@ Mail-in vote data was scraped using Xpath statement. Mail ballots returned and a
 
 * `freq_distribution`: The corresponding frequency (%) of each party
 
-## COVID-19 data
+### COVID-19 data
+COVID-19 data was scraped using API. Date, positive and probable cases, total test results, death, as well as positive test results and deaths increased for each day and each state are included in the final dataframe. Total case number was calculated, as defined in the website, as the sum of positive test results and probable cases. 
 
+**Variables**
 
+state, date, positive, probable_cases, total_test_results, death, positive_increase, death_increase, data_quality_grade
+
+* `state`: The battleground state name
+
+* `date`: Date on which data was collected by The COVID Tracking Project
+
+* `positive`: The number of positive test results reported by the state
+
+* `probable_cases`: Total number of probable cases of COVID-19 as reported by the state. A probable case is someone who tests positive via antigen without a positive PCR or other approved nucleic acid amplification test (NAAT), someone with clinical and epidemiological evidence of COVID-19 infection with no confirmatory laboratory testing performed for SARS-CoV-2, or someone with COVID-19 listed on their death certificate with no confirmatory laboratory testing performed for SARS-CoV-2.
+
+* `total_case` : Total number of test positive plus probable cases of COVID-19 reported by the state or territory
+
+* `death`: Total fatalities with confirmed OR probable COVID-19 case diagnosis 
+
+* `positive_increase`: The daily increase in positive cases (confirmed plus probable) calculated based on the previous day’s value
+
+* `death_increase`: Daily increase in death, calculated from the previous day’s value.
+
+* `data_quality_grade`: The COVID Tracking Project grade of the completeness of the data reporting by a state
+
+\
 
 # Exploratory analysis
 ***
 
-## Supporting rate comparison
+## Time trend of poll vs. COVID
 
-In 2016, 7 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates. In 2020, 12 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates. We observed that in each of the battleground states, the difference between Democratic supporting rate and Republican supporting rate has increased, except Florida and Ohio. 
-
-## Mail-in ballots
-
-According to the bar plot, Democrat’s candidate Joe Biden, had dominant votes over Republican’s candidate Donald Trump, for the returned mail-in ballots in all 6 swing states. In particularly, Biden had absolute dominance over Trump for returned mail-in ballots in the state of Pennsylvania and Florida. We observed that return rate of mail-in ballots by parties in each of the swing states are often close to each other, except for the state of Nevada.
-
-\
-
-# Statistical analysis
-***
+We use shinyapps.io to visualize the time trend of the supporting rate of Joe Biden and Donald Trump in the US Elections 2020 and the total confirmed covid-19 cases in the 17 swing states. For supporting rates, we construct a scatter plot with lines connecting the points to show the overall trend across the whole time period. Since our data consists supporting rates estimated by different poll, we take the mean of their results to present in our plot. For Covid19 confirmed cases, we use a bar chart to show present the total cases of each day, plotly helped in also showing the number of death and number of positive cases respectively. Both the two plots have the same scale of time that can be adjusted by selecting the date range. The data of total confirmed covid19 cases are not available for New Mexico, New Hampshire, Iowa, Nevada, Texas and Georgia, therefore, there will be no plot of covid19 cases for these states. Overall, Biden has averagely higher supporting rates than trump, the number of Covid19 cases seemed to have little impact on the supporting rates of either candidate. 
 
 ## Supporting rate comparison
 
 We observed that in each of the battleground states, the difference between Democratic supporting rate and Republican supporting rate has increased, except Florida and Ohio. This result represents that the extent of how much the Democrat led has increased in 15 of the 17 key states.
 
+In 2016, 7 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates. In 2020, 12 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates. We observed that in each of the battleground states, the difference between Democratic supporting rate and Republican supporting rate has increased, except Florida and Ohio. 
+
+```{r}
+knitr::kable(table_df)
+```
+
 ## Mail-in ballots
 
 Overall, Democrat’s mail-in ballots has higher return rate over Republican’s return rate, except for the state of North Carolina, where Republicans have slight advantage of 69.8% while Democrats have 65.5%.
+
+According to the bar plot, Democrat’s candidate Joe Biden, had dominant votes over Republican’s candidate Donald Trump, for the returned mail-in ballots in all 6 swing states. In particularly, Biden had absolute dominance over Trump for returned mail-in ballots in the state of Pennsylvania and Florida. We observed that return rate of mail-in ballots by parties in each of the swing states are often close to each other, except for the state of Nevada.
+
+
+```{r}
+plot_returned_ballots
+```
+
+```{r}
+knitr::kable(tab_returnedballots)
+
+```
+
+According to plot above, Democrat's candidate Joe Biden, had dominant votes over Republican's candidate Donald Trump, for the returned mail-in ballots in all 6 swing states. The frequency distribution further confirms these facts. In particularly, Biden had absulte dominance over Trump for returned mail-in ballots in the state of Pennsylvania and Florida.
+
+```{r}
+plot_return_rate
+```
+
+```{r}
+knitr::kable(tab_returnrate)
+```
+
+
+The table and bar chart above compared the return rates of both parties' mail-in ballots in 6 swing states.
+
+We observed that return rate of mail-in ballots by parties in each of the swing states are often close to each other, except for the state of Nevada, where Democrats have 41.9% return rate and Republicans have 26.3% return rate. Overall, Democrat's mail-in ballots has higher return rate over Republican's return rate, except for the state of North Carolina, where Republicans have slight advantage of 69.8% while Democrates have 65.5%. 
+
+\
+
+# Regression analysis
+***
+
+In this part, we aimed to examine the relationship between COVID-19 case / death rate and presidential poll by different battleground states. Since the COVID-19 statistics was a longitudinal measurement over time, generalized estimating equations (GEE) model was used to account for correlated data within each battleground state. 
+
+We examined the effect of 4 variables on Biden's lead over Trump:
+
+* `mean_case` the average number of incremental COVID-19 cases between the poll survey period
+
+* `mean_death` the average number of incremental COVID-19 death between the poll survey period
+
+* `mean_pos_increase` the average number of daily COVID-19 cases increased comparing to previous day between the poll survey period
+
+* `mean_death_increase` the average number of daily COVID-19 death increased comparing to previous day between the poll survey period
+
+We tested 4 simple GEE models as below:
+
+1. _Biden lead = β0 + β1(COVID case)_
+
+```{r include = FALSE}
+# Model mean_case
+model_case = 
+poll_covid_df %>% 
+  drop_na(mean_case, biden_lead)
+
+geeglm(biden_lead ~ mean_case,
+       data = model_case,
+       id = id,
+       family = gaussian(link = "identity"),
+       corstr = "exchangeable"
+       ) %>%   
+  broom::tidy() %>% 
+  knitr::kable()
+
+```
+
+2. _Biden lead = β0 + β1(COVID death)
+
+```{r include = FALSE}
+# Model mean_death
+model_death = 
+poll_covid_df %>% 
+  drop_na(mean_death, biden_lead)
+
+geeglm(biden_lead ~ mean_death,
+      data = model_death,
+      id = id,
+      family = gaussian(link = "identity"),
+      corstr = "exchangeable"
+      ) %>%   
+  broom::tidy() %>% 
+  knitr::kable()
+```
+
+
+3. _Biden lead = β0 + β1(COVID case increase)_
+
+```{r echo = FALSE}
+# case increase
+model_case_increase = 
+poll_covid_df %>% 
+  drop_na(mean_pos_increase, biden_lead)
+
+geeglm(biden_lead ~ mean_pos_increase,
+      data = model_case_increase,
+      id = id,
+      family = gaussian(link = "identity"),
+      corstr = "exchangeable"
+      ) %>%   
+  broom::tidy() %>% 
+  knitr::kable()
+```
+
+
+4. _Biden lead = β0 + β1(COVID death increase)_
+
+```{r echo = FALSE}
+# death increase
+model_death_increase = 
+poll_covid_df %>% 
+  drop_na(mean_death_increase, biden_lead)
+
+geeglm(biden_lead ~ mean_death_increase,
+      data = model_death_increase,
+      id = id,
+      family = gaussian(link = "identity"),
+      corstr = "exchangeable"
+      ) %>%   
+  broom::tidy() %>% 
+  knitr::kable()
+```
+
+We then conducted model diagnositc, and found that in both gee model of COVID-19 case and death, the residuals are approximately normally distributed.
+
+Based on the regression analysis, we have concluded that:
+
+1. As COVID-19 cases increased, the difference of supporting rate between Biden and Trump decreased within each battleground state. For every 10,000 increase in COVID-19 case, the difference of supporting rate decrease by 0.8 point. The decrease was statistically significant.
+
+```{r echo = FALSE}
+gee_case = geeglm(biden_lead ~ mean_case,
+       data = model_case,
+       id = id,
+       family = gaussian(link = "identity"),
+       corstr = "exchangeable"
+       ) 
+
+prediction_case = 
+  predict(gee_case, type = 'response') %>% 
+  as.vector()
+
+model_case = 
+  model_case %>% 
+  mutate(
+    lead_predicted = prediction_case
+  )
+
+LineColor <- "#69b3a2"
+PointColor <- rgb(0.2, 0.6, 0.9, 1)
+
+ggplot(model_case, aes(x = mean_case)) +
+  xlab("Mean number of COVID cases during the polling period") +
+  geom_line(aes(y = lead_predicted), color = LineColor) +
+  geom_point(aes(y = biden_lead), color = PointColor) +
+  scale_y_continuous(
+    name = "Predicted lead of Biden over Trump (point)",
+    sec.axis = dup_axis(
+      name = "Actual lead of Biden over Trump (point)"
+      )
+  ) +
+  theme_ipsum() +
+  theme(
+    axis.title.y = element_text(color = LineColor, size = 14),
+    axis.title.y.right = element_text(color = PointColor, size = 14),
+    axis.title.x.bottom = element_text(size = 14)
+  )
+```
+
+2. As COVID-19 death increased, the difference of supporting rate between Biden and Trump decreased within each battle ground state. For every 1,000 increase in COVID-19 death, the difference of supporting rate decrease by 0.3 point. The decrease was statistically significant.
+
+```{r echo = FALSE}
+gee_death = geeglm(biden_lead ~ mean_death,
+       data = model_death,
+       id = id,
+       family = gaussian(link = "identity"),
+       corstr = "exchangeable"
+       ) 
+
+prediction_death = 
+  predict(gee_death, type = 'response') %>% 
+  as.vector()
+
+model_death = 
+  model_death %>% 
+  mutate(
+    lead_predicted = prediction_death
+  )
+
+ggplot(model_death, aes(x = mean_death)) +
+  xlab("Mean number of COVID deaths during the polling period") +
+  geom_line(aes(y = lead_predicted), color = LineColor) +
+  geom_point(aes(y = biden_lead), color = PointColor) +
+  scale_y_continuous(
+    name = "Predicted lead of Biden over Trump (point)",
+    sec.axis = dup_axis(
+      name = "Actual lead of Biden over Trump (point)"
+      )
+  ) +
+  theme_ipsum() +
+  theme(
+    axis.title.y = element_text(color = LineColor, size = 14),
+    axis.title.y.right = element_text(color = PointColor, size = 14),
+    axis.title.x.bottom = element_text(size = 14)
+  ) 
+```
+
+
+3. COVID-19 daily case / daily death was not correlated with the difference of supporting rate between Biden and Trump.
 
 \
 
 # Discussion
 ***
+
+## Time trend of poll vs. COVID
+According to our output time trend of the supporting rates between Joe Biden and Donald Trump in each of the swing states, Biden had averagely higher supporting rates than Trump across the whole time periods. The supporting rates of both the candidates slightly fluctuated but overall remained steady, no great decline or growth are shown, which indicates that both the candidates had their stable population of voters respectively in the swing states. Although Covid19 is one of the biggest public focus of 2020, the increase in Covid19 confirmed cases in the swing states didn't seem to have much impact on the supporting rates of either the candidates. 
 
 ## Supporting rate comparison
 
@@ -152,3 +615,17 @@ In 2016, only 7 of the 17 battleground states were blue states, which supported 
 ## Mail-in ballots
 
 Referring back to 2016’s election, Democrats obviously gained more support in swing states. Based on the analysis above, we have sufficient evidence to prove that the Democratic party led in all 6 swing states in terms of mail-in ballots. Moreover, return rates of mail-in ballots for both candidates often have small difference. We came to a reasonable interpretation of how Joe Biden became the president-elect of 2020’s election in the U.S.
+
+## Regression anlalysis
+
+Interestingly, Biden supporting rate decreased by increase of COVID-19 cases and death over time. In other word, Trump supporting rate was increasing. This may be due the **"rally round the flag" effect**.
+
+"Rally round the flag" effect is when there is a short-term surge of voter approval of present nation leader during a crisis or emergency situation. One of the most well-known example is during the 9-11 terrorist attack in 2001. The approval rate of President George W. Bush increased by 39% (from 51% to 90%).
+
+According to [Dickinson (2020)](https://sites.middlebury.edu/presidentialpower/2020/03/28/trump-covid-19-and-the-rally-round-the-flag-phenomenon/), the main reason for this effect is the presidents' relatively unique position in the American political system. Presidents is the only individual embodiment of the nation besides the partisan position. Therefore, the president can benefit from his stature as political head of government when circumstances threaten the nation.
+
+He also pointed out that voters who are less politically aware are more responsive to the "rally round the flag" effect, which may be the majority of battleground state voter. Those partisan members are more likely to be ideological.
+
+During the 2020 COVID-19 pandemic, this effect was also observed in several other countries including Australia, Canada, Germany, Britain, India, France, etc. 
+
+The GEE regression model we built is relatively simple and we only considered four variables related to COVID status, so this regression analysis should be regarded as an initial and exploratory analysis to generate future hypotheses. Future investigations should consider other variables and potential confounders. 

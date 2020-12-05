@@ -9,7 +9,7 @@ output:
 <img src="./covid.jpg">
  
  
-# Project motivation
+# Project Motivation
 
 The COVID-19 pandemic, the economy, and racial injustice have been top concerns in the 2020 presidential election. According to AP VoteCast, a national survey of the electorate, about 4 in 10 voters suggest the pandemic as the top issue while the economy follows behind. 
 
