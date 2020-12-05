@@ -201,7 +201,6 @@ ggplot(model_case, aes(x = mean_case)) +
     axis.title.y = element_text(color = LineColor, size = 13),
     axis.title.y.right = element_text(color = PointColor, size = 13)
   )
-    
 ```
 
 \
@@ -259,6 +258,7 @@ ggplot(model_death, aes(x = mean_death)) +
     axis.title.y = element_text(color = LineColor, size = 13),
     axis.title.y.right = element_text(color = PointColor, size = 13)
   ) 
+
 ```
 
 \
