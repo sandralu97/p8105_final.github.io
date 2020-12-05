@@ -59,7 +59,6 @@ Targeting these states, we aimed to answer the following questions:
 
 # Data
 
-
 ## Data source
 Our analysis based on the following data source:
 
@@ -73,10 +72,10 @@ Our analysis based on the following data source:
 
 ## Data scraping and cleaning
 ***
+
 ### Presidential poll 
 
-
-All presidential pollby states were read and then selected by CSS selector. Relavant tables were scraped as tibbles with map and function statement. The supporting rate (`biden` and `trump`), spread (`spread`), poll period (`start_date` and `end_date`) and poll agent (`poll`) were selected. All date was transformed to date format in R for later analysis. 
+All presidential poll by states were read and then selected by CSS selector. Relevant tables were scraped as tibbles with map and function statement. The supporting rate (`biden` and `trump`), spread (`spread`), poll period (`start_date` and `end_date`) and poll agent (`poll`) were selected. All date was transformed to date format in R for later analysis. 
 `spread` was further transformed into `biden_lead` to represent the difference between the supporting rate of Biden and Trump.
 
 **Variables**
@@ -96,7 +95,6 @@ All presidential pollby states were read and then selected by CSS selector. Rela
 * `biden_lead`: The difference of supporting rate (%) between Biden and Trump. Positive number indicates Biden over Trump while negative number indicates Trump over Biden
 
 ### Mail-in vote data
-
 
 Mail-in vote data was scraped using Xpath statement. Mail ballots returned and accepted by party registration are used in our analysis. Some battleground states did not report the mail-in statistics. Therefore, only Florida, Pennsylvania, North Carolina, Iowa, Arizona and Nevada were included in related analysis.
 
@@ -118,7 +116,21 @@ Mail-in vote data was scraped using Xpath statement. Mail ballots returned and a
 
 # Exploratory analysis
 ***
+
+## Supporting rate comparison
+
+In 2016, 7 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates. In 2020, 12 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates. We observed that in each of the battleground states, the difference between Democratic supporting rate and Republican supporting rate has increased, except Florida and Ohio. 
+
 # Statistical analysis
 ***
+
+## Supporting rate comparison
+
+We observed that in each of the battleground states, the difference between Democratic supporting rate and Republican supporting rate has increased, except Florida and Ohio. This result represents that the extent of how much the Democrat led has increased in 15 of the 17 key states.
+
 # Discussion
 ***
+
+## Supporting rate comparison
+
+In 2016, only 7 of the 17 battleground states were blue states, which supported the Democratic party. However, in 2020, 12 of the 17 battleground states were blue states. Five new blue states included Arizona, Georgia, Michigan, Pennsylvania, and Wisconsin. We observed an increase in the extent of how much Democrats led in 15 states. Only Florida and Ohio had their Republican supporting rates increased in 2020. Overall, we could figure out that since the Democratic party led in most of the battleground states in 2020, it is reasonable to predict and understand why the Democrats would win in the 2020 election.
