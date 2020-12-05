@@ -15,7 +15,7 @@
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/sandstone.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -26,6 +26,8 @@
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -106,33 +108,33 @@ summary {
 <style type="text/css">
 /* padding for bootstrap navbar */
 body {
-  padding-top: 61px;
+  padding-top: 60px;
   padding-bottom: 40px;
 }
 /* offset scroll position for anchor links (for fixed navbar)  */
 .section h1 {
-  padding-top: 66px;
-  margin-top: -66px;
+  padding-top: 65px;
+  margin-top: -65px;
 }
 .section h2 {
-  padding-top: 66px;
-  margin-top: -66px;
+  padding-top: 65px;
+  margin-top: -65px;
 }
 .section h3 {
-  padding-top: 66px;
-  margin-top: -66px;
+  padding-top: 65px;
+  margin-top: -65px;
 }
 .section h4 {
-  padding-top: 66px;
-  margin-top: -66px;
+  padding-top: 65px;
+  margin-top: -65px;
 }
 .section h5 {
-  padding-top: 66px;
-  margin-top: -66px;
+  padding-top: 65px;
+  margin-top: -65px;
 }
 .section h6 {
-  padding-top: 66px;
-  margin-top: -66px;
+  padding-top: 65px;
+  margin-top: -65px;
 }
 .dropdown-submenu {
   position: relative;
@@ -368,6 +370,18 @@ div.tocify {
         <li>
   <a href="Project_report.html">Project Report</a>
 </li>
+<li>
+  <a href="https://github.com/sandralu97/p8105_final.github.io">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a>
+    <span class="fab fa fab fa-youtube"></span>
+     
+  </a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -390,6 +404,15 @@ div.tocify {
 </div>
 
 
+<p><br />
+</p>
+<div id="group-members" class="section level1">
+<h1>Group members</h1>
+<hr />
+<p>Ziyin Lu (zl2861), Yuanming Mao (ym2770), Yike Zhao (yz3738), Clare Qian (xq2197), Sherry Yan (my2644)</p>
+<p><br />
+</p>
+</div>
 <div id="motivation" class="section level1">
 <h1>Motivation</h1>
 <hr />
@@ -447,8 +470,9 @@ div.tocify {
 </div>
 <div id="data-scraping-and-cleaning" class="section level2">
 <h2>Data scraping and cleaning</h2>
+<hr />
 <div id="presidential-poll" class="section level3">
-<h3>Presidential poll</h3>
+<h3>2016 &amp; 2020 presidential poll</h3>
 <p>All presidential poll by states were read and then selected by CSS selector. Relevant tables were scraped as tibbles with map and function statement. The supporting rate (<code>biden</code> and <code>trump</code>), spread (<code>spread</code>), poll period (<code>start_date</code> and <code>end_date</code>) and poll agent (<code>poll</code>) were selected. All date was transformed to date format in R for later analysis. <code>spread</code> was further transformed into <code>biden_lead</code> to represent the difference between the supporting rate of Biden and Trump.</p>
 <p><strong>Variables</strong></p>
 <ul>
@@ -474,49 +498,348 @@ div.tocify {
 <li><p><code>freq_distribution</code>: The corresponding frequency (%) of each party</p></li>
 </ul>
 </div>
+<div id="covid-19-data" class="section level3">
+<h3>COVID-19 data</h3>
+<p>COVID-19 data was scraped using API. Date, positive and probable cases, total test results, death, as well as positive test results and deaths increased for each day and each state are included in the final dataframe. Total case number was calculated, as defined in the website, as the sum of positive test results and probable cases.</p>
+<p><strong>Variables</strong></p>
+<p>state, date, positive, probable_cases, total_test_results, death, positive_increase, death_increase, data_quality_grade</p>
+<ul>
+<li><p><code>state</code>: The battleground state name</p></li>
+<li><p><code>date</code>: Date on which data was collected by The COVID Tracking Project</p></li>
+<li><p><code>positive</code>: The number of positive test results reported by the state</p></li>
+<li><p><code>probable_cases</code>: Total number of probable cases of COVID-19 as reported by the state. A probable case is someone who tests positive via antigen without a positive PCR or other approved nucleic acid amplification test (NAAT), someone with clinical and epidemiological evidence of COVID-19 infection with no confirmatory laboratory testing performed for SARS-CoV-2, or someone with COVID-19 listed on their death certificate with no confirmatory laboratory testing performed for SARS-CoV-2.</p></li>
+<li><p><code>total_case</code> : Total number of test positive plus probable cases of COVID-19 reported by the state or territory</p></li>
+<li><p><code>death</code>: Total fatalities with confirmed OR probable COVID-19 case diagnosis</p></li>
+<li><p><code>positive_increase</code>: The daily increase in positive cases (confirmed plus probable) calculated based on the previous day’s value</p></li>
+<li><p><code>death_increase</code>: Daily increase in death, calculated from the previous day’s value.</p></li>
+<li><p><code>data_quality_grade</code>: The COVID Tracking Project grade of the completeness of the data reporting by a state</p></li>
+</ul>
+<p><br />
+</p>
 </div>
-<div id="covid-19-data" class="section level2">
-<h2>COVID-19 data</h2>
 </div>
 </div>
 <div id="exploratory-analysis" class="section level1">
 <h1>Exploratory analysis</h1>
 <hr />
+<div id="time-trend-of-poll-vs.-covid" class="section level2">
+<h2>Time trend of poll vs. COVID</h2>
+<p>We use shinyapps.io to visualize the time trend of the supporting rate of Joe Biden and Donald Trump in the US Elections 2020 and the total confirmed covid-19 cases in the 17 swing states. For supporting rates, we construct a scatter plot with lines connecting the points to show the overall trend across the whole time period. Since our data consists supporting rates estimated by different poll, we take the mean of their results to present in our plot. For Covid19 confirmed cases, we use a bar chart to show present the total cases of each day, plotly helped in also showing the number of death and number of positive cases respectively. Both the two plots have the same scale of time that can be adjusted by selecting the date range. The data of total confirmed covid19 cases are not available for New Mexico, New Hampshire, Iowa, Nevada, Texas and Georgia, therefore, there will be no plot of covid19 cases for these states. Overall, Biden has averagely higher supporting rates than trump, the number of Covid19 cases seemed to have little impact on the supporting rates of either candidate.</p>
+</div>
 <div id="supporting-rate-comparison" class="section level2">
 <h2>Supporting rate comparison</h2>
+<p>We observed that in each of the battleground states, the difference between Democratic supporting rate and Republican supporting rate has increased, except Florida and Ohio. This result represents that the extent of how much the Democrat led has increased in 15 of the 17 key states.</p>
 <p>In 2016, 7 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates. In 2020, 12 of the 17 battleground states have the Democratic supporting rates higher than the Republican supporting rates. We observed that in each of the battleground states, the difference between Democratic supporting rate and Republican supporting rate has increased, except Florida and Ohio.</p>
+<pre class="r"><code>knitr::kable(table_df)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">state</th>
+<th align="right">dem_rep_difference_16</th>
+<th align="right">dem_rep_difference_20</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">arizona</td>
+<td align="right">-3.5</td>
+<td align="right">0.3</td>
+</tr>
+<tr class="even">
+<td align="left">colorado</td>
+<td align="right">4.9</td>
+<td align="right">13.5</td>
+</tr>
+<tr class="odd">
+<td align="left">florida</td>
+<td align="right">-1.2</td>
+<td align="right">-3.3</td>
+</tr>
+<tr class="even">
+<td align="left">georgia</td>
+<td align="right">-5.1</td>
+<td align="right">0.3</td>
+</tr>
+<tr class="odd">
+<td align="left">iowa</td>
+<td align="right">-9.5</td>
+<td align="right">-8.2</td>
+</tr>
+<tr class="even">
+<td align="left">maine</td>
+<td align="right">2.9</td>
+<td align="right">8.7</td>
+</tr>
+<tr class="odd">
+<td align="left">michigan</td>
+<td align="right">-0.3</td>
+<td align="right">2.8</td>
+</tr>
+<tr class="even">
+<td align="left">minnesota</td>
+<td align="right">1.5</td>
+<td align="right">7.2</td>
+</tr>
+<tr class="odd">
+<td align="left">nevada</td>
+<td align="right">2.4</td>
+<td align="right">2.7</td>
+</tr>
+<tr class="even">
+<td align="left">new_hampshire</td>
+<td align="right">0.3</td>
+<td align="right">7.2</td>
+</tr>
+<tr class="odd">
+<td align="left">new_mexico</td>
+<td align="right">8.3</td>
+<td align="right">10.6</td>
+</tr>
+<tr class="even">
+<td align="left">north_carolina</td>
+<td align="right">-3.7</td>
+<td align="right">-1.3</td>
+</tr>
+<tr class="odd">
+<td align="left">ohio</td>
+<td align="right">-8.1</td>
+<td align="right">-8.2</td>
+</tr>
+<tr class="even">
+<td align="left">pennsylvania</td>
+<td align="right">-0.7</td>
+<td align="right">1.2</td>
+</tr>
+<tr class="odd">
+<td align="left">texas</td>
+<td align="right">-9.0</td>
+<td align="right">-5.8</td>
+</tr>
+<tr class="even">
+<td align="left">virginia</td>
+<td align="right">5.4</td>
+<td align="right">9.4</td>
+</tr>
+<tr class="odd">
+<td align="left">wisconsin</td>
+<td align="right">-0.7</td>
+<td align="right">0.7</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="mail-in-ballots" class="section level2">
 <h2>Mail-in ballots</h2>
-<p>According to the bar plot, Democrat’s candidate Joe Biden, had dominant votes over Republican’s candidate Donald Trump, for the returned mail-in ballots in all 6 swing states. In particularly, Biden had absolute dominance over Trump for returned mail-in ballots in the state of Pennsylvania and Florida. We observed that return rate of mail-in ballots by parties in each of the swing states are often close to each other, except for the state of Nevada.</p>
-<p><br />
-</p>
-</div>
-</div>
-<div id="statistical-analysis" class="section level1">
-<h1>Statistical analysis</h1>
-<hr />
-<div id="supporting-rate-comparison-1" class="section level2">
-<h2>Supporting rate comparison</h2>
-<p>We observed that in each of the battleground states, the difference between Democratic supporting rate and Republican supporting rate has increased, except Florida and Ohio. This result represents that the extent of how much the Democrat led has increased in 15 of the 17 key states.</p>
-</div>
-<div id="mail-in-ballots-1" class="section level2">
-<h2>Mail-in ballots</h2>
 <p>Overall, Democrat’s mail-in ballots has higher return rate over Republican’s return rate, except for the state of North Carolina, where Republicans have slight advantage of 69.8% while Democrats have 65.5%.</p>
+<p>According to the bar plot, Democrat’s candidate Joe Biden, had dominant votes over Republican’s candidate Donald Trump, for the returned mail-in ballots in all 6 swing states. In particularly, Biden had absolute dominance over Trump for returned mail-in ballots in the state of Pennsylvania and Florida. We observed that return rate of mail-in ballots by parties in each of the swing states are often close to each other, except for the state of Nevada.</p>
+<pre class="r"><code>plot_returned_ballots</code></pre>
+<p><img src="Project_report_files/figure-html/unnamed-chunk-3-1.png" width="90%" /></p>
+<pre class="r"><code>knitr::kable(tab_returnedballots)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">state</th>
+<th align="right">Democrats</th>
+<th align="right">Republicans</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">florida</td>
+<td align="right">45.3</td>
+<td align="right">31.1</td>
+</tr>
+<tr class="even">
+<td align="left">pennsylvania</td>
+<td align="right">64.7</td>
+<td align="right">23.7</td>
+</tr>
+<tr class="odd">
+<td align="left">north_carolina</td>
+<td align="right">44.8</td>
+<td align="right">20.6</td>
+</tr>
+<tr class="even">
+<td align="left">iowa</td>
+<td align="right">45.1</td>
+<td align="right">33.3</td>
+</tr>
+<tr class="odd">
+<td align="left">arizona</td>
+<td align="right">37.4</td>
+<td align="right">37.0</td>
+</tr>
+<tr class="even">
+<td align="left">nevada</td>
+<td align="right">48.3</td>
+<td align="right">25.9</td>
+</tr>
+</tbody>
+</table>
+<p>According to plot above, Democrat’s candidate Joe Biden, had dominant votes over Republican’s candidate Donald Trump, for the returned mail-in ballots in all 6 swing states. The frequency distribution further confirms these facts. In particularly, Biden had absulte dominance over Trump for returned mail-in ballots in the state of Pennsylvania and Florida.</p>
+<pre class="r"><code>plot_return_rate</code></pre>
+<p><img src="Project_report_files/figure-html/unnamed-chunk-5-1.png" width="90%" /></p>
+<pre class="r"><code>knitr::kable(tab_returnrate)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">state</th>
+<th align="right">Democrats</th>
+<th align="right">Republicans</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">florida</td>
+<td align="right">79.9</td>
+<td align="right">78.5</td>
+</tr>
+<tr class="even">
+<td align="left">pennsylvania</td>
+<td align="right">87.7</td>
+<td align="right">79.4</td>
+</tr>
+<tr class="odd">
+<td align="left">north_carolina</td>
+<td align="right">65.5</td>
+<td align="right">69.8</td>
+</tr>
+<tr class="even">
+<td align="left">iowa</td>
+<td align="right">97.2</td>
+<td align="right">97.1</td>
+</tr>
+<tr class="odd">
+<td align="left">arizona</td>
+<td align="right">76.6</td>
+<td align="right">73.8</td>
+</tr>
+<tr class="even">
+<td align="left">nevada</td>
+<td align="right">41.9</td>
+<td align="right">26.3</td>
+</tr>
+</tbody>
+</table>
+<p>The table and bar chart above compared the return rates of both parties’ mail-in ballots in 6 swing states.</p>
+<p>We observed that return rate of mail-in ballots by parties in each of the swing states are often close to each other, except for the state of Nevada, where Democrats have 41.9% return rate and Republicans have 26.3% return rate. Overall, Democrat’s mail-in ballots has higher return rate over Republican’s return rate, except for the state of North Carolina, where Republicans have slight advantage of 69.8% while Democrates have 65.5%.</p>
 <p><br />
 </p>
 </div>
+</div>
+<div id="regression-analysis" class="section level1">
+<h1>Regression analysis</h1>
+<hr />
+<p>In this part, we aimed to examine the relationship between COVID-19 case / death rate and presidential poll by different battleground states. Since the COVID-19 statistics was a longitudinal measurement over time, generalized estimating equations (GEE) model was used to account for correlated data within each battleground state.</p>
+<p>We examined the effect of 4 variables on Biden’s lead over Trump:</p>
+<ul>
+<li><p><code>mean_case</code> the average number of incremental COVID-19 cases between the poll survey period</p></li>
+<li><p><code>mean_death</code> the average number of incremental COVID-19 death between the poll survey period</p></li>
+<li><p><code>mean_pos_increase</code> the average number of daily COVID-19 cases increased comparing to previous day between the poll survey period</p></li>
+<li><p><code>mean_death_increase</code> the average number of daily COVID-19 death increased comparing to previous day between the poll survey period</p></li>
+</ul>
+<p>We tested 4 simple GEE models as below:</p>
+<ol style="list-style-type: decimal">
+<li><p><em>Biden lead = β0 + β1(COVID case)</em></p></li>
+<li><p>_Biden lead = β0 + β1(COVID death)</p></li>
+<li><p><em>Biden lead = β0 + β1(COVID case increase)</em></p></li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">5.237650</td>
+<td align="right">1.1076850</td>
+<td align="right">22.3583784</td>
+<td align="right">0.0000023</td>
+</tr>
+<tr class="even">
+<td align="left">mean_pos_increase</td>
+<td align="right">-0.000087</td>
+<td align="right">0.0001853</td>
+<td align="right">0.2202337</td>
+<td align="right">0.6388619</td>
+</tr>
+</tbody>
+</table>
+<ol start="4" style="list-style-type: decimal">
+<li><em>Biden lead = β0 + β1(COVID death increase)</em></li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">5.3406376</td>
+<td align="right">1.0160723</td>
+<td align="right">27.627205</td>
+<td align="right">0.0000001</td>
+</tr>
+<tr class="even">
+<td align="left">mean_death_increase</td>
+<td align="right">-0.0109281</td>
+<td align="right">0.0055369</td>
+<td align="right">3.895373</td>
+<td align="right">0.0484193</td>
+</tr>
+</tbody>
+</table>
+<p>We then conducted model diagnositc, and found that in both gee model of COVID-19 case and death, the residuals are approximately normally distributed.</p>
+<p>Based on the regression analysis, we have concluded that:</p>
+<ol style="list-style-type: decimal">
+<li>As COVID-19 cases increased, the difference of supporting rate between Biden and Trump decreased within each battleground state. For every 10,000 increase in COVID-19 case, the difference of supporting rate decrease by 0.8 point. The decrease was statistically significant.</li>
+</ol>
+<p><img src="Project_report_files/figure-html/unnamed-chunk-11-1.png" width="90%" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>As COVID-19 death increased, the difference of supporting rate between Biden and Trump decreased within each battle ground state. For every 1,000 increase in COVID-19 death, the difference of supporting rate decrease by 0.3 point. The decrease was statistically significant.</li>
+</ol>
+<p><img src="Project_report_files/figure-html/unnamed-chunk-12-1.png" width="90%" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>COVID-19 daily case / daily death was not correlated with the difference of supporting rate between Biden and Trump.</li>
+</ol>
+<p><br />
+</p>
 </div>
 <div id="discussion" class="section level1">
 <h1>Discussion</h1>
 <hr />
-<div id="supporting-rate-comparison-2" class="section level2">
+<div id="time-trend-of-poll-vs.-covid-1" class="section level2">
+<h2>Time trend of poll vs. COVID</h2>
+<p>According to our output time trend of the supporting rates between Joe Biden and Donald Trump in each of the swing states, Biden had averagely higher supporting rates than Trump across the whole time periods. The supporting rates of both the candidates slightly fluctuated but overall remained steady, no great decline or growth are shown, which indicates that both the candidates had their stable population of voters respectively in the swing states. Although Covid19 is one of the biggest public focus of 2020, the increase in Covid19 confirmed cases in the swing states didn’t seem to have much impact on the supporting rates of either the candidates.</p>
+</div>
+<div id="supporting-rate-comparison-1" class="section level2">
 <h2>Supporting rate comparison</h2>
 <p>In 2016, only 7 of the 17 battleground states were blue states, which supported the Democratic party. However, in 2020, 12 of the 17 battleground states were blue states. Five new blue states included Arizona, Georgia, Michigan, Pennsylvania, and Wisconsin. We observed an increase in the extent of how much Democrats led in 15 states. Only Florida and Ohio had their Republican supporting rates increased in 2020. Overall, we could figure out that since the Democratic party led in most of the battleground states in 2020, it is reasonable to predict and understand why the Democrats would win in the 2020 election.</p>
 </div>
-<div id="mail-in-ballots-2" class="section level2">
+<div id="mail-in-ballots-1" class="section level2">
 <h2>Mail-in ballots</h2>
 <p>Referring back to 2016’s election, Democrats obviously gained more support in swing states. Based on the analysis above, we have sufficient evidence to prove that the Democratic party led in all 6 swing states in terms of mail-in ballots. Moreover, return rates of mail-in ballots for both candidates often have small difference. We came to a reasonable interpretation of how Joe Biden became the president-elect of 2020’s election in the U.S.</p>
+</div>
+<div id="regression-anlalysis" class="section level2">
+<h2>Regression anlalysis</h2>
+<p>Interestingly, Biden supporting rate decreased by increase of COVID-19 cases and death over time. In other word, Trump supporting rate was increasing. This may be due the <strong>“rally round the flag” effect</strong>.</p>
+<p>“Rally round the flag” effect is when there is a short-term surge of voter approval of present nation leader during a crisis or emergency situation. One of the most well-known example is during the 9-11 terrorist attack in 2001. The approval rate of President George W. Bush increased by 39% (from 51% to 90%).</p>
+<p>According to <a href="https://sites.middlebury.edu/presidentialpower/2020/03/28/trump-covid-19-and-the-rally-round-the-flag-phenomenon/">Dickinson (2020)</a>, the main reason for this effect is the presidents’ relatively unique position in the American political system. Presidents is the only individual embodiment of the nation besides the partisan position. Therefore, the president can benefit from his stature as political head of government when circumstances threaten the nation.</p>
+<p>He also pointed out that voters who are less politically aware are more responsive to the “rally round the flag” effect, which may be the majority of battleground state voter. Those partisan members are more likely to be ideological.</p>
+<p>During the 2020 COVID-19 pandemic, this effect was also observed in several other countries including Australia, Canada, Germany, Britain, India, France, etc.</p>
+<p>The GEE regression model we built is relatively simple and we only considered four variables related to COVID status, so this regression analysis should be regarded as an initial and exploratory analysis to generate future hypotheses. Future investigations should consider other variables and potential confounders.</p>
 </div>
 </div>
 

@@ -15,7 +15,7 @@
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/sandstone.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -26,6 +26,8 @@
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -106,33 +108,33 @@ summary {
 <style type="text/css">
 /* padding for bootstrap navbar */
 body {
-  padding-top: 61px;
+  padding-top: 60px;
   padding-bottom: 40px;
 }
 /* offset scroll position for anchor links (for fixed navbar)  */
 .section h1 {
-  padding-top: 66px;
-  margin-top: -66px;
+  padding-top: 65px;
+  margin-top: -65px;
 }
 .section h2 {
-  padding-top: 66px;
-  margin-top: -66px;
+  padding-top: 65px;
+  margin-top: -65px;
 }
 .section h3 {
-  padding-top: 66px;
-  margin-top: -66px;
+  padding-top: 65px;
+  margin-top: -65px;
 }
 .section h4 {
-  padding-top: 66px;
-  margin-top: -66px;
+  padding-top: 65px;
+  margin-top: -65px;
 }
 .section h5 {
-  padding-top: 66px;
-  margin-top: -66px;
+  padding-top: 65px;
+  margin-top: -65px;
 }
 .section h6 {
-  padding-top: 66px;
-  margin-top: -66px;
+  padding-top: 65px;
+  margin-top: -65px;
 }
 .dropdown-submenu {
   position: relative;
@@ -368,6 +370,18 @@ div.tocify {
         <li>
   <a href="Project_report.html">Project Report</a>
 </li>
+<li>
+  <a href="https://github.com/sandralu97/p8105_final.github.io">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a>
+    <span class="fab fa fab fa-youtube"></span>
+     
+  </a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -421,8 +435,8 @@ div.tocify {
 <p><br />
 </p>
 </div>
-<div id="explainatory-variables" class="section level1">
-<h1>Explainatory variables</h1>
+<div id="explanatory-variables" class="section level1">
+<h1>Explanatory variables</h1>
 <hr />
 <ul>
 <li><p><code>mean_case</code> the average number of incremental COVID-19 cases between the poll survey period</p></li>
@@ -466,17 +480,17 @@ geeglm(biden_lead ~ mean_case,
 <tbody>
 <tr class="odd">
 <td align="left">(Intercept)</td>
-<td align="right">7.3671472</td>
-<td align="right">1.2090030</td>
-<td align="right">37.13162</td>
-<td align="right">0.0000000</td>
+<td align="right">7.4613262</td>
+<td align="right">1.1772430</td>
+<td align="right">40.16981</td>
+<td align="right">0.00e+00</td>
 </tr>
 <tr class="even">
 <td align="left">mean_case</td>
-<td align="right">-0.0000082</td>
+<td align="right">-0.0000087</td>
 <td align="right">0.0000022</td>
-<td align="right">13.53720</td>
-<td align="right">0.0002339</td>
+<td align="right">16.17443</td>
+<td align="right">5.78e-05</td>
 </tr>
 </tbody>
 </table>
@@ -549,16 +563,16 @@ geeglm(biden_lead ~ mean_death,
 <tbody>
 <tr class="odd">
 <td align="left">(Intercept)</td>
-<td align="right">6.3090212</td>
-<td align="right">1.0659743</td>
-<td align="right">35.02922</td>
+<td align="right">6.262278</td>
+<td align="right">1.0756567</td>
+<td align="right">33.89357</td>
 <td align="right">0</td>
 </tr>
 <tr class="even">
 <td align="left">mean_death</td>
-<td align="right">-0.0002885</td>
-<td align="right">0.0000279</td>
-<td align="right">106.93009</td>
+<td align="right">-0.000281</td>
+<td align="right">0.0000349</td>
+<td align="right">64.89847</td>
 <td align="right">0</td>
 </tr>
 </tbody>
@@ -629,17 +643,17 @@ geeglm(biden_lead ~ mean_pos_increase,
 <tbody>
 <tr class="odd">
 <td align="left">(Intercept)</td>
-<td align="right">5.2258382</td>
-<td align="right">1.1113525</td>
-<td align="right">22.1109940</td>
-<td align="right">0.0000026</td>
+<td align="right">5.237650</td>
+<td align="right">1.1076850</td>
+<td align="right">22.3583784</td>
+<td align="right">0.0000023</td>
 </tr>
 <tr class="even">
 <td align="left">mean_pos_increase</td>
-<td align="right">-0.0000642</td>
-<td align="right">0.0001919</td>
-<td align="right">0.1119414</td>
-<td align="right">0.7379446</td>
+<td align="right">-0.000087</td>
+<td align="right">0.0001853</td>
+<td align="right">0.2202337</td>
+<td align="right">0.6388619</td>
 </tr>
 </tbody>
 </table>
@@ -672,17 +686,17 @@ geeglm(biden_lead ~ mean_death_increase,
 <tbody>
 <tr class="odd">
 <td align="left">(Intercept)</td>
-<td align="right">5.3578996</td>
-<td align="right">1.0114180</td>
-<td align="right">28.062593</td>
+<td align="right">5.3406376</td>
+<td align="right">1.0160723</td>
+<td align="right">27.627205</td>
 <td align="right">0.0000001</td>
 </tr>
 <tr class="even">
 <td align="left">mean_death_increase</td>
-<td align="right">-0.0108638</td>
-<td align="right">0.0071163</td>
-<td align="right">2.330552</td>
-<td align="right">0.1268569</td>
+<td align="right">-0.0109281</td>
+<td align="right">0.0055369</td>
+<td align="right">3.895373</td>
+<td align="right">0.0484193</td>
 </tr>
 </tbody>
 </table>

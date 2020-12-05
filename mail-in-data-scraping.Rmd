@@ -1,0 +1,131 @@
+---
+title: "Mail in data scraping"
+date: "11/20/2020"
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(rvest)
+library(httr)
+```
+
+
+# Mail in data
+
+## PA example
+
+```{r eval=FALSE}
+mail_url = "https://electproject.github.io/Early-Vote-2020G/PA.html"
+mail_html = read_html(mail_url)
+mail_pa = 
+  mail_html %>% html_nodes(xpath = "//*[@id='mail-ballots-returned-by-party-registration']/table") %>% 
+  html_table()
+
+mail_pa = mail_pa[[1]] 
+
+pa_1 = mail_pa %>% 
+  janitor::clean_names() %>% 
+  mutate(
+    state = "PA"
+  )
+
+```
+
+
+**Mail-in statistics are not available in key states including WI, MI, MN, OH & TX**
+
+## Create full list of key state that has mail-in statistics
+
+List that has 2 tables from FL to GA 
+
+```{r eval=FALSE}
+url_base = "https://electproject.github.io/Early-Vote-2020G/"
+state_list_1 = list(
+  state_name = c("florida","pennsylvania"),
+  state_abbv = c("FL","PA")
+)
+
+state_list_1 = c(state_list_1,
+                list(str_c(url_base,state_list_1[[2]],".html"))
+                 )
+
+state_list_2 = list(
+  state_name = c("north_carolina","iowa","arizona","nevada"),
+  state_abbv = c("NC","IA","AZ","NV")
+)
+
+state_list_2 = c(state_list_2,
+                list(str_c(url_base,state_list_2[[2]],".html"))
+                 )
+
+                  
+```
+
+Function_read url
+
+```{r eval=FALSE}
+url_function_1 = function(x){
+  
+mail_url = x
+mail_html = read_html(mail_url)
+mail_list = 
+  mail_html %>% html_nodes(xpath = "//*[@id='mail-ballots-returned-by-party-registration']/table") %>% 
+  html_table()
+
+}
+
+url_function_2 = function(x){
+  
+mail_url = x
+mail_html = read_html(mail_url)
+mail_list = 
+  mail_html %>% html_nodes(xpath = "//*[@id='mail-ballots-returned-and-accepted-by-party-registration']/table") %>% 
+  html_table()
+
+}
+```
+
+Apply url function for list 1
+
+```{r eval=FALSE}
+
+url_list_1 = map(state_list_1[[3]], url_function_1)
+
+url_list_2 = map(state_list_2[[3]], url_function_2)
+
+
+```
+
+bind 2 list
+```{r eval=FALSE}
+state_table = c(url_list_1,url_list_2)
+```
+
+clean table
+
+```{r eval=FALSE}
+clean_function = function(x){
+  x[[1]] %>% janitor::clean_names()
+}
+```
+
+apply clean function
+
+```{r eval=FALSE}
+cleaned_table = map(state_table, clean_function)
+```
+
+Generate the final poll dataset
+
+```{r eval=FALSE}
+
+mailin_data = 
+  tibble(
+  state = append(state_list_1[[1]], state_list_2[[1]]),
+  mail_list = cleaned_table
+  ) %>% 
+  unnest(mail_list)
+
+write_csv(mailin_data, "./data/mail_in.csv")
+```
+

@@ -1,0 +1,297 @@
+Poll data scraping
+================
+11/15/2020
+
+# Presidential poll - 2020
+
+## PA example
+
+``` r
+pres_url = "https://www.realclearpolitics.com/epolls/2020/president/pa/pennsylvania_trump_vs_biden-6861.html"
+pres_html = read_html(pres_url)
+pres_pa = 
+  pres_html %>% html_nodes(css = ".large") %>% 
+  html_table()
+
+pres_pa = pres_pa[[2]] 
+
+pres_1 = pres_pa %>% 
+  janitor::clean_names() %>% 
+  mutate(
+    biden = biden_d,
+    trump = trump_r,
+    state = "PA"
+  ) %>%
+  select(state, poll, date, biden, trump) %>% 
+  separate(date, into = c("start_date","end_date"), sep = "-") %>% 
+  mutate(
+    start_date = as.Date(pres_1$start_date, "%m/%d"),
+    end_date = as.Date(pres_1$end_date, "%m/%d")
+  )
+```
+
+## Create full list, list that the url has only 1 table & list that the url has 2 tables
+
+List that has 2 tables from FL to GA
+
+``` r
+state_list_2 = list(
+  state_name = c("florida","pennsylvania","wisconsin","north_carolina","michigan","ohio","minnesota","iowa", "arizona","nevada","texas","georgia"),
+
+                url = c("https://www.realclearpolitics.com/epolls/2020/president/fl/florida_trump_vs_biden-6841.html", "https://www.realclearpolitics.com/epolls/2020/president/pa/pennsylvania_trump_vs_biden-6861.html","https://www.realclearpolitics.com/epolls/2020/president/wi/wisconsin_trump_vs_biden-6849.html", "https://www.realclearpolitics.com/epolls/2020/president/nc/north_carolina_trump_vs_biden-6744.html","https://www.realclearpolitics.com/epolls/2020/president/mi/michigan_trump_vs_biden-6761.html","https://www.realclearpolitics.com/epolls/2020/president/oh/ohio_trump_vs_biden-6765.html","https://www.realclearpolitics.com/epolls/2020/president/mn/minnesota_trump_vs_biden-6966.html","https://www.realclearpolitics.com/epolls/2020/president/ia/iowa_trump_vs_biden-6787.html","https://www.realclearpolitics.com/epolls/2020/president/az/arizona_trump_vs_biden-6807.html","https://www.realclearpolitics.com/epolls/2020/president/nv/nevada_trump_vs_biden-6867.html","https://www.realclearpolitics.com/epolls/2020/president/tx/texas_trump_vs_biden-6818.html","https://www.realclearpolitics.com/epolls/2020/president/ga/georgia_trump_vs_biden-6974.html")
+)
+```
+
+Function\_read url
+
+``` r
+url_function = function(x){
+  
+pres_df = read_html(x) %>% 
+  html_nodes(css = ".large") %>% 
+  html_table()
+
+}
+```
+
+Apply url function
+
+``` r
+url_list_2 = map(state_list_2[[2]], url_function)
+```
+
+select list 2 function
+
+``` r
+select_function = function(x){
+  x[[2]] %>% janitor::clean_names()
+}
+```
+
+apply selection function
+
+``` r
+selection_list_2 = map(url_list_2, select_function)
+```
+
+data cleaning function
+
+``` r
+clean_function = function(x){
+  x %>% 
+  mutate(biden = biden_d,
+         trump = trump_r
+         ) %>% 
+select(poll, date,biden, trump, spread) %>% 
+  separate(date,into = c("start_date","end_date"), sep = "-")
+    
+}
+```
+
+apply data cleaning function
+
+``` r
+cleaned_list_2 = map(selection_list_2, clean_function)
+```
+
+Transform date format function
+
+``` r
+date_function = function(x){
+  x %>% 
+  mutate(
+    start_date = as.Date(x$start_date, "%m/%d"),
+    end_date = as.Date(x$end_date, "%m/%d")
+  )
+}
+```
+
+Apply date function
+
+``` r
+dateformat_list_2 = map(cleaned_list_2, date_function)
+```
+
+List that has 1 table from VA to NM
+
+``` r
+state_list_1 = list(
+  state_name = c("virginia","new_hampshire","maine","colorado","new_mexico"),
+
+                url = c("https://www.realclearpolitics.com/epolls/2020/president/va/virginia_trump_vs_biden-6988.html","https://www.realclearpolitics.com/epolls/2020/president/nh/new_hampshire_trump_vs_biden-6779.html","https://www.realclearpolitics.com/epolls/2020/president/me/maine_trump_vs_biden-6922.html","https://www.realclearpolitics.com/epolls/2020/president/co/colorado_trump_vs_biden-6940.html","https://www.realclearpolitics.com/epolls/2020/president/nm/new_mexico_trump_vs_biden-6993.html")
+)
+```
+
+Apply url function
+
+``` r
+url_list_1 = map(state_list_1[[2]],url_function)
+```
+
+select list 1 function
+
+``` r
+select_function = function(x){
+  x[[1]] %>% janitor::clean_names()
+}
+```
+
+apply selection function
+
+``` r
+selection_list_1 = map(url_list_1, select_function)
+```
+
+apply data cleaning function
+
+``` r
+cleaned_list_1 = map(selection_list_1, clean_function)
+```
+
+Apply date function
+
+``` r
+dateformat_list_1 = map(cleaned_list_1, date_function)
+```
+
+Combine 2 lists and generate the final poll dataset
+
+``` r
+state_poll = c(
+  dateformat_list_2,
+  dateformat_list_1
+) 
+
+poll_data = 
+  tibble(
+  state = append(state_list_2[[1]], state_list_1[[1]]),
+  poll_list = state_poll
+  ) %>% 
+  mutate(poll_df = map(poll_list, bind_rows)) %>% 
+  select(-poll_list) %>% 
+  unnest(poll_df) %>% 
+  separate(spread, sep = " ", into = c("name", "change")) %>% 
+  mutate(
+    change = as.numeric(change),
+    name = case_when(
+      name == "Trump" ~ -1,
+      name == "Biden" ~ 1
+    ),
+    biden_lead = name * change
+  ) %>% 
+  select(-name, -change)
+
+write_csv(poll_data, "./data/state_poll_20.csv")
+```
+
+# Presidential poll - 2016
+
+## Create full list, list that the url has only 1 table & list that the url has 2 tables
+
+List that has 2 tables from FL to GA
+
+``` r
+state_list_2_16 = list(
+  state_name = c("florida","pennsylvania","wisconsin","north_carolina","michigan","ohio","iowa", "arizona","nevada","texas","georgia", "virginia", "new_hampshire", "maine", "colorado", "new_mexico"),
+
+                url = c("https://www.realclearpolitics.com/epolls/2016/president/fl/florida_trump_vs_clinton_vs_johnson_vs_stein-5963.html", "https://www.realclearpolitics.com/epolls/2016/president/pa/pennsylvania_trump_vs_clinton_vs_johnson_vs_stein-5964.html", "https://www.realclearpolitics.com/epolls/2016/president/wi/wisconsin_trump_vs_clinton_vs_johnson_vs_stein-5976.html", "https://www.realclearpolitics.com/epolls/2016/president/nc/north_carolina_trump_vs_clinton_vs_johnson-5951.html", "https://www.realclearpolitics.com/epolls/2016/president/mi/michigan_trump_vs_clinton_vs_johnson_vs_stein-6008.html", "https://www.realclearpolitics.com/epolls/2016/president/oh/ohio_trump_vs_clinton_vs_johnson_vs_stein-5970.html", "https://www.realclearpolitics.com/epolls/2016/president/ia/iowa_trump_vs_clinton_vs_johnson_vs_stein-5981.html", "https://www.realclearpolitics.com/epolls/2016/president/az/arizona_trump_vs_clinton_vs_johnson_vs_stein-6087.html", "https://www.realclearpolitics.com/epolls/2016/president/nv/nevada_trump_vs_clinton_vs_johnson-6004.html", "https://www.realclearpolitics.com/epolls/2016/president/tx/texas_trump_vs_clinton_vs_johnson_vs_stein-6104.html", "https://www.realclearpolitics.com/epolls/2016/president/ga/georgia_trump_vs_clinton_vs_johnson-5968.html", "https://www.realclearpolitics.com/epolls/2016/president/va/virginia_trump_vs_clinton_vs_johnson_vs_stein-5966.html", "https://www.realclearpolitics.com/epolls/2016/president/nh/new_hampshire_trump_vs_clinton_vs_johnson_vs_stein-6022.html", "https://www.realclearpolitics.com/epolls/2016/president/me/maine_trump_vs_clinton_vs_johnson_vs_stein-6091.html", "https://www.realclearpolitics.com/epolls/2016/president/co/colorado_trump_vs_clinton_vs_johnson_vs_stein-5974.html", "https://www.realclearpolitics.com/epolls/2016/president/nm/new_mexico_trump_vs_clinton_vs_johnson_vs_stein-6113.html")
+)
+```
+
+Apply url function
+
+``` r
+url_list_2_16 = map(state_list_2_16[[2]], url_function)
+```
+
+apply selection function
+
+``` r
+selection_list_2_16 = map(url_list_2_16, select_function)
+```
+
+data cleaning function 2
+
+``` r
+clean_function_2 = function(x){
+  x %>% 
+  mutate(clinton = clinton_d,
+         trump = trump_r
+         ) %>% 
+    select(poll, date, clinton, trump, spread) %>% 
+    separate(date,into = c("start_date","end_date"), sep = "-")
+}
+```
+
+apply data cleaning function
+
+``` r
+cleaned_list_2_16 = map(selection_list_2_16, clean_function_2)
+```
+
+Apply date function
+
+``` r
+dateformat_list_2_16 = map(cleaned_list_2_16, date_function)
+```
+
+List that has 1 table
+
+``` r
+state_list_1_16 = list(
+  state_name = "minnesota",
+  url = "https://www.realclearpolitics.com/epolls/2016/president/mn/minnesota_trump_vs_clinton_vs_johnson_vs_stein-6138.html"
+)
+```
+
+Apply url function
+
+``` r
+url_list_1_16 = map(state_list_1_16[[2]],url_function)
+```
+
+select list 1 function
+
+``` r
+select_function = function(x){
+  x[[1]] %>% janitor::clean_names()
+}
+```
+
+apply selection function
+
+``` r
+selection_list_1_16 = map(url_list_1_16, select_function)
+```
+
+apply data cleaning function
+
+``` r
+cleaned_list_1_16 = map(selection_list_1_16, clean_function_2)
+```
+
+Apply date function
+
+``` r
+dateformat_list_1_16 = map(cleaned_list_1_16, date_function)
+```
+
+Combine 2 lists and generate the final poll dataset
+
+``` r
+state_poll = c(
+  dateformat_list_2_16,
+  dateformat_list_1_16
+) 
+
+poll_data_16 = 
+  tibble(
+  state = append(state_list_2_16[[1]], state_list_1_16[[1]]),
+  poll_list = state_poll
+  ) %>% 
+  mutate(poll_df = map(poll_list, bind_rows)) %>% 
+  select(-poll_list) %>% 
+  unnest(poll_df)
+
+write_csv(poll_data_16, "./data/state_poll_16.csv")
+```

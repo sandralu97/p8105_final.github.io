@@ -10,8 +10,9 @@
 
 
 
+<meta name="date" content="2020-11-20" />
 
-<title>Covid-19 and 2020 Presidential Election</title>
+<title>COVID Data scraping</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,9 +20,6 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -253,69 +251,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -323,16 +258,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -387,40 +312,83 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Covid-19 and 2020 Presidential Election</h1>
+<h1 class="title toc-ignore">COVID Data scraping</h1>
+<h4 class="date">11/20/2020</h4>
 
 </div>
 
 
-<p><img src="covid.jpg"></p>
-<p><br />
-</p>
-<p>Group members: Ziyin Lu (zl2861), Yuanming Mao (ym2770), Yike Zhao (yz3738), Clare Qian (xq2197), Sherry Yan (my2644)</p>
-<p><br />
-</p>
-<div id="project-motivation" class="section level1">
-<h1>Project Motivation</h1>
-<p>The COVID-19 pandemic, the economy, and racial injustice have been top concerns in the 2020 presidential election. According to AP VoteCast, a national survey of the electorate, about 4 in 10 voters suggest the pandemic as the top issue while the economy follows behind.</p>
-<p>However, an Associated Press analysis gave conclusions with a surprising twist: in counties with worst COVID-19 surges, Trump enjoyed enormous support. We are interested in using polling data and data of the COVID-19 case incidence / death rates to investigate whether and how COVID-19 pandemic has influenced supporting rate distribution among top battlegrounds.</p>
-<p> </p>
-</div>
-<div id="project-overview" class="section level1">
-<h1>Project Overview</h1>
-<p>In this project, we focused on top battleground states (Florida, Pennsylvania, Wisconsin, North Carolina, Michigan, Ohio, Minnesota, Iowa, Arizona, Nevada, Texas, Georgia, Virginia, New Hampshire, Maine,Colorado and New Mexico)</p>
-<p>We used <a href="https://www.realclearpolitics.com/">2016 &amp; 2020 presidential poll</a>, <a href="https://electproject.github.io/">mail-in vote data</a> and <a href="http://covidtracking.com/data/">COVID-19 data</a> to examine the relationship between COVID-19 and poll data.</p>
-<p>We have provided insights on the following topics:</p>
-<ul>
-<li><p>Time trend of COVID-19 statistics and presidential poll in 2020</p></li>
-<li><p>Regression analysis of COVID-19 case / death rate and presidential poll in 2020</p></li>
-<li><p>Comparison of democrats / republican supporting rate between 2020 and 2016</p></li>
-<li><p>Supporting rate distribution among mail-in vote</p></li>
-</ul>
-</div>
+<p>PA example</p>
+<pre class="r"><code>pa_covid =
+  GET(&quot;https://api.covidtracking.com/v1/states/pa/daily.csv&quot;) %&gt;% 
+  content(&quot;parsed&quot;) 
+
+pa_covid = 
+  pa_covid %&gt;% 
+  janitor::clean_names() %&gt;% 
+  select(state, date, positive, probable_cases, total_test_results, death, positive_increase, death_increase, data_quality_grade)</code></pre>
+<p>A function that scrapes data via api</p>
+<pre class="r"><code>api = function(url){
+  GET(url) %&gt;% 
+    content(&quot;parsed&quot;)
+}</code></pre>
+<p>A function that cleans the dataset</p>
+<pre class="r"><code>tidy_func = function(df){
+  df %&gt;% 
+    janitor::clean_names() %&gt;% 
+    select(state, date, positive, probable_cases, total_test_results, death, positive_increase, death_increase, data_quality_grade)
+}</code></pre>
+<p>Generate covid dataframe for all battlegrounds</p>
+<pre class="r"><code>covid_df = 
+  tibble(
+    state = c(&quot;fl&quot;,&quot;pa&quot;,&quot;wi&quot;,&quot;nc&quot;,&quot;mi&quot;,&quot;oh&quot;,&quot;mn&quot;,&quot;ia&quot;, &quot;az&quot;,&quot;nv&quot;,&quot;tx&quot;,&quot;ga&quot;, &quot;va&quot;,&quot;nh&quot;,&quot;me&quot;,&quot;co&quot;,&quot;nm&quot;)
+  ) %&gt;% 
+  mutate(
+    url = str_c(&quot;https://api.covidtracking.com/v1/states/&quot;, state, &quot;/daily.csv&quot;),
+    output_list = map(url, api)
+  ) 
+
+covid_df = covid_df %&gt;% 
+  mutate(
+    output_list = map(output_list, tidy_func),
+    output_df = map(output_list, bind_rows)
+    ) %&gt;% 
+  select(-output_list, -url, -state) %&gt;% 
+  unnest(output_df)
+
+covid_df = covid_df %&gt;% 
+  drop_na(data_quality_grade) %&gt;% 
+  mutate(
+    date = lubridate::ymd(date),
+    total_case = positive + probable_cases,
+    state_name = case_when(
+      state ==&quot;FL&quot; ~ &quot;florida&quot;,
+      state ==&quot;PA&quot; ~ &quot;pennsylvania&quot;,
+      state ==&quot;WI&quot; ~ &quot;wisconsin&quot;,
+      state ==&quot;NC&quot; ~ &quot;north_carolina&quot;,
+      state ==&quot;MI&quot; ~ &quot;michigan&quot;,
+      state ==&quot;OH&quot; ~ &quot;ohio&quot;,
+      state ==&quot;MN&quot; ~ &quot;minnesota&quot;,
+      state ==&quot;IA&quot; ~ &quot;iowa&quot;, 
+      state ==&quot;AZ&quot; ~ &quot;arizona&quot;,
+      state ==&quot;NV&quot; ~ &quot;nevada&quot;,
+      state ==&quot;TX&quot; ~ &quot;texas&quot;,
+      state ==&quot;GA&quot; ~ &quot;georgia&quot;,
+      state ==&quot;VA&quot; ~ &quot;virginia&quot;,
+      state ==&quot;NH&quot; ~ &quot;new_hampshire&quot;,
+      state ==&quot;ME&quot; ~ &quot;maine&quot;,
+      state ==&quot;CO&quot; ~ &quot;colorado&quot;,
+      state ==&quot;NM&quot; ~ &quot;new_mexico&quot;
+    )
+  ) %&gt;% 
+  select(-state) %&gt;% 
+  rename(state = state_name) %&gt;% 
+  relocate(state, date, positive, probable_cases, total_case)</code></pre>
+<p>Save the csv file</p>
+<pre class="r"><code>write_csv(covid_df, &quot;./data/covid.csv&quot;)</code></pre>
 
 
 
-</div>
-</div>
 
 </div>
 
@@ -453,32 +421,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
